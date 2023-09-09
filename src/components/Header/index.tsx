@@ -1,9 +1,13 @@
 'use client';
 
-import { memo } from 'react';
+import { Fragment, memo, useState } from 'react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
+import cN from 'classnames';
+import Image from 'next/image';
+import logoSrc from '@/icons/icons8-menu.svg';
+import LightBox, { E_direction } from '../LightBox';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事'},
@@ -19,31 +23,68 @@ const newsLink = [
 
 function Header() {
     const router = useRouter();
+    const [openMenu, setOpenMenu] = useState(false);
+    
+    const NavigatingOptions = (onSide: boolean = false) => {
+        return (
+            <Fragment>
+                <li>關於我們{onSide && <i/>}{Listing(aboutLink, setOpenMenu)}</li>
+                <li>最新消息{onSide && <i/>}{Listing(newsLink, setOpenMenu)}</li>
+                <li onClick={() => {
+                    router.push('/menu');
+                    setOpenMenu(false);
+                }}>菜單詳情</li>
+                <li onClick={() => {
+                    router.push('/venue');
+                    setOpenMenu(false);
+                }}>包場資訊</li>
+                <li onClick={() => {
+                    router.push('/book');
+                    setOpenMenu(false);
+                }}>預約訂位</li>
+                <li onClick={() => {
+                    router.push('/');
+                    setOpenMenu(false);
+                }}>夥伴招募</li>
+                <li onClick={() => {
+                    router.push('/contact');
+                    setOpenMenu(false);
+                }}>聯繫我們</li>
+            </Fragment>
+        )
+    }
 
     return (
         <div className={styles.Header}>
+            <Image src={logoSrc} alt='circle cafe' className={styles.menu} onClick={() => setOpenMenu(true)}/>
             <div className={styles.logo}>logo</div>
-            <nav className={styles.navigators}>
-                <li>關於我們{Listing(aboutLink)}</li>
-                <li>最新消息{Listing(newsLink)}</li>
-                <li onClick={() => router.push('/menu')}>菜單詳情</li>
-                <li onClick={() => router.push('/venue')}>包場資訊</li>
-                <li onClick={() => router.push('/book')}>預約訂位</li>
-                <li onClick={() => router.push('/')}>夥伴招募</li>
-                <li onClick={() => router.push('/contact')}>聯繫我們</li>
+            <nav className={cN(styles.navigators)}>
+                {NavigatingOptions()}
             </nav>
+            <LightBox
+                isOpen={openMenu}
+                handleDispatch={setOpenMenu}
+                direction={E_direction.LEFT}
+                theName={styles.sideBlock}
+                isOverflow={true}
+            >
+                <div className={styles.sideBlock}>
+                    {NavigatingOptions(true)}
+                </div>
+            </LightBox>
         </div>
     )
 }
 
 function Listing(items: Array<{
-    ref: string, name: string
-}>) {
+    ref: string,
+    name: string,
+}>, setOpenMenu: Function) {
     return (
         <ul className={styles.Items}>
             {
                 items.map((item, ind) => {
-                    return <Link href={item.ref} key={ind} className={styles.item}>{item.name}</Link>
+                    return <Link href={item.ref} key={ind} className={styles.item} onClick={() => setOpenMenu(false)}>{item.name}</Link>
                 })
             }
         </ul>
