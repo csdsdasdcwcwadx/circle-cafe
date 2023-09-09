@@ -1,0 +1,29 @@
+$goldenColor: #d5ad78;
+
+$riceWhite: #f3f3f3;
+
+$pc: 980px;
+
+@mixin only-mobile {
+    @media all and (max-width: 979px) {
+        @content;
+    }
+}
+
+@mixin only-pc {
+    @media all and (min-width: 980px) {
+        @content;
+    }
+}
+
+@mixin small-pc {
+    @media (min-width: 690px) and (max-width: 979px) {
+        @content;
+    }
+}
+
+@mixin small-m {
+    @media all and (max-width: 689px) {
+        @content;
+    }
+}

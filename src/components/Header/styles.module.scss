@@ -1,0 +1,79 @@
+@import '../../common.scss';
+
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: calc(100% - 40px);
+    height: 40px;
+    background-color: $riceWhite;
+    padding-bottom: 0;
+
+    .navigators {
+        display: flex;
+
+        > li {
+            position: relative;
+            width: 80px;
+            list-style-type: none;
+            transition: all .5s ease-in-out;
+            cursor: pointer;
+            text-align: center;
+
+            &:not(:last-of-type) {
+                margin-right: 5px;
+            }
+
+            &:not(:first-of-type) {
+                margin-left: 5px;
+            }
+
+            &:hover {
+                color: $goldenColor;
+                
+                &:not(:first-of-type, :nth-of-type(2)) {
+                    border-bottom: 4px solid $goldenColor;
+                }
+
+                .Items {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            .Items {
+                position: absolute;
+                top: 10px;
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                padding: 10px;
+                padding-left: 10px;
+                transition: all .5s ease-in-out;
+                background-color: $goldenColor;
+                border-radius: 5px;
+
+                .item {
+                    padding: 10px;
+                    width: 80px;
+                    color: #000;
+
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid #000;
+                    }
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+                
+                li {
+                    list-style-type: none;
+                }
+            }
+        }
+    }
+}
