@@ -17,11 +17,14 @@
 
         > li {
             position: relative;
+            display: block;
             width: 80px;
             list-style-type: none;
             transition: all .5s ease-in-out;
             cursor: pointer;
             text-align: center;
+            text-decoration: none;
+            color: #000;
 
             &:not(:last-of-type) {
                 margin-right: 5px;
@@ -46,7 +49,6 @@
 
             .Items {
                 position: absolute;
-                top: 10px;
                 visibility: hidden;
                 opacity: 0;
                 position: absolute;
@@ -57,9 +59,12 @@
                 border-radius: 5px;
 
                 .item {
+                    display: block;
                     padding: 10px;
                     width: 80px;
                     color: #000;
+                    list-style-type: none;
+                    text-decoration: none;
 
                     &:not(:last-of-type) {
                         border-bottom: 1px solid #000;
@@ -68,10 +73,6 @@
                     &:hover {
                         color: #fff;
                     }
-                }
-                
-                li {
-                    list-style-type: none;
                 }
             }
         }
