@@ -5,7 +5,6 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import cN from 'classnames';
-import Image from 'next/image';
 import LightBox, { E_direction } from '../LightBox';
 
 const aboutLink = [
