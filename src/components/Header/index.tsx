@@ -54,25 +54,28 @@ function Header() {
     }
 
     return (
-        <div className={styles.Header}>
-            <i className={styles.menuIcon} onClick={()=>setOpenMenu(true)}/>
-            <div className={styles.logo}>logo</div>
-            <nav className={cN(styles.navigators)}>
-                {NavigatingOptions()}
-            </nav>
-            <LightBox
-                isOpen={openMenu}
-                handleDispatch={setOpenMenu}
-                direction={E_direction.LEFT}
-                theName={styles.sideBlock}
-                isOverflow={true}
-            >
-                <div className={styles.sideBlock}>
-                    <i className={styles.closeIcon} onClick={()=>setOpenMenu(false)}/>
-                    {NavigatingOptions(true)}
-                </div>
-            </LightBox>
-        </div>
+        <>
+            <div className={styles.Header}>
+                <i className={styles.menuIcon} onClick={()=>setOpenMenu(true)}/>
+                <div className={styles.logo}>logo</div>
+                <nav className={cN(styles.navigators)}>
+                    {NavigatingOptions()}
+                </nav>
+                <LightBox
+                    isOpen={openMenu}
+                    handleDispatch={setOpenMenu}
+                    direction={E_direction.LEFT}
+                    theName={styles.sideBlock}
+                    isOverflow={true}
+                >
+                    <div className={styles.sideBlock}>
+                        <i className={styles.closeIcon} onClick={()=>setOpenMenu(false)}/>
+                        {NavigatingOptions(true)}
+                    </div>
+                </LightBox>
+            </div>
+            <div className={styles.blank}></div>
+        </>
     )
 }
 

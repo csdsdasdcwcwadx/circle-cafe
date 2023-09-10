@@ -10,6 +10,7 @@
     height: 40px;
     background-color: $blueColor;
     padding-bottom: 0;
+    z-index: 10;
 
     @include only-mobile {
         display: flex;
@@ -204,4 +205,8 @@
             }
         }
     }
+}
+
+.blank {
+    height: 60px;
 }

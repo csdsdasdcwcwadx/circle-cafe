@@ -1,0 +1,69 @@
+@import '../common.scss';
+
+.home {
+
+    section {
+        position: relative;
+        height: calc(100vh - 60px);
+
+        &.firstpage {
+            .topperImage {
+                position: relative;
+                display: block;
+                height: inherit;
+        
+                img {
+                    object-fit: cover;
+                    object-position: 98% center;
+                    user-select: none;
+                }
+            }
+    
+            h2 {
+                position: absolute;
+                top: calc(50% - 70px);
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $goldenColor;
+                animation: fadeIn 3s ease-in-out forwards;
+                user-select: none;
+    
+                @keyframes fadeIn {
+                    0% {
+                      opacity: 0; /* 开始时完全透明 */
+                    }
+                    100% {
+                      opacity: 1; /* 结束时完全不透明 */
+                    }
+                }
+    
+                span {
+                    font-size: 70px;
+                    font-weight: bold;
+    
+                    &:last-of-type {
+                        display: block;
+                        font-size: 40px;
+                        text-align: center;
+                        animation: fadeIn 6s ease-in-out forwards;
+    
+                        @keyframes fadeIn {
+                            0% {
+                              opacity: 0; /* 开始时完全透明 */
+                            }
+                            100% {
+                              opacity: 1; /* 结束时完全不透明 */
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        &.secondpage {
+            display: block;
+            background-color: $blueColor;
+        }
+    }
+}
