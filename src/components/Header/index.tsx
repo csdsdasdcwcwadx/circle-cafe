@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import cN from 'classnames';
 import Image from 'next/image';
-import logoSrc from '@/icons/icons8-menu.svg';
 import LightBox, { E_direction } from '../LightBox';
 
 const aboutLink = [
@@ -56,7 +55,7 @@ function Header() {
 
     return (
         <div className={styles.Header}>
-            <Image src={logoSrc} alt='circle cafe' className={styles.menu} onClick={() => setOpenMenu(true)}/>
+            <i className={styles.menuIcon} onClick={()=>setOpenMenu(true)}/>
             <div className={styles.logo}>logo</div>
             <nav className={cN(styles.navigators)}>
                 {NavigatingOptions()}
@@ -69,6 +68,7 @@ function Header() {
                 isOverflow={true}
             >
                 <div className={styles.sideBlock}>
+                    <i className={styles.closeIcon} onClick={()=>setOpenMenu(false)}/>
                     {NavigatingOptions(true)}
                 </div>
             </LightBox>

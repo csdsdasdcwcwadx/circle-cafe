@@ -26,20 +26,16 @@
         }
     }
 
-    .menu {
+    .menuIcon {
         position: absolute;
         left: 0;
         display: block;
         width: 20px;
-        height: 30px;
+        height: 20px;
         margin-bottom: 20px;
         margin-left: 20px;
-        font-size: 20px;
+        background: url(../../icons/icons8-menu.svg);
         cursor: pointer;
-
-        &:hover {
-            color: $goldenColor;
-        }
 
         @include only-pc {
             display: none;
@@ -127,14 +123,26 @@
     }
 
     .sideBlock {
+        position: relative;
         width: 60vw;
         padding: 30px;
         background-color: $blueColor;
         color: $goldenColor;
 
+        .closeIcon {
+            position: absolute;
+            right: 30px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url(../../icons/icons8-close.svg) no-repeat;
+            cursor: pointer;
+        }
+
         li {
             position: relative;
             display: block;
+            width: 80%;
             margin-bottom: 20px;
             list-style-type: none;
             font-size: 20px;
