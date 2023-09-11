@@ -31,7 +31,6 @@ function Carousel({data, children}: I_props) {
             setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
         }
     }, [trigger, data])
-    console.log(children)
 
     return (
         <div className={styles.carousel}>
