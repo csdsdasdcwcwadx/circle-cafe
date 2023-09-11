@@ -35,7 +35,20 @@ export default function Home() {
           </h2>
         </section>
         <section className={styles.secondpage}>
-          <Carousel data={CarouselData}/>
+          <Carousel data={CarouselData}>
+            <>
+              {
+                CarouselData.map((info, ind) => {
+                  return (
+                    <div className={styles.others} key={ind}>
+                      <div>{info.title}</div>
+                      <span>{info.content}</span>
+                    </div>
+                  )
+                })
+              }
+            </>
+          </Carousel>
         </section>
         <section className={styles.thirdpage}>
           1111

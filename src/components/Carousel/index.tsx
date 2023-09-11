@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, ReactNode } from "react";
 import Image, { StaticImageData } from 'next/image';
 import styles from './stylles.module.scss';
 import cN from 'classnames';
@@ -10,9 +10,10 @@ interface I_props {
         content: string;
         title: string;
     }>
+    children: any;
 }
 
-function Carousel({data}: I_props) {
+function Carousel({data, children}: I_props) {
     const [focusBanner, setFocusBanner] = useState(0);
     const [trigger, setTrigger] = useState(false);
 
@@ -30,6 +31,7 @@ function Carousel({data}: I_props) {
         setTrigger(false);
         trigger && setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
     }, [trigger, data])
+    console.log(children)
 
     return (
         <div className={styles.carousel}>
@@ -41,10 +43,7 @@ function Carousel({data}: I_props) {
                     marginLeft: `calc(${100*ind}%  - ${100*focusBanner}%)`
                   }} className={cN({[styles.active]: focusBanner === ind})}>
                     <Image src={info.src} alt={info.alt} fill/>
-                    <div>
-                      <div>{info.title}</div>
-                      <span>{info.content}</span>
-                    </div>
+                    {children.props.children[ind]}
                   </aside>
                 )
               })
