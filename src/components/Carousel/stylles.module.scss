@@ -7,8 +7,8 @@
 
         aside {
             position: absolute;
-            width: 50%;
             height: calc(100vh - 60px);
+            width: 100%;
             z-index: 1;
             transition: all 1s ease-in-out;
             opacity: 0;

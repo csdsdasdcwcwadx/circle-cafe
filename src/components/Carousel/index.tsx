@@ -7,8 +7,6 @@ interface I_props {
     data: Array<{
         src: StaticImageData;
         alt: string;
-        content: string;
-        title: string;
     }>
     children: any;
 }
@@ -28,8 +26,10 @@ function Carousel({data, children}: I_props) {
     }, [])
     
     useEffect(() => {
-        setTrigger(false);
-        trigger && setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
+        if(trigger) {
+            setTrigger(false);
+            setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
+        }
     }, [trigger, data])
     console.log(children)
 
@@ -43,7 +43,7 @@ function Carousel({data, children}: I_props) {
                     marginLeft: `calc(${100*ind}%  - ${100*focusBanner}%)`
                   }} className={cN({[styles.active]: focusBanner === ind})}>
                     <Image src={info.src} alt={info.alt} fill/>
-                    {children.props.children[ind]}
+                    {children && children.props.children[ind]}
                   </aside>
                 )
               })
