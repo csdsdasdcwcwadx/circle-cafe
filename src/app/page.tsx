@@ -9,31 +9,18 @@ import wholeSrc from '@/image/20210819234553_73.jpg';
 import  ReactPageScroll  from  'react-page-scroll';
 import { useEffect, useState } from 'react';
 import cN from 'classnames';
+import Carousel from '@/components/Carousel';
 
-const Carousel = [
-  {src: fullSrc, alt: 'full', content: '333', id: 1},
-  {src: steakSrc, alt: 'steak', content: '222', id: 2},
-  {src: wholeSrc, alt: 'whole', content: '111', id: 3},
+const CarouselData = [
+  {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
+  {src: steakSrc, alt: 'steak', content: '內文內文內文', title: '標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
 ]
 
 export default function Home() {
-  const [focusBanner, setFocusBanner] = useState(0);
-  const [trigger, setTrigger] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTrigger(true);
-    }, 10000)
-
-    return () => {
-      clearInterval(timer);
-    }
-  }, [])
-
-  useEffect(() => {
-    setTrigger(false);
-    trigger && setFocusBanner(pre=>pre+1 === Carousel.length ? 0 : pre+1);
-  }, [trigger])
 
   return (
     <div className={styles.home}>
@@ -48,29 +35,7 @@ export default function Home() {
           </h2>
         </section>
         <section className={styles.secondpage}>
-          <div className={styles.carousel}>
-            {
-              Carousel.map((info, ind) => {
-                return (
-                  <aside key={info.id} style={{
-                    marginLeft: `calc(${100*ind}%  - ${100*focusBanner}%)`
-                  }}>
-                    <Image src={info.src} alt={info.alt} fill/>
-                    <span>{info.content}</span>
-                  </aside>
-                )
-              })
-            }
-          </div>
-          <div className={styles.dotting}>
-            {
-              Carousel.map((_, ind) => {
-                return <i key={ind} className={cN({[styles.active]: focusBanner === ind})} onClick={() => {
-                  setFocusBanner(ind);
-                }}/>
-              })
-            }
-          </div>
+          <Carousel data={CarouselData}/>
         </section>
         <section className={styles.thirdpage}>
           1111
