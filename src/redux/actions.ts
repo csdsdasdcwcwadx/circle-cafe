@@ -1,6 +1,7 @@
-import { TESTING } from "./actionTypes";
+import { PAGING } from "./actionTypes";
+import { E_Page } from "./interfaces";
 
-export const settesting = (payload: any) => ({
-    type: TESTING,
+export const setPage = (payload: E_Page) => ({
+    type: PAGING,
     payload,
 })

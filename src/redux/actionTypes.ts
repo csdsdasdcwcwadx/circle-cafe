@@ -1,2 +1,2 @@
 
-export const TESTING = 'TESTING';
+export const PAGING = 'PAGING';

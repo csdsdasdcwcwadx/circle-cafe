@@ -7,9 +7,8 @@ import fullSrc from '@/image/images.jpeg';
 import steakSrc from '@/image/00-41.jpg';
 import wholeSrc from '@/image/20210819234553_73.jpg';
 import  ReactPageScroll  from  'react-page-scroll';
-import { useEffect, useState } from 'react';
-import cN from 'classnames';
 import Carousel from '@/components/Carousel';
+import './index.css'
 
 const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},

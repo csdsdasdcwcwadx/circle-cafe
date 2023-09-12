@@ -1,8 +1,8 @@
-import { TESTING } from "./actionTypes";
-import { I_RootState } from "./interfaces";
+import { PAGING } from "./actionTypes";
+import { E_Page, I_RootState } from "./interfaces";
 
 const initState: I_RootState = {
-    testing: "@@@",
+    page: E_Page.NULL,
 }
 
 export default function reducer(State = initState, action: {
@@ -10,7 +10,7 @@ export default function reducer(State = initState, action: {
     payload: any,
 }) {
     switch(action.type) {
-        case TESTING:
+        case PAGING:
             return {...State, testing: action.payload};
         default:
             return State;
