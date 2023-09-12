@@ -29,10 +29,8 @@ function Carousel({data, children}: I_props) {
     }, [])
     
     useEffect(() => {
-        if(trigger && !openContent) {
-            setTrigger(false);
-            setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
-        }
+      setTrigger(false);
+      if(trigger && !openContent) setFocusBanner(pre=>pre+1 === data.length ? 0 : pre+1);
     }, [trigger, data, openContent])
 
     return (
