@@ -27,7 +27,7 @@ export default function Home() {
       <ReactPageScroll height='calc(100vh - 60px)' animationDuration={1200}>
         <section className={styles.firstpage}>
           <div className={styles.topperImage}>
-            <Image src={topperSrc} alt='steak' sizes='50vw' fill/>
+            <Image src={topperSrc} alt='steak' sizes='50vw' fill priority/>
           </div>
           <h2>
             <span>食旅 拾</span>

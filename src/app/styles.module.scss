@@ -66,57 +66,9 @@
 
             aside {
                 width: 50%;
-                
-                .others {
-                    position: absolute;
-                    left: calc(150% - 200px);
-                    width: 400px;
-                    margin-top: 40px;
-                    transition: all .8s ease-in-out;
-    
-                    div {
-                        margin-bottom: 40px;
-                        font-size: 40px;
-                        color: $goldenColor;
-                        text-align: center;
-                        letter-spacing: 10px;
-                    }
-    
-                    span {
-                        position: relative;
-                        display: block;
-                        color: $riceWhite;
-                        padding: 40px;
-                        left: 20px;
-                        width: 60%;
-    
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            display: block;
-                            top: 0px;
-                            left: -40px;
-                            width:110%;
-                            height:100%;
-                            min-height: 300px;
-                            border: 2px solid $goldenColor;
-                            opacity: .5;
-                        }
-    
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            left: 0;
-                            top: 30px;
-                            display: block;
-                            width:110%;
-                            height:100%;
-                            min-height: 300px;
-                            border: 2px solid rgb(113 122 133);
-                            opacity: .5;
-                            
-                        }
-                    }
+
+                @include only-mobile {
+                    width: 100%;
                 }
             }
         }
