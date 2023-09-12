@@ -81,6 +81,7 @@
                     right: 0;
                     transform: translate(0, -50%);
                     width: 6%;
+                    min-width: 40px;
                     height: 30%;
                     background-color: $goldenColor;
                     border-radius: 40px 0px 0px 40px;
@@ -108,7 +109,7 @@
                     }
 
                     &.close {
-                        right: 50%;
+                        right: 80%;
                         opacity: .8;
 
                         &:hover {
@@ -133,7 +134,7 @@
                 display: block;
                 padding: 30px;
                 background-color: $goldenColor;
-                width: 50%;
+                width: 80%;
                 height: 100%;
                 margin-left: 100%;
                 opacity: 0;
@@ -154,7 +155,7 @@
                 }
 
                 &.activeContent {
-                    margin-left: 50%;
+                    margin-left: 20%;
                     opacity: .8;
                 }
 
