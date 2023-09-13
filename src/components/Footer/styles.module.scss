@@ -1,15 +1,63 @@
 @import '../../common.scss';
 
 .Footer {
-    position: sticky;
+    position: fixed;
+    display: block;
     bottom: 0;
     left: 0;
-    width: 100%;
     background-color: $goldenColor;
-    padding: 20px;
-    width: calc(100% - 40px);
-    z-index: -1;
+    padding: 40px;
+    width: calc(100% - 80px);
     transition: all .5s ease-in-out;
+
+    .firstline {
+        display: flex;
+        justify-content: space-between;
+
+        .imagearea {
+            display: block;
+            height: 80px;
+            width: 80px;
+            background-color: #000;
+        }
+    
+        .items {
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            
+            .redirector {
+                a {
+                    display: block;
+                    margin-bottom: 10px;
+                    color: $blueColor;
+                    text-decoration: none;
+                    cursor: pointer;
+        
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+
+            @include only-mobile {
+                flex-direction: column;
+            }
+        }
+
+        @include only-mobile {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .copyright {
+        display: block;
+        margin-top: 10px;
+        text-align: right;
+        font-size: 13px;
+        font-style: oblique;
+    }
 
     &.hide {
         display: none;

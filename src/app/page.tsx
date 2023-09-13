@@ -8,7 +8,10 @@ import steakSrc from '@/image/00-41.jpg';
 import wholeSrc from '@/image/20210819234553_73.jpg';
 import  ReactPageScroll  from  'react-page-scroll';
 import Carousel from '@/components/Carousel';
-import './index.css'
+import { useDispatch } from 'react-redux';
+import { E_Page } from '@/redux/interfaces';
+import { useEffect } from 'react';
+import { setPage } from '@/redux/actions';
 
 const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
@@ -20,6 +23,11 @@ const CarouselData = [
 ]
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPage(E_Page.HOME));
+  },[dispatch])
 
   return (
     <div className={styles.home}>
@@ -54,6 +62,5 @@ export default function Home() {
         </section>
       </ReactPageScroll>
     </div>
-
   )
 }

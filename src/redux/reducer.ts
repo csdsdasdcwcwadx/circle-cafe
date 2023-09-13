@@ -11,7 +11,7 @@ export default function reducer(State = initState, action: {
 }) {
     switch(action.type) {
         case PAGING:
-            return {...State, testing: action.payload};
+            return {...State, page: action.payload};
         default:
             return State;
     }
