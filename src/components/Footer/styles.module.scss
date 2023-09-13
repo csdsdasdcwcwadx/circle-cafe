@@ -1,10 +1,7 @@
 @import '../../common.scss';
 
 .Footer {
-    position: fixed;
     display: block;
-    bottom: 0;
-    left: 0;
     background-color: $goldenColor;
     padding: 40px;
     width: calc(100% - 80px);
@@ -19,6 +16,7 @@
             height: 80px;
             width: 80px;
             background-color: #000;
+            margin-bottom: 20px;
         }
     
         .items {
@@ -48,6 +46,11 @@
 
         @include only-mobile {
             flex-direction: row-reverse;
+        }
+
+        @include small-m {
+            flex-direction: column;
+            margin-bottom: 20px;
         }
     }
 

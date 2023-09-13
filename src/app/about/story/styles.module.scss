@@ -1,7 +1,40 @@
 @import '../../../common.scss';
 
 .Story {
-    width: 100%;
-    height: 100%;
     background-color: $mainBackColor;
+
+    .mainbanner {
+        height: 200px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        h2 {
+            height: 20%;
+            color: $goldenColor;
+            margin-top: 0;
+            font-size: 50px;
+            border-bottom: 1px solid $goldenColor;
+            opacity: 0;
+            transition: all 5s ease-in-out;
+        }
+    }
+
+    &.active {
+        main {
+            h2 {
+                opacity: 1;
+            }
+        }
+    }
 }
