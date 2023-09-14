@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import steakSrc from '../../../image/20221001122155672158.jpg';
 import Image from 'next/image';
 import cN from 'classnames';
+import storySrc from '../../../image/FesOdoNUoAEaCAR.jpg';
 
 export default function Story() {
     const dispatch = useDispatch();
@@ -23,12 +24,22 @@ export default function Story() {
         <Fragment>
             <div className={cN(styles.Story, {[styles.active]: activate})}>
                 <div className={styles.mainbanner}>
-                    <Image src={steakSrc} alt='steak'/>
+                    <Image src={steakSrc} alt='steak' priority/>
                 </div>
                 <main>
                     <h2>品牌故事</h2>
+                    <span className={styles.deco}/>
                     <p>
-                        123
+                        <span>
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                            故事故事故事故事故事故事故事故事故事故事
+                        </span>
+                        <Image src={storySrc} alt='storyicon' className={styles.storyicon}></Image>
                     </p>
                 </main>
             </div>

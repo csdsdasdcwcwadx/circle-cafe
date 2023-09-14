@@ -11,12 +11,11 @@
         display: flex;
         justify-content: space-between;
 
-        .imagearea {
-            display: block;
+        .fooicon {
             height: 80px;
             width: 80px;
-            background-color: #000;
             margin-bottom: 20px;
+            object-fit: cover;
         }
     
         .items {
@@ -60,9 +59,13 @@
         text-align: right;
         font-size: 13px;
         font-style: oblique;
+
+        @include only-mobile {
+            text-align: center;
+        }
     }
 
-    &.hide {
+    &.ishome {
         display: none;
     }
 }

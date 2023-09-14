@@ -42,7 +42,7 @@ function Carousel({data, children}: I_props) {
                   <aside key={ind+1} style={{
                     marginLeft: `calc(${100*ind}%  - ${100*focusBanner}%)`
                   }} className={cN({[styles.active]: focusBanner === ind})}>
-                    <Image src={info.src} alt={info.alt} fill sizes=""/>
+                    <Image src={info.src} alt={info.alt} fill sizes="100%"/>
                     <span className={cN({[styles.close]: openContent})} onClick={() => setOpenContent(pre=>!pre)}></span>
                     <div className={styles.others}>
                       <div>{info.title}</div>
