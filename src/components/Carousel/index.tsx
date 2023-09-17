@@ -38,7 +38,6 @@ function Carousel({data}: I_props) {
           setTimeout(() => {
             setLastToFirst(true);
           },1000)
-          return pre+1;
         };
         return pre+1;
       });
@@ -49,7 +48,7 @@ function Carousel({data}: I_props) {
         setFocusBanner(0);
         setTimeout(() => {
           setLastToFirst(false);
-        }, 2000)
+        }, 1000)
         setTimeout(() => {
           setFocusBanner(1);
         }, 9000)

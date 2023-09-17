@@ -1,0 +1,58 @@
+@import '../../common.scss';
+
+.menu {
+    main > div {
+        margin-top: 10px;
+        padding: 0 10%;
+
+        .dishes {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 30px;
+            padding-left: 0;
+            list-style-type: none;
+
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                height: 60px;
+                min-width: 100px;
+                color: $goldenColor;
+                list-style-type: none;
+                vertical-align: middle;
+                letter-spacing: 5px;
+                font-weight: bold;
+                font-size: 20px;
+                cursor: pointer;
+                user-select: none;
+
+                @include only-mobile {
+                    width: 33%;
+                }
+
+                &:hover {
+                    color: $blueColor;
+                    background-color: $goldenColor;
+                }
+            }
+        }
+
+        .cuisine {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            aside {
+                user-select: none;
+    
+                img {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+}
