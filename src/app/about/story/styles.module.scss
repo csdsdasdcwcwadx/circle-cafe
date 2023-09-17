@@ -1,0 +1,39 @@
+@import '../../../common.scss';
+
+.story {
+    p {
+        display: flex;
+        color: $riceWhite;
+        text-align: left;
+
+        span {
+            margin-right: 60px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 33px;
+                height: 20px;
+            }
+
+            @include only-mobile {
+                margin-right: 0;
+            }
+        }
+
+        .storyicon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+
+            @include only-mobile {
+                margin: 0 auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        @include only-mobile {
+            flex-direction: column-reverse;
+        }
+    }
+}

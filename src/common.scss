@@ -1,0 +1,32 @@
+$goldenColor: #d5ad78;
+$blueColor: rgb(7 47 98);
+$darkerBlue: rgb(5 13 64);
+$mainBackColor: #1f1f1f;
+$riceWhite: #fbefe3;
+$back: #1f1f1f;
+
+$pc: 980px;
+
+@mixin only-mobile {
+    @media all and (max-width: 979px) {
+        @content;
+    }
+}
+
+@mixin only-pc {
+    @media all and (min-width: 980px) {
+        @content;
+    }
+}
+
+@mixin small-pc {
+    @media (min-width: 690px) and (max-width: 979px) {
+        @content;
+    }
+}
+
+@mixin small-m {
+    @media all and (max-width: 689px) {
+        @content;
+    }
+}

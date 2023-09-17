@@ -1,0 +1,56 @@
+@import '../../common.scss';
+
+.contact {
+    background-color: $mainBackColor;
+
+    .inputarea {
+        .inputblock {
+            > span {
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        
+        .firstline {
+            display: flex;
+            width: calc(100% - 2px);
+
+            .inputblock {
+                width: 50%;
+
+                &:first-of-type {
+                    margin-right: 20px;
+                }
+            }
+
+            @include only-mobile {
+                flex-direction: column;
+                width: 100% !important;
+
+                .inputblock {
+                    width: 100%;
+                }
+            }
+        }
+
+        .thirdline {
+            .inputblock {
+                textarea {
+                    height: 70px;
+                }
+            }
+        }
+    }
+
+    button {
+        width: 120px;
+        height: 50px;
+        color: $blueColor;
+        background-color: $goldenColor;
+        border-radius: 5px;
+        border: 0;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
