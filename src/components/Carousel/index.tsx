@@ -45,7 +45,7 @@ function Carousel({data}: I_props) {
     }, [trigger, data, openContent, newSlider])
 
     useEffect(() => {
-      if(lastToFirst) {
+      if(lastToFirst && !openContent) {
         setFocusBanner(0);
         setTimeout(() => {
           setLastToFirst(false);
@@ -54,7 +54,7 @@ function Carousel({data}: I_props) {
           setFocusBanner(1);
         }, 9000)
       }
-    }, [lastToFirst])
+    }, [lastToFirst, openContent])
 
     return (
         <div className={styles.carousel}>
