@@ -41,7 +41,7 @@ function Header() {
                     setOpenMenu(false);
                 }}>預約訂位</li>
                 <li onClick={() => {
-                    router.push('/');
+                    window.open('https://www.104.com.tw/company/1a2x6bklxq?jobsource=jolist_c_relevance');
                     setOpenMenu(false);
                 }}>夥伴招募</li>
                 <li onClick={() => {

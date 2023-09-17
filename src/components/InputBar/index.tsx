@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, forwardRef, ForwardedRef } from "react";
+import { memo, useState, useEffect, forwardRef, ForwardedRef, RefObject } from "react";
 import styles from './styles.module.scss';
 import cN from 'classnames';
 
@@ -22,7 +22,7 @@ interface I_props {
     className?: string;
 }
 
-function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className}: I_props, ref: ForwardedRef<HTMLInputElement>) {
+function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className}: I_props, ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>) {
     const [input, setInput] = useState<string>('');
     const [errMsg, setErrMsg] = useState<string | undefined>();
 
@@ -101,8 +101,8 @@ function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxle
         <div className={cN(styles.inputblock, className)}>
             <span>{title}{!unnecessary && '*'}</span>
             {
-                type === E_RegexType.TEXTING ? <textarea placeholder={placeholder} onChange={e=>setInput(e.target.value)} defaultValue={value} maxLength={maxlength}/>:
-                <input placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={ref} defaultValue={value} maxLength={maxlength}/>
+                type === E_RegexType.TEXTING ? <textarea placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLTextAreaElement>)} defaultValue={value} maxLength={maxlength}/>:
+                <input placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLInputElement>)} defaultValue={value} maxLength={maxlength}/>
             }
             {errMsg && <span className={cN(styles.err, 'error')}>{errMsg}</span>}
         </div>

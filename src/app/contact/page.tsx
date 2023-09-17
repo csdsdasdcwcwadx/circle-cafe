@@ -13,7 +13,7 @@ export default function Contact() {
     const cusEmail = useRef<HTMLInputElement>(null);
     const cusInfo = useRef<HTMLInputElement>(null);
 
-    const handleClick = () => {
+    const handleClick = async () => {
         const error = document.getElementsByClassName('error');
         if(error.length === 0) {
             const sendData = {
@@ -39,7 +39,7 @@ export default function Contact() {
                 <div className={styles.firstline}>
                     <InputBar
                         title='顧客姓名'
-                        placeholder='請填寫姓名'
+                        placeholder='請輸入姓名'
                         type={E_RegexType.NAME}
                         maxlength={10}
                         ref={cusName}
