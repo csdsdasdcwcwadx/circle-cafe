@@ -1,100 +1,47 @@
 @import '../../../common.scss';
 
-.Story {
-    background-color: $mainBackColor;
-
-    .mainbanner {
-        height: 200px;
-
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-
-    main {
+.story {
+    p {
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
+        margin: 60px 0;
+        padding: 0 15%;
+        color: $riceWhite;
+        opacity: 0;
+        text-align: left;
+        transition: all 10s ease-in-out;
 
-        h2 {
-            height: 20%;
-            margin: 20px 0;
-            color: $goldenColor;
-            font-size: 50px;
-            opacity: 0;
-            transition: all 5s ease-in-out;
+        @include only-mobile {
+            padding: 0 50px;
         }
 
-        .deco {
-            display: block;
-            width: 0;
-            margin: 0 auto;
-            border-bottom: 2px solid $goldenColor;
-            transition: all 5s ease-in-out;
-            opacity: .5;
-        }
+        span {
+            margin-right: 60px;
 
-        p {
-            display: flex;
-            margin: 60px 0;
-            padding: 0 100px;
-            color: $riceWhite;
-            opacity: 0;
-            text-align: left;
-            transition: all 10s ease-in-out;
-
-            @include only-mobile {
-                padding: 0 50px;
-            }
-
-            span {
-                margin-right: 60px;
-
-                &::before {
-                    content: '';
-                    display: inline-block;
-                    width: 33px;
-                    height: 20px;
-                }
-
-                @include only-mobile {
-                    margin-right: 0;
-                }
-            }
-
-            .storyicon {
-                width: 80px;
-                height: 80px;
-                object-fit: cover;
-
-                @include only-mobile {
-                    margin: 0 auto;
-                    margin-bottom: 20px;
-                }
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 33px;
+                height: 20px;
             }
 
             @include only-mobile {
-                flex-direction: column-reverse;
+                margin-right: 0;
             }
         }
-    }
 
-    &.active {
-        main {
-            h2 {
-                opacity: 1;
-            }
+        .storyicon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
 
-            .deco {
-                width: 80%;
+            @include only-mobile {
+                margin: 0 auto;
+                margin-bottom: 20px;
             }
+        }
 
-            p {
-                opacity: 1;
-            }
+        @include only-mobile {
+            flex-direction: column-reverse;
         }
     }
 }

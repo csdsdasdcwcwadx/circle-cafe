@@ -2,17 +2,14 @@
 
 import { memo } from 'react';
 import styles from './styles.module.scss';
-import { E_Page, I_RootState } from '@/redux/interfaces';
-import { useSelector } from 'react-redux';
 import cN from 'classnames';
 import footerSrc from '../../image/FesOdoNUoAEaCAR.jpg';
 import Image from 'next/image';
 
 function Footer() {
-    const page = useSelector((store: I_RootState) => store.page);
 
     return (
-        <footer className={cN(styles.Footer, {[styles.ishome]: page === E_Page.HOME})}>
+        <footer className={cN(styles.Footer)}>
             <div className={styles.firstline}>
                 <Image src={footerSrc} alt='footer' className={styles.fooicon}/>
                 <div className={styles.items}>

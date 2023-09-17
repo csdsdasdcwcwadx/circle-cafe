@@ -1,0 +1,56 @@
+@import '../../common.scss';
+
+.default {
+    background-color: $mainBackColor;
+
+    .mainbanner {
+        height: 200px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        h2 {
+            height: 20%;
+            margin: 20px 0;
+            color: $goldenColor;
+            font-size: 50px;
+            opacity: 0;
+            transition: all 5s ease-in-out;
+        }
+
+        .deco {
+            display: block;
+            width: 0;
+            margin: 0 auto;
+            border-bottom: 2px solid $goldenColor;
+            transition: all 5s ease-in-out;
+            opacity: .5;
+        }
+    }
+
+    &.active {
+        main {
+            h2 {
+                opacity: 1;
+            }
+
+            .deco {
+                width: 80%;
+            }
+
+            p {
+                opacity: 1;
+            }
+        }
+    }
+}

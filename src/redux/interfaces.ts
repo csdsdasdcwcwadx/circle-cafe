@@ -7,4 +7,5 @@ export enum E_Page {
     HOME = 'HOME_PAGE',
     NULL = '',
     STORY = 'STORY',
+    CONTACT='CONTACT',
 }
