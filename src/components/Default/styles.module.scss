@@ -36,6 +36,17 @@
             transition: all 5s ease-in-out;
             opacity: .5;
         }
+
+        > div {
+            margin: 60px 0;
+            padding: 0 15%;
+            opacity: 0;
+            transition: all 8s ease-in-out;
+
+            @include only-mobile {
+                padding: 0 50px;
+            }
+        }
     }
 
     &.active {
@@ -46,9 +57,13 @@
 
             .deco {
                 width: 80%;
+
+                @include only-mobile {
+                    width: 100%;
+                }
             }
 
-            p {
+            > div {
                 opacity: 1;
             }
         }

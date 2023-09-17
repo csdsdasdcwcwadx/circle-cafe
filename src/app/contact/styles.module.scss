@@ -2,56 +2,55 @@
 
 .contact {
     background-color: $mainBackColor;
-    height: 500px;
 
-    .mainbanner {
-        height: 200px;
+    .inputarea {
+        .inputblock {
+            > span {
+                font-size: 15px;
+                text-align: left;
+            }
+        }
+        
+        .firstline {
+            display: flex;
+            width: calc(100% - 2px);
 
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
+            .inputblock {
+                width: 50%;
+
+                &:first-of-type {
+                    margin-right: 20px;
+                }
+            }
+
+            @include only-mobile {
+                flex-direction: column;
+                width: 100% !important;
+
+                .inputblock {
+                    width: 100%;
+                }
+            }
+        }
+
+        .thirdline {
+            .inputblock {
+                textarea {
+                    height: 70px;
+                }
+            }
         }
     }
 
-    main {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-
-        h2 {
-            height: 20%;
-            margin: 20px 0;
-            color: $goldenColor;
-            font-size: 50px;
-            opacity: 0;
-            transition: all 5s ease-in-out;
-        }
-
-        .deco {
-            display: block;
-            width: 0;
-            margin: 0 auto;
-            border-bottom: 2px solid $goldenColor;
-            transition: all 5s ease-in-out;
-            opacity: .5;
-        }
-    }
-
-    &.active {
-        main {
-            h2 {
-                opacity: 1;
-            }
-
-            .deco {
-                width: 80%;
-            }
-
-            p {
-                opacity: 1;
-            }
-        }
+    button {
+        width: 120px;
+        height: 50px;
+        color: $blueColor;
+        background-color: $goldenColor;
+        border-radius: 5px;
+        border: 0;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
     }
 }

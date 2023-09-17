@@ -35,7 +35,9 @@ function Default({ children, currentPage, imageSrc, altContent, title, className
                 <main>
                     <h2>{title}</h2>
                     <span className={styles.deco}/>
-                    {children}
+                    <div>
+                        {children}
+                    </div>
                 </main>
             </div>
             <Footer/>
