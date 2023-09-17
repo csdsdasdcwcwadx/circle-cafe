@@ -19,8 +19,8 @@ const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
   {src: steakSrc, alt: 'steak', content: '內文內文內文', title: '標題標題標題'},
   {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
-  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
-  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: fullSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: steakSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
   {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
 ]
 
@@ -44,20 +44,7 @@ export default function Home() {
           </h2>
         </section>
         <section className={styles.secondpage}>
-          <Carousel data={CarouselData}>
-            <>
-              {
-                CarouselData.map((info, ind) => {
-                  return (
-                    <div className={styles.others} key={ind}>
-                      <div>{info.title}</div>
-                      <span>{info.content}</span>
-                    </div>
-                  )
-                })
-              }
-            </>
-          </Carousel>
+          <Carousel data={CarouselData}/>
         </section>
         <section className={styles.thirdpage}>
           <aside data-info="標題標題標題">

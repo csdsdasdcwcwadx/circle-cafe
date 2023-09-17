@@ -11,7 +11,7 @@ export default function Contact() {
     const cusName = useRef<HTMLInputElement>(null);
     const cusPhone = useRef<HTMLInputElement>(null);
     const cusEmail = useRef<HTMLInputElement>(null);
-    const cusInfo = useRef<HTMLInputElement>(null);
+    const cusInfo = useRef<HTMLTextAreaElement>(null);
 
     const handleClick = async () => {
         const error = document.getElementsByClassName('error');

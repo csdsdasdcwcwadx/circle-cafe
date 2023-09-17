@@ -14,12 +14,13 @@ interface I_props {
     altContent: string;
     title: string;
     className: string;
+    faded?: boolean;
 }
 
 
-function Default({ children, currentPage, imageSrc, altContent, title, className }: I_props) {
+function Default({ children, currentPage, imageSrc, altContent, title, className, faded }: I_props) {
     const dispatch = useDispatch();
-    const [activate, setActivate] = useState(false);
+    const [activate, setActivate] = useState(Boolean(!faded));
 
     useEffect(() => {
         dispatch(setPage(currentPage));

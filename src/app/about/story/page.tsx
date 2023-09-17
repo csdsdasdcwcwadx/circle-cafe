@@ -16,6 +16,7 @@ export default function Story() {
             imageSrc={steakSrc}
             title='品牌故事'
             className={styles.story}
+            faded
         >
             <p>
                 <span>
@@ -27,7 +28,7 @@ export default function Story() {
                     故事故事故事故事故事故事故事故事故事故事
                     故事故事故事故事故事故事故事故事故事故事
                 </span>
-                <Image src={storySrc} alt='storyicon' className={styles.storyicon}></Image>
+                <Image src={storySrc} alt='storyicon' className={styles.storyicon}/>
             </p>
         </Default>
     )
