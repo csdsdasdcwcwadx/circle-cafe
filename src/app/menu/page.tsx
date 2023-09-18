@@ -16,6 +16,16 @@ enum E_Dish {
     DESSERT = '甜點',
 }
 
+const foodItems = [
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+]
+
 export default function Menu() {
     const [dish, setDish] = useState<E_Dish>(E_Dish.STEAK);
 
@@ -36,18 +46,19 @@ export default function Menu() {
                 }
             </ul>
             <div className={styles.cuisine}>
-                <aside>
-                    <Image src={SteakSrc} alt='food'/>
-                </aside>
-                <aside>
-                    <Image src={SteakSrc} alt='food'/>
-                </aside>
-                <aside>
-                    <Image src={SteakSrc} alt='food'/>
-                </aside>
-                <aside>
-                    <Image src={SteakSrc} alt='food'/>
-                </aside>
+                {
+                    foodItems.map((food, ind) => {
+                        return (
+                            <aside key={ind}>
+                                <div className={styles.frame}>
+                                    <Image src={food.imgSrc} alt='food' fill sizes='100%'/>
+                                </div>
+                                <h2>{food.name}</h2>
+                                <span>{food.content}</span>
+                            </aside>
+                        )
+                    })
+                }
             </div>
        </Default>
     )
