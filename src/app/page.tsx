@@ -34,6 +34,9 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <ReactPageScroll height='calc(100vh - 60px)' animationDuration={1200}>
+        <section className={styles.secondpage}>
+          <Carousel data={CarouselData}/>
+        </section>
         <section className={styles.firstpage}>
           <div className={styles.topperImage}>
             <Image src={topperSrc} alt='steak' sizes='50vw' fill priority/>
@@ -42,9 +45,6 @@ export default function Home() {
             <span>食旅 拾</span>
             <span>circle cafe</span>
           </h2>
-        </section>
-        <section className={styles.secondpage}>
-          <Carousel data={CarouselData}/>
         </section>
         <section className={styles.thirdpage}>
           <aside data-info="標題標題標題">
