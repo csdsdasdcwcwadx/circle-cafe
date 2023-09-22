@@ -36,18 +36,20 @@
                 transition-delay: 1s;
 
                 .content {
-                    width: 100%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    flex-direction: column;
+                    height: 100%;
+                    min-width: 400px;
+                    min-height: 230px;
                     opacity: 0;
                     transition: all 1s ease-in-out;
                     transition-delay: 2s;
 
                     div {
+                        margin-bottom: 20px;
                         font-size: 40px;
                         letter-spacing: 10px;
-                    }
-    
-                    span {
-                        padding: 40px;
                     }
                 }
 
@@ -61,8 +63,8 @@
                 }
 
                 &.shower {
-                    width: 0;
-                    height: 0;
+                    width: auto;
+                    height: auto;
                     transition-delay: 1s;
 
                     .content {

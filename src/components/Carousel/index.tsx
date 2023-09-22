@@ -15,7 +15,6 @@ interface I_props {
 function Carousel({data}: I_props) {
     const [focusBanner, setFocusBanner] = useState(0);
     const [trigger, setTrigger] = useState(false);
-    const [showOthers, setShowOthers] = useState(false);
     const [timerId, setTimerId] = useState<any>(null);
 
    const startTimer = useCallback(() => {
@@ -30,18 +29,6 @@ function Carousel({data}: I_props) {
 
         setTimerId(newTimerId);
     }, [timerId]);
-
-    const newSlider = useMemo(()=>{
-      return [...data, data[0]];
-    }, [data]);
-
-    const setPageTurning = useCallback((spePage?: number) => {
-      setShowOthers(true);
-      setTimeout(() => {
-        setShowOthers(false);
-        setFocusBanner(pre=> spePage || (pre+1 === data.length ? 0 : pre+1));
-      }, 2000)
-    },[data])
 
     useEffect(() => {
       startTimer();
@@ -62,7 +49,7 @@ function Carousel({data}: I_props) {
                   <aside key={ind+1} style={{
                   }} className={cN({[styles.active]: focusBanner === ind})}>
                     <Image src={info.src} alt={info.alt} fill sizes="100%"/>
-                    <div className={cN(styles.others, {[styles.shower]: showOthers, [styles.active]: focusBanner === ind})}>
+                    <div className={cN(styles.others, {[styles.active]: focusBanner === ind})}>
                       <div className={styles.content}>
                         <div>{info.title}</div>
                         <span>{info.content}</span>
