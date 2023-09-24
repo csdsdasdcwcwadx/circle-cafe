@@ -13,6 +13,8 @@ import { useEffect } from 'react';
 import { setPage } from '@/redux/actions';
 import Footer from '@/components/Footer';
 import SwapBanner from '@/components/SwapBanner';
+import coffeeSrc from '@/image/1ea5f3a2f2f21e96.png';
+import Image from 'next/image';
 
 const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
@@ -33,10 +35,13 @@ export default function Home() {
   return (
     <div className={styles.home}>
       <ReactPageScroll height='calc(100vh - 60px)' animationDuration={1200}>
-        <section className={styles.secondpage}>
+        <section className={styles.firstpage}>
           <Carousel data={CarouselData}/>
         </section>
-        <section className={styles.firstpage}>
+        <section className={styles.secondpage}>
+          <div className={styles.coffeeimg}>
+            <Image src={coffeeSrc} alt='coffee' fill sizes='100%'/>
+          </div>
           {/* <div className={styles.topperImage}>
             <Image src={topperSrc} alt='steak' sizes='50vw' fill priority/>
           </div>
