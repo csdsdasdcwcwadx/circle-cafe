@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, memo, useState } from 'react';
+import { Fragment, memo, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'

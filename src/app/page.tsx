@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './styles.module.scss';
-import Image from 'next/image';
 import topperSrc from '@/image/29740091487_1c0c634e53_o.jpg';
 import fullSrc from '@/image/images.jpeg';
 import steakSrc from '@/image/00-41.jpg';
@@ -12,8 +11,10 @@ import { useDispatch } from 'react-redux';
 import { E_Page } from '@/redux/interfaces';
 import { useEffect } from 'react';
 import { setPage } from '@/redux/actions';
-import bottomSrc from '@/image/45196969044_3e0fcf8a6c_h.jpg'
 import Footer from '@/components/Footer';
+import SwapBanner from '@/components/SwapBanner';
+import coffeeSrc from '@/image/1ea5f3a2f2f21e96.png';
+import Image from 'next/image';
 
 const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
@@ -35,33 +36,22 @@ export default function Home() {
     <div className={styles.home}>
       <ReactPageScroll height='calc(100vh - 60px)' animationDuration={1200}>
         <section className={styles.firstpage}>
-          <div className={styles.topperImage}>
+          <Carousel data={CarouselData}/>
+        </section>
+        <section className={styles.secondpage}>
+          <div className={styles.coffeeimg}>
+            <Image src={coffeeSrc} alt='coffee' fill sizes='100%'/>
+          </div>
+          {/* <div className={styles.topperImage}>
             <Image src={topperSrc} alt='steak' sizes='50vw' fill priority/>
           </div>
           <h2>
             <span>食旅 拾</span>
             <span>circle cafe</span>
-          </h2>
-        </section>
-        <section className={styles.secondpage}>
-          <Carousel data={CarouselData}/>
+          </h2> */}
         </section>
         <section className={styles.thirdpage}>
-          <aside data-info="標題標題標題">
-              <div className={styles.bottomsrc}>
-                <Image src={bottomSrc} alt='frame' fill sizes='100%'/>
-              </div>
-          </aside>
-          <aside data-info="標題標題標題">
-            <div className={styles.bottomsrc}>
-              <Image src={bottomSrc} alt='frame' fill sizes='100%'/>
-            </div>
-          </aside>
-          <aside data-info="標題標題標題">
-            <div className={styles.bottomsrc}>
-              <Image src={bottomSrc} alt='frame' fill sizes='100%'/>
-            </div>
-          </aside>
+          <SwapBanner/>
           <Footer/>
         </section>
       </ReactPageScroll>
