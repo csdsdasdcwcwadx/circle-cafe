@@ -9,4 +9,6 @@ export enum E_Page {
     STORY = 'STORY',
     CONTACT = 'CONTACT',
     MENU = 'MENU',
+    BOOK = 'BOOK',
+    VENUE = 'VENUE',
 }
