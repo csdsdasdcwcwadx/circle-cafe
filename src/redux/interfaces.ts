@@ -11,4 +11,6 @@ export enum E_Page {
     MENU = 'MENU',
     BOOK = 'BOOK',
     VENUE = 'VENUE',
+    ACTIVITY = 'ACTIVITY',
+    ACTIVITIES = 'ACTIVITIES',
 }
