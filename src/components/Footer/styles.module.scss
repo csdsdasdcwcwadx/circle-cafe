@@ -3,7 +3,7 @@
 .Footer {
     display: block;
     background-color: $goldenColor;
-    padding: 40px;
+    padding: 20px 40px;
     width: calc(100% - 80px);
     transition: all .5s ease-in-out;
 
@@ -55,7 +55,6 @@
 
     .copyright {
         display: block;
-        margin-top: 10px;
         text-align: right;
         font-size: 13px;
         font-style: oblique;
