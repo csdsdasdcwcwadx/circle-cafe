@@ -3,7 +3,7 @@
 import { memo } from 'react';
 import styles from './styles.module.scss';
 import cN from 'classnames';
-import footerSrc from '../../image/FesOdoNUoAEaCAR.jpg';
+import footerSrc from '@/image/FesOdoNUoAEaCAR.jpg';
 import Image from 'next/image';
 
 function Footer() {

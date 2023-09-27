@@ -4,8 +4,8 @@ export interface I_RootState {
 }
 
 export enum E_Page {
-    HOME = 'HOME_PAGE',
     NULL = '',
+    HOME = 'HOME_PAGE',
     STORY = 'STORY',
     CONTACT = 'CONTACT',
     MENU = 'MENU',
@@ -13,4 +13,6 @@ export enum E_Page {
     VENUE = 'VENUE',
     ACTIVITY = 'ACTIVITY',
     ACTIVITIES = 'ACTIVITIES',
+    INGREDIENT = 'INGREDIENT',
+    MESSAGE = 'MESSAGE',
 }
