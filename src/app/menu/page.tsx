@@ -17,13 +17,13 @@ enum E_Dish {
 }
 
 const foodItems = [
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
-    {imgSrc: SteakSrc, content: '123456', name: '好吃的東西'},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
+    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
 ]
 
 export default function Menu() {
@@ -53,8 +53,13 @@ export default function Menu() {
                                 <div className={styles.frame}>
                                     <Image src={food.imgSrc} alt='food' fill sizes='100%'/>
                                 </div>
+                                <div className={styles.content}>
+                                    <div>
+                                        <span>{food.content}</span>
+                                        <span className={styles.money}>NT$ {food.dollars}</span>
+                                    </div>
+                                </div>
                                 <h2>{food.name}</h2>
-                                <span>{food.content}</span>
                             </aside>
                         )
                     })
