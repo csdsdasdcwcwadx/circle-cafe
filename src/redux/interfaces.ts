@@ -15,4 +15,5 @@ export enum E_Page {
     ACTIVITIES = 'ACTIVITIES',
     INGREDIENT = 'INGREDIENT',
     MESSAGE = 'MESSAGE',
+    REPORT = 'REPORT',
 }
