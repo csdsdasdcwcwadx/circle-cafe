@@ -1,0 +1,27 @@
+@import '../../../common.scss';
+
+.content {
+    display: flex;
+
+    @include only-mobile {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    span {
+        display: inline-block;
+        margin-right: 60px;
+        color: $riceWhite;
+
+        @include only-mobile {
+            margin-right: 0;
+            margin-top: 20px;
+        }
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+}
