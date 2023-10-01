@@ -16,4 +16,5 @@ export enum E_Page {
     INGREDIENT = 'INGREDIENT',
     MESSAGE = 'MESSAGE',
     REPORT = 'REPORT',
+    BACKEND = 'BACKEND',
 }

@@ -23,7 +23,9 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>
-          <Header/>
+          <nav className='header'>
+            <Header/>
+          </nav>
           {children}
         </Providers>
       </body>
