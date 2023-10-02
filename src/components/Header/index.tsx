@@ -9,7 +9,7 @@ import LightBox, { E_direction } from '../LightBox';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事', en: 'story'},
-    {ref: '/about/message', name: 'Chef’s Message', en: 'message'},
+    {ref: '/about/message', name: ' 廚師對話', en: 'message'},
     {ref: '/about/ingredient', name: '食材使用與介紹', en: 'ingredient'},
 ]
 
