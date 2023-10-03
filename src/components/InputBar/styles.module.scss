@@ -2,12 +2,14 @@
 
 .inputblock {
     margin-bottom: 20px;
+    text-align: center;
 
     span {
         display: block;
         color: $goldenColor;
         margin: 0 0 5px 5px;
         font-size: 12px;
+        text-align: left;
     }
 
     input {

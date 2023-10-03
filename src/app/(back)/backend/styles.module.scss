@@ -1,0 +1,21 @@
+.backend {
+    .addactivities {
+        margin-bottom: 30px;
+    }
+
+    .display {
+        aside {
+            display: flex;
+
+            .frame {
+                object-fit: cover;
+            }
+        }
+    }
+
+    .regisblocker {
+        display: block;
+        background-color: #fff;
+        padding: 30px;
+    }
+}
