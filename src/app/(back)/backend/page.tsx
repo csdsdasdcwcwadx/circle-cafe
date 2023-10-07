@@ -9,10 +9,10 @@ import InputBar from "@/components/InputBar";
 import { E_RegexType } from "@/components/InputBar";
 import Image from "next/image";
 import LightBox, { E_direction } from "@/components/LightBox";
-import { POST_SET, GET_GETACTIVITIES } from "@/apisource/apiname";
-import { I_GET_GETACTIVITIES, I_POST_SET_getter } from "@/apisource/apitype";
+import { handlepath } from "@/apisource/apiname";
 import { I_activities } from "@/redux/interfaces";
 import { handleDate } from "@/utils";
+import { api_getData, api_postData } from "@/apisource/apiname";
 
 export default function Backend() {
     const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function Backend() {
 
     useEffect(() => {
         (async function() {
-            const data = await getData();
+            const data = await api_getData();
             setData(data?.activitiesinfo);
         })()
     }, [])
@@ -41,9 +41,9 @@ export default function Backend() {
             formData.append('content', content.current?.value!);
             formData.append('image', image!);
             try {
-                await postData(formData);
+                await api_postData(formData);
                 setIsOpen(false);
-                const data = await getData();
+                const data = await api_getData();
                 setData(data?.activitiesinfo);
 
                 if(title.current) title.current.value = '';
@@ -69,7 +69,7 @@ export default function Backend() {
                         return (
                             <aside key={ind}>
                                 <div className={styles.frame}>
-                                    <Image src={`/local${obj.image}`} alt={obj.title} width={300} height={300}/>
+                                    <Image src={`${handlepath()}${obj.image}`} alt={obj.title} width={300} height={300}/>
                                 </div>
                                 <div className={styles.contents}>
                                     <h3>{obj.title}</h3>
@@ -105,7 +105,7 @@ export default function Backend() {
                         title="內文"
                         placeholder="請輸入內文"
                         type={E_RegexType.TEXTING}
-                        maxlength={255}
+                        maxlength={2048}
                         ref={content}
                     />
                     <input type="file" onChange={e => {
@@ -117,27 +117,4 @@ export default function Backend() {
             </LightBox>
         </div>
     )
-}
-
-async function postData(poster: FormData) {
-    try {
-        const response = await fetch(POST_SET, {
-            method: "POST",
-            body: poster,
-        });
-        const data: I_POST_SET_getter = await response.json();
-        return data;
-    } catch(e) {
-        console.log(e);
-    }
-}
-
-async function getData() {
-    try {
-        const response = await fetch(GET_GETACTIVITIES);
-        const data: I_GET_GETACTIVITIES = await response.json();
-        return data;
-    }catch(e) {
-        console.log(e);
-    }
 }
