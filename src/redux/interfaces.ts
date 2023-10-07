@@ -24,4 +24,5 @@ export interface I_activities {
     title: string;
     content: string;
     image: string;
+    date: string;
 }

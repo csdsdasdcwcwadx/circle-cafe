@@ -12,6 +12,7 @@ import LightBox, { E_direction } from "@/components/LightBox";
 import { POST_SET, GET_GETACTIVITIES } from "@/apisource/apiname";
 import { I_GET_GETACTIVITIES, I_POST_SET_getter } from "@/apisource/apitype";
 import { I_activities } from "@/redux/interfaces";
+import { handleDate } from "@/utils";
 
 export default function Backend() {
     const dispatch = useDispatch();
@@ -47,6 +48,12 @@ export default function Backend() {
 
                 if(title.current) title.current.value = '';
                 if(content.current) content.current.value = '';
+
+                const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
+                if (fileInput) {
+                    fileInput.value = ''; // 清空 file input 的值
+                    setImage(undefined); // 將圖片設置為 undefined 或其他適當的初始值
+                }
             }catch(e) {
                 console.log(e);
             }
@@ -66,9 +73,14 @@ export default function Backend() {
                                 </div>
                                 <div className={styles.contents}>
                                     <h3>{obj.title}</h3>
-                                    <span>
+                                    <span className={styles.content}>
                                         {obj.content}
                                     </span>
+                                    <div className={styles.date}>
+                                        上傳時間: 
+                                        <span>{handleDate(obj.date)}</span>
+                                        <span>{handleDate(obj.date, true)}</span>
+                                    </div>
                                 </div>
                             </aside>
                         )
