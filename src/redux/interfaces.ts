@@ -18,3 +18,10 @@ export enum E_Page {
     REPORT = 'REPORT',
     BACKEND = 'BACKEND',
 }
+
+export interface I_activities {
+    id: string;
+    title: string;
+    content: string;
+    image: string;
+}
