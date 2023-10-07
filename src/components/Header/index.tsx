@@ -8,15 +8,15 @@ import cN from 'classnames';
 import LightBox, { E_direction } from '../LightBox';
 
 const aboutLink = [
-    {ref: '/about/story', name: '品牌故事'},
-    {ref: '/about/message', name: 'Chef’s Message'},
-    {ref: '/about/ingredient', name: '食材使用與介紹'},
+    {ref: '/about/story', name: '品牌故事', en: 'story'},
+    {ref: '/about/message', name: ' 廚師對話', en: 'message'},
+    {ref: '/about/ingredient', name: '食材使用與介紹', en: 'ingredient'},
 ]
 
 const newsLink = [
-    {ref: '/news/report', name: '部落客訪店/媒體報導'},
-    {ref: '/news/activity', name: '活動公告'},
-    {ref: '/news/customer', name: '顧客回饋'},
+    {ref: '/news/report', name: '部落客訪店/媒體報導', en: 'report'},
+    {ref: '/news/activity', name: '活動公告', en: 'activity'},
+    {ref: '/news/customer', name: '顧客回饋', en: 'customer'},
 ]
 
 function Header() {
@@ -89,12 +89,16 @@ function Header() {
 function Listing(items: Array<{
     ref: string,
     name: string,
+    en: string,
 }>, setOpenMenu: Function) {
     return (
         <ul className={styles.Items}>
             {
                 items.map((item, ind) => {
-                    return <Link href={item.ref} key={ind} className={styles.item} onClick={() => setOpenMenu(false)}>{item.name}</Link>
+                    return <Link href={item.ref} key={ind} className={styles.item} onClick={() => setOpenMenu(false)}>
+                        <span>{item.name}</span>
+                        <span>{item.en}</span>
+                    </Link>
                 })
             }
         </ul>

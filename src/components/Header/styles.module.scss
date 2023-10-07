@@ -108,6 +108,14 @@
                     &:hover {
                         color: #fff;
                     }
+
+                    > span {
+                        display: block;
+
+                        &:last-of-type {
+                            font-size: 13px;
+                        }
+                    }
                 }
             }
 
@@ -209,6 +217,11 @@
 
                     &:hover {
                         text-decoration: underline;
+                    }
+
+                    > span:last-of-type {
+                        display: inline-block;
+                        margin-left: 5px;
                     }
                 }
             }
