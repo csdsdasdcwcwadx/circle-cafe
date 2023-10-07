@@ -218,6 +218,11 @@
                     &:hover {
                         text-decoration: underline;
                     }
+
+                    > span:last-of-type {
+                        display: inline-block;
+                        margin-left: 5px;
+                    }
                 }
             }
 
