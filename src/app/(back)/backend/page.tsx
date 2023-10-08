@@ -87,34 +87,36 @@ export default function Backend() {
                     })
                 }
             </div>
-            <LightBox
-                isOpen={isOpen}
-                handleDispatch={setIsOpen}
-                direction={E_direction.TOP}
-                theName={styles.regisblocker}
-            >
-                <div className={styles.regisblocker}>
-                    <InputBar
-                        title="標題"
-                        placeholder="請輸入標題"
-                        type={E_RegexType.NAME}
-                        maxlength={10}
-                        ref={title}
-                    />
-                    <InputBar
-                        title="內文"
-                        placeholder="請輸入內文"
-                        type={E_RegexType.TEXTING}
-                        maxlength={2048}
-                        ref={content}
-                    />
-                    <input type="file" onChange={e => {
-                        const file = e.target.files![0];
-                        setImage(file);
-                    }}/>
-                    <button onClick={handleClick}>點我</button>
-                </div>
-            </LightBox>
+            <div className={styles.lightbox}>
+                <LightBox
+                    isOpen={isOpen}
+                    handleDispatch={setIsOpen}
+                    direction={E_direction.TOP}
+                    theName={styles.regisblocker}
+                >
+                    <div className={styles.regisblocker}>
+                        <InputBar
+                            title="標題"
+                            placeholder="請輸入標題"
+                            type={E_RegexType.NAME}
+                            maxlength={10}
+                            ref={title}
+                        />
+                        <InputBar
+                            title="內文"
+                            placeholder="請輸入內文"
+                            type={E_RegexType.TEXTING}
+                            maxlength={2048}
+                            ref={content}
+                        />
+                        <input type="file" onChange={e => {
+                            const file = e.target.files![0];
+                            setImage(file);
+                        }}/>
+                        <button onClick={handleClick}>送出</button>
+                    </div>
+                </LightBox>
+            </div>
         </div>
     )
 }

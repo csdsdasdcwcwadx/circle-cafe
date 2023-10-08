@@ -12,13 +12,17 @@ body.lockpage {
 
     .close {
         position: absolute;
-        top: 5px;
+        top: 15px;
         right: 10px;
-        color: #fff;
         cursor: pointer;
+        z-index: 1;
 
         i {
+            display: block;
+            width: 20px;
+            height: 20px;
             font-size: 20px;
+            background: url(../../icons/icons8-close.svg) no-repeat;
         }
     }
 

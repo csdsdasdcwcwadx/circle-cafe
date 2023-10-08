@@ -34,9 +34,19 @@
         }
     }
 
-    .regisblocker {
-        display: block;
-        background-color: #fff;
-        padding: 30px;
+    .lightbox {
+        > div:first-of-type {
+            width: 70%;
+        }
+        
+        .regisblocker {
+            display: block;
+            background-color: #fff;
+            padding: 30px;
+
+            textarea {
+                height: 400px;
+            }
+        }
     }
 }

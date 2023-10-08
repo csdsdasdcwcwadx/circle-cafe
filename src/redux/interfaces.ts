@@ -26,3 +26,11 @@ export interface I_activities {
     image: string;
     date: string;
 }
+
+export enum E_Dish {
+    STEAK = '牛排',
+    COFFEE  = '咖啡',
+    PASTA = '義大利麵',
+    BEVARAGE = '飲料',
+    DESSERT = '甜點',
+}

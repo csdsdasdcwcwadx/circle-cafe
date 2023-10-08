@@ -7,14 +7,7 @@ import { E_Page } from '@/redux/interfaces';
 import Image from 'next/image';
 import SteakSrc from '../../image/00-41.jpg';
 import { useState } from 'react';
-
-enum E_Dish {
-    STEAK = '牛排',
-    COFFEE  = '咖啡',
-    PASTA = '義大利麵',
-    BEVARAGE = '飲料',
-    DESSERT = '甜點',
-}
+import { E_Dish } from '@/redux/interfaces';
 
 const foodItems = [
     {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
