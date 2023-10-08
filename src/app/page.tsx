@@ -9,12 +9,13 @@ import  ReactPageScroll  from  'react-page-scroll';
 import Carousel from '@/components/Carousel';
 import { useDispatch } from 'react-redux';
 import { E_Page } from '@/redux/interfaces';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setPage } from '@/redux/actions';
 import Footer from '@/components/Footer';
 import SwapBanner from '@/components/SwapBanner';
 import coffeeSrc from '@/image/1ea5f3a2f2f21e96.png';
 import Image from 'next/image';
+import cN from 'classnames';
 
 const CarouselData = [
   {src: fullSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
@@ -27,14 +28,18 @@ const CarouselData = [
 
 export default function Home() {
   const dispatch = useDispatch();
+  const [preAnimate, setPreAnimate] = useState(true);
 
   useEffect(() => {
     dispatch(setPage(E_Page.HOME));
+
+    setTimeout(() => {
+      setPreAnimate(false);
+    }, 2000)
   },[dispatch])
 
   return (
     <div className={styles.home}>
-      <ReactPageScroll height='calc(100vh - 60px)' animationDuration={1200}>
         <section className={styles.firstpage}>
           <Carousel data={CarouselData}/>
         </section>
@@ -42,19 +47,15 @@ export default function Home() {
           <div className={styles.coffeeimg}>
             <Image src={coffeeSrc} alt='coffee' fill sizes='100%'/>
           </div>
-          {/* <div className={styles.topperImage}>
-            <Image src={topperSrc} alt='steak' sizes='50vw' fill priority/>
-          </div>
-          <h2>
-            <span>食旅 拾</span>
-            <span>circle cafe</span>
-          </h2> */}
         </section>
         <section className={styles.thirdpage}>
           <SwapBanner/>
           <Footer/>
         </section>
-      </ReactPageScroll>
+        <div className={cN(styles.background, {[styles.close]: !preAnimate})}>
+          <div className={styles.left}>拾旅</div>
+          <div className={styles.right}>·食</div>
+        </div>
     </div>
   )
 }

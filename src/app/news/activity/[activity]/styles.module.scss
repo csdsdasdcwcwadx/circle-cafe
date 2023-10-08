@@ -1,0 +1,15 @@
+@import '../../../../common.scss';
+
+.activities {
+    .contents {
+        display: block;
+        color: $riceWhite;
+        text-align: left;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 33px;
+        }
+    }
+}

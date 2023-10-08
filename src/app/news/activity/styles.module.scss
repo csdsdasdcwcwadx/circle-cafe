@@ -1,0 +1,97 @@
+@import '../../../common.scss';
+
+.activity {
+    .articles {
+        .article {
+            position: relative;
+            display: flex;
+            height: 200px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 7px;
+            text-decoration: none;
+            cursor: pointer;
+
+            @include only-mobile {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .frame {
+                position: relative;
+                width: 50%;
+                height: inherit;
+
+                img {
+                    object-fit: cover;
+                }
+
+                @include only-mobile {
+                    height: 200px;
+                    width: 100%;
+                }
+            }
+
+            .content {
+                position: relative;
+                display: block;
+                width: 100%;
+                padding: 15px;
+                background-color: #c9c3c3;
+                text-align: left;
+
+                h2 {
+                    color: #000;
+                    margin: 0;
+                    height: auto;
+                    font-size: 25px;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    display: -webkit-box;
+                    margin: 0 10px;
+                    font-size: 15px;
+                    overflow: hidden;
+                    color: #222;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 5;
+
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        margin-left: 30px;
+                    }
+                }
+                
+                span {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    color: rgb(174 141 96);
+
+                    &::after {
+                        content: '>>';
+                        display: inline-block;
+                        margin-left: 3px;
+                    }
+                }
+
+                @include only-mobile {
+                    height: 100%;
+                    padding: 0;
+                    padding-bottom: 35px;
+                    // background-color: rgba(34, 34, 34, .8);
+
+                    h2, p {
+                        margin: 15px;
+                    }
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
