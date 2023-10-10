@@ -11,7 +11,7 @@ import LightBox, { E_direction } from "@/components/LightBox";
 import { handlepath } from "@/apisource/apiname";
 import { I_activities } from "@/redux/interfaces";
 import { handleDate } from "@/utils";
-import { api_getData, api_postData } from "@/apisource/apiname";
+import { api_getData, api_postData, api_deleteActivities } from "@/apisource/apiname";
 
 function BackActivities() {
     const dispatch = useDispatch();
@@ -39,6 +39,7 @@ function BackActivities() {
             formData.append('title', title.current?.value!);
             formData.append('content', content.current?.value!);
             formData.append('image', image!);
+            
             try {
                 await api_postData(formData);
                 setIsOpen(false);
@@ -59,12 +60,25 @@ function BackActivities() {
         } else alert(error[0].textContent);
     }
 
+    const handleDelete = async (id: string) => {
+        if(confirm('確定要刪除此活動 ? ')) {
+            try {
+                const data = await api_deleteActivities(id);
+                alert(data?.message);
+                location.reload();
+                
+            }catch(e) {
+                console.log(e);
+            }
+        }
+    }
+
     return (
         <div className={styles.backactivities}>
             <button className={styles.addactivities} onClick={()=>setIsOpen(true)}>新增活動</button>
             <div className={styles.display}>
                 {
-                    data && data.map((obj, ind: number) => {
+                    data && data.map((obj, ind) => {
                         return (
                             <aside key={ind}>
                                 <div className={styles.frame}>
@@ -75,10 +89,13 @@ function BackActivities() {
                                     <span className={styles.content}>
                                         {obj.content}
                                     </span>
-                                    <div className={styles.date}>
-                                        上傳時間: 
-                                        <span>{handleDate(obj.date)}</span>
-                                        <span>{handleDate(obj.date, true)}</span>
+                                    <div className={styles.bottomline}>
+                                        <div className={styles.date}>
+                                            上傳時間: 
+                                            <span>{handleDate(obj.date)}</span>
+                                            <span>{handleDate(obj.date, true)}</span>
+                                        </div>
+                                        <button onClick={()=>handleDelete(obj.id)}>刪除</button>
                                     </div>
                                 </div>
                             </aside>
