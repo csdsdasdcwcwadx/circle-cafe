@@ -4,6 +4,7 @@
     main > div {
         margin-top: 0;
         padding: 0;
+        min-height: 300px;
 
         .dishes {
             display: flex;
@@ -127,6 +128,15 @@
                         }
                     }
                 }
+            }
+
+            > div {
+                position: absolute;
+                transform: translate(-50%, 0);
+                left: 50%;
+                display: block;
+                width: 100%;
+                color: $riceWhite;
             }
         }
     }

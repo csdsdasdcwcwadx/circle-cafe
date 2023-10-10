@@ -1,3 +1,4 @@
+import { E_Dish } from "@/redux/interfaces";
 import { I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_POST_SET_getter, I_reInfo } from "./apitype";
 
 export const handlepath = () => {
@@ -67,7 +68,7 @@ export async function api_dishPost(poster: FormData) {
 }
 
 // GET
-export async function api_getDish(type?: string) {
+export async function api_getDish(type?: E_Dish) {
     try {
         const response = await fetch(`${handlepath()}/dishes/getDishes`, {
             headers: {

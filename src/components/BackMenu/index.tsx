@@ -14,6 +14,7 @@ function BackMennu() {
     const [isOpen, setIsOpen] = useState(false);
     const [image, setImage] = useState<File>();
     const [dishData, setDishData] = useState<Array<I_dishes>|undefined>();
+    const [currentType, setCurrentType] = useState<E_Dish>(E_Dish.STEAK);
 
     const inputRefs = {
         title: useRef<HTMLInputElement>(null),
@@ -22,7 +23,7 @@ function BackMennu() {
         type: useRef<HTMLSelectElement>(null),
     }
 
-    const handleClick = async () => {
+    const handlePost = async () => {
         const error = document.getElementsByClassName('error');
         if(error.length === 0) {
             const { title, price, content, type } = inputRefs;
@@ -37,8 +38,7 @@ function BackMennu() {
                 const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
                 await api_dishPost(formData);
                 setIsOpen(false);
-                const data = await api_getDish();
-                setDishData(data?.dishesinfo);
+                setCurrentType(type.current?.value! as E_Dish);
 
                 if(title.current) title.current.value = '';
                 if(price.current) price.current.value = '';
@@ -69,14 +69,21 @@ function BackMennu() {
 
     useEffect(() => {
         (async function() {
-            const data = await api_getDish();
+            const data = await api_getDish(currentType);
             setDishData(data?.dishesinfo);
         })()
-    }, [])
+    }, [currentType])
 
     return (
         <div className={styles.backmenu}>
             <button className={styles.addactivities} onClick={()=>setIsOpen(true)}>新增菜色</button>
+            <ul className={styles.buttons}>
+                {
+                    Object.values<E_Dish>(E_Dish).map((value, ind) => {
+                        return <button key={ind} onClick={() => setCurrentType(value)}>{value}</button>
+                    })
+                }
+            </ul>
             <div className={styles.displays}>
                 {
                     dishData ? dishData.map((obj, ind) => {
@@ -150,7 +157,7 @@ function BackMennu() {
                             const file = e.target.files![0];
                             setImage(file);
                         }}/>
-                        <button onClick={handleClick}>送出</button>
+                        <button onClick={handlePost}>送出</button>
                     </div>
                 </LightBox>
             </div>

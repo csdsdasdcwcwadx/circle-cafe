@@ -1,4 +1,8 @@
 .backmenu {
+    button {
+        cursor: pointer;
+    }
+
     .lightbox {
 
         > div:first-of-type {
@@ -60,10 +64,17 @@
             .date {
                 button {
                     margin-left: 20px;
-                    cursor: pointer;
                 }
             }
             }
+        }
+    }
+
+    .buttons {
+        padding-left: 0;
+
+        button {
+            margin-left: 10px;
         }
     }
 }

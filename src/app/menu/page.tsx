@@ -3,24 +3,25 @@
 import Default from '@/components/Default';
 import styles from './styles.module.scss';
 import MenuSrc from '../../image/下載.jpeg';
-import { E_Page } from '@/redux/interfaces';
+import { E_Page, I_dishes } from '@/redux/interfaces';
 import Image from 'next/image';
-import SteakSrc from '../../image/00-41.jpg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { E_Dish } from '@/redux/interfaces';
-
-const foodItems = [
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-    {imgSrc: SteakSrc, content: '內文內文內文內文內文內文內文內文內文內文', name: '好吃的東西', dollars: 300},
-]
+import { api_getDish, handlepath } from '@/apisource/apiname';
 
 export default function Menu() {
-    const [dish, setDish] = useState<E_Dish>(E_Dish.STEAK);
+    const [currentType, setCurrentType] = useState<E_Dish>(E_Dish.STEAK);
+    const [dishes, setDishes] = useState<Array<I_dishes>|undefined>();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        (async function() {
+            const data = await api_getDish(currentType);
+            setDishes(data?.dishesinfo);
+            setIsLoading(false);
+        })()
+    }, [currentType])
 
     return (
        <Default
@@ -34,28 +35,30 @@ export default function Menu() {
             <ul className={styles.dishes}>
                 {
                     Object.values<E_Dish>(E_Dish).map((value, ind) => {
-                        return <li key={ind} onClick={() => setDish(value)}>{value}</li>
+                        return <li key={ind} onClick={() => setCurrentType(value)}>{value}</li>
                     })
                 }
             </ul>
             <div className={styles.cuisine}>
                 {
-                    foodItems.map((food, ind) => {
-                        return (
-                            <aside key={ind}>
-                                <div className={styles.frame}>
-                                    <Image src={food.imgSrc} alt='food' fill sizes='100%'/>
-                                </div>
-                                <div className={styles.content}>
-                                    <div>
-                                        <span>{food.content}</span>
-                                        <span className={styles.money}>NT$ {food.dollars}</span>
+                    isLoading ? <div className={styles.loading}>loading.....</div>:
+                        dishes && !dishes.length ? <div className={styles.nodata}>目前尚無資料</div>:
+                        dishes && dishes.map((food, ind) => {
+                            return (
+                                <aside key={ind}>
+                                    <div className={styles.frame}>
+                                        <Image src={`${handlepath()}${food.image}`} alt='food' fill sizes='100%'/>
                                     </div>
-                                </div>
-                                <h2>{food.name}</h2>
-                            </aside>
-                        )
-                    })
+                                    <div className={styles.content}>
+                                        <div>
+                                            <span>{food.content}</span>
+                                            <span className={styles.money}>NT$ {food.price}</span>
+                                        </div>
+                                    </div>
+                                    <h2>{food.title}</h2>
+                                </aside>
+                            )
+                        })
                 }
             </div>
        </Default>
