@@ -75,7 +75,6 @@ function Header() {
                         isOverflow={true}
                     >
                         <div className={styles.sideBlock}>
-                            <i className={styles.closeIcon} onClick={()=>setOpenMenu(false)}/>
                             {NavigatingOptions(true)}
                         </div>
                     </LightBox>

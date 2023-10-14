@@ -146,17 +146,7 @@
         padding: 30px;
         background-color: $blueColor;
         color: $goldenColor;
-
-        .closeIcon {
-            position: absolute;
-            right: 30px;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background: url(../../icons/icons8-close.svg) no-repeat;
-            cursor: pointer;
-        }
-
+        
         li {
             position: relative;
             display: block;

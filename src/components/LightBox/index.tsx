@@ -46,7 +46,7 @@ function LightBox ({isOpen, handleDispatch, children, direction, theName, isOver
         <>
             <div className={cN([styles.blocker], 'blocker', styles[direction], {[styles.overflow]: isOverflow})}>
                 <span className={cN(styles.close)} onClick={()=>handleDispatch(false)}>
-                    <i className="icon ic-ln toolclose" />
+                    <i/>
                 </span>
                 {children}
             </div>
