@@ -9,19 +9,35 @@ import { useEffect, useState } from 'react';
 import { E_Dish } from '@/redux/interfaces';
 import { api_getDish, handlepath } from '@/apisource/apiname';
 
+interface I_displayDish {
+    [E_Dish.STEAK]?: Array<I_dishes>;
+    [E_Dish.COFFEE]?: Array<I_dishes>;
+    [E_Dish.PASTA]?: Array<I_dishes>;
+    [E_Dish.BEVARAGE]?: Array<I_dishes>;
+    [E_Dish.DESSERT]?: Array<I_dishes>;
+}
+
 export default function Menu() {
     const [currentType, setCurrentType] = useState<E_Dish>(E_Dish.STEAK);
-    const [dishes, setDishes] = useState<Array<I_dishes>|undefined>();
     const [isLoading, setIsLoading] = useState(true);
+    const [displayDishes, setDisplayDishes] = useState<I_displayDish>();
 
     useEffect(() => {
+        const newSortArr: I_displayDish = {};
+
         setIsLoading(true);
         (async function() {
-            const data = await api_getDish(currentType);
-            setDishes(data?.dishesinfo);
+            const data = await api_getDish();
+
+            data?.dishesinfo.forEach((dish, ind) => {
+                if(!newSortArr[dish.type]) newSortArr[dish.type] = [dish];
+                else newSortArr[dish.type] = [...newSortArr[dish.type]!, dish];
+            });
+
+            setDisplayDishes(newSortArr);
             setIsLoading(false);
         })()
-    }, [currentType])
+    }, [])
 
     return (
        <Default
@@ -42,8 +58,8 @@ export default function Menu() {
             <div className={styles.cuisine}>
                 {
                     isLoading ? <div className={styles.loading}>loading.....</div>:
-                        dishes && !dishes.length ? <div className={styles.nodata}>目前尚無資料</div>:
-                        dishes && dishes.map((food, ind) => {
+                        displayDishes && !displayDishes[currentType] ? <div className={styles.nodata}>目前尚無資料</div>:
+                        displayDishes && displayDishes[currentType]!.map((food, ind) => {
                             return (
                                 <aside key={ind}>
                                     <div className={styles.frame}>
