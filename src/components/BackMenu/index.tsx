@@ -2,8 +2,8 @@
 
 import { memo, useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
-import LightBox, { E_direction } from "../LightBox";
-import InputBar, { E_RegexType } from "@/components/InputBar"
+import LightBox, { E_direction } from "../Modules/LightBox";
+import InputBar, { E_RegexType } from "@/components/Modules/InputBar"
 import { E_Dish, I_dishes } from "@/redux/interfaces";
 import { api_deleteDishes, api_dishPost, api_getDish, handlepath } from "@/apisource/apiname";
 import Image from "next/image";

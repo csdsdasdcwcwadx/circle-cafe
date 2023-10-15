@@ -1,6 +1,6 @@
 'use client';
 
-import Default from '@/components/Default';
+import Default from '@/components/Common/Default';
 import styles from './styles.module.scss';
 import MenuSrc from '../../image/下載.jpeg';
 import { E_Page, I_dishes } from '@/redux/interfaces';

@@ -5,7 +5,7 @@ import { E_Page } from '@/redux/interfaces';
 import steakSrc from '@/image/20221001122155672158.jpg';
 import Image from 'next/image';
 import storySrc from '@/image/FesOdoNUoAEaCAR.jpg';
-import Default from '@/components/Default';
+import Default from '@/components/Common/Default';
 
 export default function Story() {
 

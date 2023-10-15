@@ -1,5 +1,3 @@
-'use client';
-
 import { memo } from 'react';
 import styles from './styles.module.scss';
 import cN from 'classnames';

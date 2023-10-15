@@ -3,7 +3,7 @@
 import styles from './styles.module.scss';
 import { E_Page } from '@/redux/interfaces';
 import envSrc from '@/image/img-03-07-1@2x.jpg';
-import Default from '@/components/Default';
+import Default from '@/components/Common/Default';
 import Image from 'next/image';
 import Link from 'next/link';
 import { handlepath } from '@/apisource/apiname';

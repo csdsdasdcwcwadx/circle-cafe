@@ -1,3 +1,5 @@
+'use client';
+
 import { memo, useState, useEffect, useMemo, useCallback} from "react";
 import Image, { StaticImageData } from 'next/image';
 import styles from './styles.module.scss';

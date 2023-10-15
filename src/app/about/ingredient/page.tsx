@@ -1,6 +1,6 @@
 'use client';
 
-import Default from "@/components/Default";
+import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
 import tastySrc from '@/image/istockphoto-1457889029-612x612.jpg';

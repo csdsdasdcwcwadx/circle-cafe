@@ -1,6 +1,6 @@
 'use client';
 
-import Default from "@/components/Default";
+import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
 import reportSrc from '@/image/下載scaasc.jpeg';

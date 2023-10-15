@@ -1,3 +1,5 @@
+'use client';
+
 import { memo, Fragment, useState, useEffect, ReactNode } from "react";
 import { useDispatch } from "react-redux";
 import { setPage } from "@/redux/actions";
