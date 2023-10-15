@@ -1,8 +1,5 @@
-'use client';
-
-import { memo, Fragment, useState, useEffect, ReactNode } from "react";
-import { useDispatch } from "react-redux";
-import { setPage } from "@/redux/actions";
+import { memo, Fragment, ReactNode } from "react";
+import Setter from "./setter";
 import { E_Page } from "@/redux/interfaces";
 import styles from './styles.module.scss';
 import cN from 'classnames';
@@ -21,17 +18,10 @@ interface I_props {
 
 
 function Default({ children, currentPage, imageSrc, altContent, title, className, faded }: I_props) {
-    const dispatch = useDispatch();
-    const [activate, setActivate] = useState(Boolean(!faded));
-
-    useEffect(() => {
-        dispatch(setPage(currentPage));
-        setActivate(true);
-    }, [dispatch, currentPage])
 
     return (
         <Fragment>
-            <div className={cN(styles.default, {[styles.active]: activate}, className)}>
+            <div className={cN(styles.default, {[styles.active]: faded}, className)}>
                 <div className={styles.mainbanner}>
                     <Image src={imageSrc} alt={altContent} priority width={100} height={100} sizes="100%"/>
                 </div>
@@ -44,6 +34,7 @@ function Default({ children, currentPage, imageSrc, altContent, title, className
                 </main>
             </div>
             <Footer/>
+            <Setter currentPage={currentPage}/>
         </Fragment>
     )
 }

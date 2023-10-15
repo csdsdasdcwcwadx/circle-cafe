@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './styles.module.scss';
 import { E_Page } from '@/redux/interfaces';
 import steakSrc from '@/image/20221001122155672158.jpg';

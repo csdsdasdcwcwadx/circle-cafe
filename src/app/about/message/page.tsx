@@ -1,5 +1,3 @@
-'use client';
-
 import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";

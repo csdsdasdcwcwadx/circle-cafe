@@ -1,5 +1,3 @@
-'use client';
-
 import Default from '@/components/Common/Default';
 import styles from './styles.module.scss';
 import envSrc from '@/image/img-03-07-1@2x.jpg';
