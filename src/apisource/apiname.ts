@@ -5,11 +5,15 @@ export const handlepath = () => {
     return '/local';
 }
 
+export const handleServerPath = () => {
+    return 'http://localhost:3001';
+}
+
 // POST
-export async function api_postData(poster: FormData) {
+export async function api_postData(poster: FormData, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
-        const response = await fetch(`${handlepath()}/activities/set`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/set`, {
             method: "POST",
             body: poster,
             headers: {
@@ -24,9 +28,9 @@ export async function api_postData(poster: FormData) {
 }
 
 // GET
-export async function api_getData(id?: string) {
+export async function api_getData(id?: string, isServer: boolean = false) {
     try {
-        const response = await fetch(`${handlepath()}/activities/getActivities`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -41,10 +45,10 @@ export async function api_getData(id?: string) {
 }
 
 // DELETE
-export async function api_deleteActivities(id?: string) {
+export async function api_deleteActivities(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
-        const response = await fetch(`${handlepath()}/activities/delactivities`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/delactivities`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
@@ -60,10 +64,10 @@ export async function api_deleteActivities(id?: string) {
 }
 
 // POST
-export async function api_dishPost(poster: FormData) {
+export async function api_dishPost(poster: FormData, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
-        const response = await fetch(`${handlepath()}/dishes/set`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/set`, {
             method: "POST",
             body: poster,
             headers: {
@@ -78,9 +82,9 @@ export async function api_dishPost(poster: FormData) {
 }
 
 // GET
-export async function api_getDish(type?: E_Dish) {
+export async function api_getDish(type?: E_Dish, isServer: boolean = false) {
     try {
-        const response = await fetch(`${handlepath()}/dishes/getDishes`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/getDishes`, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -95,10 +99,10 @@ export async function api_getDish(type?: E_Dish) {
 }
 
 // DELETE
-export async function api_deleteDishes(id?: string) {
+export async function api_deleteDishes(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
-        const response = await fetch(`${handlepath()}/dishes/delDishes`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/delDishes`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
@@ -114,10 +118,10 @@ export async function api_deleteDishes(id?: string) {
 }
 
 // LOGIN
-export async function api_login(account?: string, password?: string) {
+export async function api_login(account?: string, password?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
-        const response = await fetch(`${handlepath()}/admin/login`, {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/admin/login`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,

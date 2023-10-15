@@ -20,5 +20,5 @@ export default function Venue() {
                 為身歷其近的人們留存深刻記憶，銘記再度回訪的理由
             </span>
         </Default>
-        )
+    )
 }
