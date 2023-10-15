@@ -41,10 +41,14 @@ function BackActivities() {
             formData.append('image', image!);
             
             try {
-                await api_postData(formData);
+                const result = await api_postData(formData);
                 setIsOpen(false);
-                const data = await api_getData();
-                setData(data?.activitiesinfo);
+
+                if(result?.status) {
+                    const data = await api_getData();
+                    setData(data?.activitiesinfo);
+
+                } else alert(result?.message);
 
                 if(title.current) title.current.value = '';
                 if(content.current) content.current.value = '';

@@ -36,9 +36,12 @@ function BackMennu() {
 
             try {
                 const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
-                await api_dishPost(formData);
-                setIsOpen(false);
-                setCurrentType(type.current?.value! as E_Dish);
+                const result = await api_dishPost(formData);
+
+                if(result?.status) {
+                    setIsOpen(false);
+                    setCurrentType(type.current?.value! as E_Dish);
+                } else alert(result?.message);
 
                 if(title.current) title.current.value = '';
                 if(price.current) price.current.value = '';

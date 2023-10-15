@@ -28,3 +28,9 @@ export interface I_GET_DISHES_GETTER {
     status: boolean;
     dishesinfo: Array<I_dishes>
 }
+
+export interface I_Login {
+    message: string;
+    status: boolean;
+    accessToken?: string;
+}
