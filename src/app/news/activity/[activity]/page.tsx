@@ -1,39 +1,35 @@
-'use client';
-
 import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
-import { useEffect, useState } from "react";
 import { api_getData } from "@/apisource/apiname";
 import { handlepath } from "@/apisource/apiname";
-import { I_activities } from "@/redux/interfaces";
-import Loading from "@/app/loading";
+import { NextRequest } from "next/server";
 
-export default function Activities({params}: {params: {activity: string}}) {
-    const [data, setData] = useState<I_activities|undefined>();
+interface I_Requester extends NextRequest {
+    params: {
+        activity: string;
+    };
+    searchParams: {
+        id: string;
+    }
+}
 
-    useEffect(() => {
-        const url = new URL (window.location.href);
-        const id = url.searchParams.get('id');
-
-        (async function() {
-            const info = await api_getData(id!);
-            setData(info?.activitiesinfo[0]);
-        })()
-    }, [])
+export default async function Activities(req: I_Requester) {
+    const id = req.searchParams.id
+    const activity = await api_getData(id, true);
     
     return (
-        data ? <Default
+        activity && <Default
             className={styles.activities}
-            imageSrc={`${handlepath()}${data.image}`}
+            imageSrc={`${handlepath()}${activity.activitiesinfo[0].image}`}
             currentPage={E_Page.ACTIVITIES}
-            title={params.activity}
+            title={req.params.activity}
             altContent="environment"
             faded
         >
             <span className={styles.contents}>
-                {data.content}
+                {activity.activitiesinfo[0].content}
             </span>
-        </Default> : <Loading/>
+        </Default>
     )
 }

@@ -6,6 +6,10 @@ $riceWhite: #fbefe3;
 
 $pc: 980px;
 
+.serverRender {
+    display: none;
+}
+
 @mixin only-mobile {
     @media all and (max-width: 979px) {
         @content;

@@ -19,7 +19,7 @@
         flex-direction: column;
         text-align: center;
 
-        h2 {
+        > h2 {
             height: 20%;
             margin: 20px 0;
             color: $goldenColor;
@@ -50,7 +50,7 @@
 
     &.active {
         main {
-            h2 {
+            > h2 {
                 animation: fadein 8s ease-in-out;
                 
                 @keyframes fadein {
@@ -65,7 +65,7 @@
             }
 
             .deco {
-                animation: linethrough 8s ease-in-out;
+                animation: linethrough 5s ease-in-out;
 
                 @keyframes linethrough {
                     0% {
