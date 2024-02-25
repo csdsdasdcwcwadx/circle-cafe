@@ -6,17 +6,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import cN from 'classnames';
 import LightBox, { E_direction } from '../../Modules/LightBox';
+import Image from 'next/image';
+import instagramImage from '../../../icons/instagram.png';
+import facebookImage from '../../../icons/facebook.png';
+import LineImage from '../../../icons/Line.png';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事', en: 'story'},
     {ref: '/about/message', name: ' 廚師對話', en: 'message'},
-    {ref: '/about/ingredient', name: '食材使用與介紹', en: 'ingredient'},
 ]
 
 const newsLink = [
     {ref: '/news/report', name: '部落客訪店/媒體報導', en: 'report'},
     {ref: '/news/activity', name: '活動公告', en: 'activity'},
-    {ref: '/news/customer', name: '顧客回饋', en: 'customer'},
 ]
 
 function Header() {
@@ -39,21 +41,9 @@ function Header() {
                     setOpenMenu(false);
                 }}>菜單詳情<span>Menu</span></li>
                 <li onClick={() => {
-                    router.push('/venue');
-                    setOpenMenu(false);
-                }}>包場資訊<span>Venue</span></li>
-                <li onClick={() => {
-                    router.push('/book');
-                    setOpenMenu(false);
-                }}>預約訂位<span>Book</span></li>
-                <li onClick={() => {
                     window.open('https://www.104.com.tw/company/1a2x6bklxq?jobsource=jolist_c_relevance');
                     setOpenMenu(false);
                 }}>夥伴招募<span>Recrew</span></li>
-                <li onClick={() => {
-                    router.push('/contact');
-                    setOpenMenu(false);
-                }}>聯繫我們<span>Contact</span></li>
             </Fragment>
         )
     }
@@ -63,10 +53,13 @@ function Header() {
             <div className={styles.Header}>
                 <div className={styles.padder}>
                     <i className={styles.menuIcon} onClick={()=>setOpenMenu(true)}/>
-                    <div className={styles.logo}>logo</div>
-                    <nav className={cN(styles.navigators)}>
-                        {NavigatingOptions()}
-                    </nav>
+                    <div className={styles.splitter}>
+                        <nav className={cN(styles.navigators)}>
+                            {NavigatingOptions()}
+                        </nav>
+                        <div className={styles.logo}>logo</div>
+                        <Applicationer/>
+                    </div>
                     <LightBox
                         isOpen={openMenu}
                         handleDispatch={setOpenMenu}
@@ -76,12 +69,24 @@ function Header() {
                     >
                         <div className={styles.sideBlock}>
                             {NavigatingOptions(true)}
+                            <Applicationer/>
                         </div>
                     </LightBox>
                 </div>
             </div>
             <div className={styles.blank}></div>
+            <Link className={styles.reservation} href='/book'>預約訂位</Link>
         </>
+    )
+}
+
+function Applicationer() {
+    return (
+        <div className={styles.applicationer}>
+            <Link href=''><Image src={instagramImage} width={28} height={28} alt='instagram'/></Link>
+            <Link href=''><Image src={facebookImage} width={26} height={26} alt='facebook'/></Link>
+            <Link href=''><Image src={LineImage} width={30} height={30} alt='line'/></Link>
+        </div>
     )
 }
 

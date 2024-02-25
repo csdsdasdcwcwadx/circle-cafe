@@ -8,18 +8,60 @@
     height: 40px;
     background-color: $blueColor;
     z-index: 10;
-    height: 60px;
+    height: 80px;
 
     .padder {
         display: flex;
         height: inherit;
         padding: 0 20px;
+
+        .splitter {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            .logo {
+                margin: 0 auto;
+            }
+
+            .applicationer {
+                @include only-mobile {
+                    display: none;
+                }
+            }
+        }
     }
 
     @include only-mobile {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .applicationer {
+        display: flex;
+        align-items: center;
+
+        a {
+            // background-color: $goldenColor;
+            cursor: pointer;
+
+            &:not(:last-of-type) {
+                margin-right: 10px;
+            }
+
+            &.instagram {
+                background: url(../../../icons/instagram.png);
+            }
+        }
+
+        @include only-pc {
+            margin-left: auto;
+        }
+
+        @include only-mobile {
+            padding-left: 15px;
+        }
     }
 
     .logo {
@@ -47,7 +89,7 @@
 
     .navigators {
         display: flex;
-        margin-left: auto;
+        padding-top: 10px;
 
         > li {
             position: relative;
@@ -143,7 +185,7 @@
     .sideBlock {
         position: relative;
         width: 60vw;
-        padding: 30px;
+        padding: 20px;
         background-color: $blueColor;
         color: $goldenColor;
         
@@ -178,7 +220,7 @@
                 }
 
                 &:first-of-type, &:nth-of-type(2) {
-                    margin-bottom: 150px;
+                    margin-bottom: 100px;
                 }
 
                 .Items {
@@ -226,4 +268,34 @@
 
 .blank {
     height: 60px;
+}
+
+.reservation {
+    position: fixed;
+    top: 85px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 50px;
+    border-radius: 12px;
+    border: 0;
+    text-decoration: none;
+    background-color: $blueColor;
+    color: $goldenColor;
+    z-index: 10;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid $goldenColor;
+    }
 }
