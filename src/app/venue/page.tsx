@@ -1,6 +1,4 @@
-'use client';
-
-import Default from '@/components/Default';
+import Default from '@/components/Common/Default';
 import styles from './styles.module.scss';
 import envSrc from '@/image/img-03-07-1@2x.jpg';
 import { E_Page } from '@/redux/interfaces';
@@ -22,5 +20,5 @@ export default function Venue() {
                 為身歷其近的人們留存深刻記憶，銘記再度回訪的理由
             </span>
         </Default>
-        )
+    )
 }

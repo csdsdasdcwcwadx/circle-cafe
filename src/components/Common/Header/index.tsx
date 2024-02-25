@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 import cN from 'classnames';
-import LightBox, { E_direction } from '../LightBox';
+import LightBox, { E_direction } from '../../Modules/LightBox';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事', en: 'story'},

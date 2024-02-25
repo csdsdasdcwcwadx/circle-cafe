@@ -2,9 +2,9 @@
 
 import styles from './styles.module.scss';
 import steakSrc from '../../image/20210819234553_73.jpg';
-import Default from '@/components/Default';
+import Default from '@/components/Common/Default';
 import { E_Page } from '@/redux/interfaces';
-import InputBar, { E_RegexType } from '@/components/InputBar';
+import InputBar, { E_RegexType } from '@/components/Modules/InputBar';
 import { useRef } from 'react';
 
 export default function Contact() {

@@ -1,4 +1,4 @@
-@import '../../common.scss';
+@import '../../../common.scss';
 
 .Header {
     position: fixed;
@@ -37,7 +37,7 @@
         width: 20px;
         height: 20px;
         margin-left: 30px;
-        background: url(../../icons/icons8-menu.svg);
+        background: url(../../../icons/icons8-menu.svg);
         cursor: pointer;
 
         @include only-pc {

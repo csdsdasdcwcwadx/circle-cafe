@@ -2,8 +2,8 @@
 
 import { memo, useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
-import LightBox, { E_direction } from "../LightBox";
-import InputBar, { E_RegexType } from "@/components/InputBar"
+import LightBox, { E_direction } from "../Modules/LightBox";
+import InputBar, { E_RegexType } from "@/components/Modules/InputBar"
 import { E_Dish, I_dishes } from "@/redux/interfaces";
 import { api_deleteDishes, api_dishPost, api_getDish, handlepath } from "@/apisource/apiname";
 import Image from "next/image";
@@ -36,9 +36,12 @@ function BackMennu() {
 
             try {
                 const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
-                await api_dishPost(formData);
-                setIsOpen(false);
-                setCurrentType(type.current?.value! as E_Dish);
+                const result = await api_dishPost(formData);
+
+                if(result?.status) {
+                    setIsOpen(false);
+                    setCurrentType(type.current?.value! as E_Dish);
+                } else alert(result?.message);
 
                 if(title.current) title.current.value = '';
                 if(price.current) price.current.value = '';

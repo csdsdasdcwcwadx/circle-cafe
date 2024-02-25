@@ -1,0 +1,105 @@
+@import '../../../common.scss';
+
+.default {
+    background-image: url(https://www.buna.com.tw/images/bg.jpg);
+
+    .mainbanner {
+        height: 200px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        > h2 {
+            height: 20%;
+            margin: 20px 0;
+            color: $goldenColor;
+            font-size: 50px;
+        }
+
+        .deco {
+            display: block;
+            margin: 0 auto;
+            border-bottom: 2px solid $goldenColor;
+            opacity: .5;
+            width: 80%;
+
+            @include only-mobile {
+                width: 100%;
+            }
+        }
+
+        > div {
+            margin: 60px 0;
+            padding: 0 15%;
+
+            @include only-mobile {
+                padding: 0 50px;
+            }
+        }
+    }
+
+    &.active {
+        main {
+            > h2 {
+                animation: fadein 8s ease-in-out;
+                
+                @keyframes fadein {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .deco {
+                animation: linethrough 5s ease-in-out;
+
+                @keyframes linethrough {
+                    0% {
+                        opacity: 0;
+                        width: 0;
+                    }
+
+                    100% {
+                        opacity: .5;
+                        
+                        @include only-pc {
+                            width: 80%;
+                        }
+
+                        @include only-mobile {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            > div {
+                animation: fadein 8s ease-in-out;
+                
+                @keyframes fadein {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

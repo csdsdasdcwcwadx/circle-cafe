@@ -1,4 +1,4 @@
-@import '../../common.scss';
+@import '../../../../common.scss';
 
 .frame {
     position: relative;
@@ -101,7 +101,7 @@
             left: 5px;
 
             i {
-                background: url(../../icons/left-arrow-backup-2-svgrepo-com.svg) no-repeat;
+                background: url(../../../../icons/left-arrow-backup-2-svgrepo-com.svg) no-repeat;
             }
         }
 
@@ -109,7 +109,7 @@
             right: 5px;
 
             i {
-                background: url(../../icons/right-arrow-backup-2-svgrepo-com.svg) no-repeat;
+                background: url(../../../../icons/right-arrow-backup-2-svgrepo-com.svg) no-repeat;
             }
         }
 

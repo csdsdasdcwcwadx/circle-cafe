@@ -5,9 +5,9 @@ import { E_Page } from "@/redux/interfaces";
 import { memo, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from './styles.module.scss';
-import InputBar, { E_RegexType } from "@/components/InputBar";
+import InputBar, { E_RegexType } from "@/components/Modules/InputBar";
 import Image from "next/image";
-import LightBox, { E_direction } from "@/components/LightBox";
+import LightBox, { E_direction } from "@/components/Modules/LightBox";
 import { handlepath } from "@/apisource/apiname";
 import { I_activities } from "@/redux/interfaces";
 import { handleDate } from "@/utils";
@@ -41,10 +41,14 @@ function BackActivities() {
             formData.append('image', image!);
             
             try {
-                await api_postData(formData);
+                const result = await api_postData(formData);
                 setIsOpen(false);
-                const data = await api_getData();
-                setData(data?.activitiesinfo);
+
+                if(result?.status) {
+                    const data = await api_getData();
+                    setData(data?.activitiesinfo);
+
+                } else alert(result?.message);
 
                 if(title.current) title.current.value = '';
                 if(content.current) content.current.value = '';
