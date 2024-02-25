@@ -13,6 +13,7 @@ export default function message() {
             imageSrc={messageSrc}
             altContent="message"
             title="廚師對話"
+            faded
         >
             <div className={styles.section}>
                 <Image src={iconSrc} alt="icon"/>
