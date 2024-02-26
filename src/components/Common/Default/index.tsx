@@ -28,12 +28,12 @@ function Default({ children, currentPage, imageSrc, altContent, title, className
                 <main>
                     <h2>{title}</h2>
                     <span className={styles.deco}/>
-                    <div>
+                    <div className={styles.contents}>
                         {children}
                     </div>
                 </main>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
             <Setter currentPage={currentPage}/>
         </Fragment>
     )

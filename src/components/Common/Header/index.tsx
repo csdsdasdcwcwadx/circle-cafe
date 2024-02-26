@@ -10,6 +10,8 @@ import Image from 'next/image';
 import instagramImage from '../../../icons/instagram.png';
 import facebookImage from '../../../icons/facebook.png';
 import LineImage from '../../../icons/Line.png';
+import { useSelector } from "react-redux";
+import { E_Page, I_RootState } from '@/redux/interfaces';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事', en: 'story'},
@@ -24,6 +26,7 @@ const newsLink = [
 function Header() {
     const router = useRouter();
     const [openMenu, setOpenMenu] = useState(false);
+    const page = useSelector((store: I_RootState) => store.page);
     
     const NavigatingOptions = (onSide: boolean = false) => {
         return (
@@ -75,7 +78,7 @@ function Header() {
                 </div>
             </div>
             <div className={styles.blank}></div>
-            <Link className={styles.reservation} href='/book'>預約訂位</Link>
+            {page !== E_Page.BOOK && <Link className={styles.reservation} href='/book'>預約訂位</Link>}
         </>
     )
 }
@@ -84,8 +87,8 @@ function Applicationer() {
     return (
         <div className={styles.applicationer}>
             <Link href=''><Image src={instagramImage} width={28} height={28} alt='instagram'/></Link>
-            <Link href=''><Image src={facebookImage} width={26} height={26} alt='facebook'/></Link>
-            <Link href=''><Image src={LineImage} width={30} height={30} alt='line'/></Link>
+            <Link href=''><Image src={facebookImage} width={28} height={28} alt='facebook'/></Link>
+            <Link href='' className={styles.line}><Image src={LineImage} width={30} height={30} alt='line'/></Link>
         </div>
     )
 }

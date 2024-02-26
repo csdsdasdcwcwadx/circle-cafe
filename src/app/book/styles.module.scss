@@ -1,5 +1,59 @@
 @import '../../common.scss';
 
 .book {
-    background-color: $mainBackColor;
+    main > div {
+        display: flex;
+        flex-direction: column;
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            h3 {
+                margin-top: 0;
+            }
+
+            &:not(:first-of-type) {
+                margin-top: 40px;
+            }
+
+            .base {
+                width: 70%;
+                min-height: 100px;
+                padding: 10px;
+                border-radius: 7px;
+                background-color: $goldenColor;
+                text-align: left;
+                // color: $blueColor;
+            }
+
+            .list {
+                li {
+                    list-style-type: none;
+                    width: 400px;
+
+                    // 副標題
+                    & > span:first-of-type {
+                        display: inline-block;
+                        margin-right: 20px;
+                        width: 150px;
+                        text-align: right;
+                        vertical-align: top;
+                        font-weight: bold;
+                    }
+
+                    & > span:last-of-type {
+                        display: inline-block;
+                        width: 200px;
+                        text-align: left;
+                    }
+
+                    &:not(:first-of-type) {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
 }

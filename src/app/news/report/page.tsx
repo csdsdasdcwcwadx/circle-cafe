@@ -16,16 +16,16 @@ export default function Report() {
             faded
         >
             <div className={styles.content}>
-                <span>
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                    故事故事故事故事故事故事故事故事故事故事
-                </span>
-                <Image src={storySrc} alt='storyicon' className={styles.storyicon}/>
+                <div className={styles.youtube}>
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/xNRJwmlRBNU?si=GHazuEEtrwdo_Dqv" 
+                        title="YouTube video player" frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowFullScreen></iframe>
+                </div>
+                {/* <Image src={storySrc} alt='storyicon' className={styles.storyicon}/> */}
             </div>
         </Default>
     )
