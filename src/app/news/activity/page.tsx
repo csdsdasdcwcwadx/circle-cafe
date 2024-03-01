@@ -17,21 +17,26 @@ export default async function Activity() {
             currentPage={E_Page.ACTIVITY}
             imageSrc={envSrc}
             altContent='envSrc'
-            faded
+            // faded
         >
             <div className={styles.articles}>
                 {
                     activities && activities.activitiesinfo.map((activity, ind) => {
                         return (
-                            <Link key={ind} href={`/news/activity/${activity.title}?id=${activity.id}`} className={styles.article}>
+                            <Link key={ind} href={`/news/activity/${activity.title}?id=${activity.id}`} className={styles.news}>
                                 <div className={styles.frame}>
                                     <Image src={`${handlepath()}${activity.image}`} alt={activity.title} fill sizes='100%'/>
                                 </div>
-                                <span className={styles.content}>
-                                    <h2>{activity.title}</h2>
-                                    <p>{activity.content}</p>
-                                    <span>點擊前往</span>
-                                </span>
+                                <div className={styles.wording}>
+                                    <aside className={styles.topper}>
+                                        <h3>{activity.title}</h3>
+                                        <div className={styles.socialmedia}>
+                                            <span className={styles.lineshare}></span>
+                                            <span className={styles.insshare}></span>
+                                        </div>
+                                    </aside>
+                                    <aside className={styles.timerange}>時間區間：500-1000</aside>
+                                </div>
                             </Link>
                         )
                     })

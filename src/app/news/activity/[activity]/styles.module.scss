@@ -1,15 +1,40 @@
 @import '../../../../common.scss';
 
 .activities {
-    .contents {
-        display: block;
-        color: $riceWhite;
-        text-align: left;
+    main {
+        > div {
+            .subtitle {
+                margin: 0;
+                text-align: left;
+            }
+        }
 
-        &::before {
-            content: "";
-            display: inline-block;
-            width: 33px;
+        .lister {
+            display: flex;
+            margin-bottom: 20px;
+
+            h3 {
+                margin-right: 20px;
+            }
+
+            h3, span {
+                font-size: 15px;
+            }
+
+            &.contents {
+                @include only-mobile {
+                    flex-direction: column;
+                    text-align: left;
+
+                    span {
+                        padding-left: 10px;
+                    }
+                }
+
+                h3 {
+                    margin-bottom: 25px;
+                }
+            } 
         }
     }
 }

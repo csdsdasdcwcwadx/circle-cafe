@@ -86,9 +86,9 @@ function Header() {
 function Applicationer() {
     return (
         <div className={styles.applicationer}>
-            <Link href=''><Image src={instagramImage} width={28} height={28} alt='instagram'/></Link>
-            <Link href=''><Image src={facebookImage} width={28} height={28} alt='facebook'/></Link>
-            <Link href='' className={styles.line}><Image src={LineImage} width={30} height={30} alt='line'/></Link>
+            <Link href='https://www.instagram.com/circlecafe.meal' target="_blank"><Image src={instagramImage} width={28} height={28} alt='instagram'/></Link>
+            <Link href='https://www.facebook.com/circlecafeandmeal?locale=zh_TW' target="_blank"><Image src={facebookImage} width={28} height={28} alt='facebook'/></Link>
+            <Link href='' className={styles.line} target="_blank"><Image src={LineImage} width={30} height={30} alt='line'/></Link>
         </div>
     )
 }
