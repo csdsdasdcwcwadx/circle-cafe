@@ -10,6 +10,18 @@ $pc: 980px;
     display: none;
 }
 
+@mixin big-pc {
+    @media all and (min-width: 1600px) {
+        @content;
+    }
+}
+
+@mixin mid-pc {
+    @media (min-width: 980px) and (max-width: 1599px) {
+        @content;
+    }
+}
+
 @mixin only-mobile {
     @media all and (max-width: 979px) {
         @content;
