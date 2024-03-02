@@ -11,7 +11,7 @@ export default function Book() {
             altContent="預約訂位圖片"
             title="預約訂位"
             className={styles.book}
-            faded
+            // faded
         >
             <section>
                 <h3>營業時間</h3>
@@ -39,15 +39,15 @@ export default function Book() {
                 <h3>訂位方式</h3>
                 <aside className={styles.list}>
                     <li>
-                        <span>電話聯絡：</span>
+                        <span>電話聯絡</span>
                         <span>03-12345667</span>
                     </li>
                     <li>
-                        <span>e-mail電子信箱：</span>
+                        <span>e-mail電子信箱</span>
                         <span>abcdefghi@gmail.com</span>
                     </li>
                     <li>
-                        <span>e-mail電子信箱：</span>
+                        <span>e-mail電子信箱</span>
                         <span>請於備註欄備註『我要參加慶生活動』，服務人員會再去電與您確認，或可直接來電洽詢</span>
                     </li>
                 </aside>
