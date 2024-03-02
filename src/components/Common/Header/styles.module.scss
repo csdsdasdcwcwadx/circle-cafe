@@ -34,6 +34,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 60px;
     }
 
     .applicationer {
@@ -91,6 +92,7 @@
         display: flex;
         align-items: center;
         color: $goldenColor;
+        text-decoration: none;
     }
 
     .menuIcon {
@@ -298,6 +300,10 @@
 
 .blank {
     height: 80px;
+
+    @include only-mobile {
+        height: 60px;
+    }
 }
 
 .reservation {

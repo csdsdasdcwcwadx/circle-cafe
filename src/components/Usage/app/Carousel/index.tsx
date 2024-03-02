@@ -18,6 +18,7 @@ function Carousel({data}: I_props) {
     const [focusBanner, setFocusBanner] = useState(0);
     const [trigger, setTrigger] = useState(false);
     const [timerId, setTimerId] = useState<any>(null);
+    // const [atTop, setAtTop] = useState(false);
 
    const startTimer = useCallback(() => {
         const newTimerId = setInterval(() => {
@@ -34,12 +35,18 @@ function Carousel({data}: I_props) {
 
     useEffect(() => {
       startTimer();
+    //   window.addEventListener('scroll', function() {
+    //     const isAtTop = window.scrollY === 0;
+    
+    //     if (isAtTop) setAtTop(true);
+    //     else setAtTop(false);
+    // });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     useEffect(() => {
       setTrigger(false);
-      if(trigger) setFocusBanner(pre=> pre+1 === data.length ? 0 : pre+1);
+      // if(trigger) setFocusBanner(pre=> pre+1 === data.length ? 0 : pre+1);
     }, [trigger, data])
 
     return (
@@ -53,8 +60,8 @@ function Carousel({data}: I_props) {
                     <Image src={info.src} alt={info.alt} fill sizes="100%"/>
                     <div className={cN(styles.others, {[styles.active]: focusBanner === ind})}>
                       <div className={styles.content}>
-                        <div>{info.title}</div>
-                        <span>{info.content}</span>
+                          <div>{info.title}</div>
+                          <span>{info.content}</span>
                       </div>
                     </div>
                   </aside>

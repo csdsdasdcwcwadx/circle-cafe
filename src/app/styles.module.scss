@@ -5,7 +5,11 @@
 
     section {
         position: relative;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 80px);
+
+        @include only-mobile {
+            height: calc(100vh - 60px);
+        }
 
         &.firstpage {
             background-color: #fff;
@@ -18,63 +22,15 @@
         }
 
         &.secondpage {
-            // .topperImage {
-            //     position: relative;
-            //     display: block;
-            //     height: inherit;
-            //     pointer-events: none;
-        
-            //     img {
-            //         object-fit: cover;
-            //         object-position: 98% center;
-            //         user-select: none;
-            //     }
-            // }
-    
-            // h2 {
-            //     position: absolute;
-            //     top: calc(50% - 70px);
-            //     left: 50%;
-            //     transform: translate(-50%, -50%);
-            //     color: $goldenColor;
-            //     animation: fadeIn 3s ease-in-out forwards;
-            //     user-select: none;
-    
-            //     @keyframes fadeIn {
-            //         0% {
-            //           opacity: 0; /* 开始时完全透明 */
-            //         }
-            //         100% {
-            //           opacity: 1; /* 结束时完全不透明 */
-            //         }
-            //     }
-    
-            //     span {
-            //         font-size: 70px;
-            //         font-weight: bold;
-    
-            //         &:last-of-type {
-            //             display: block;
-            //             font-size: 40px;
-            //             text-align: center;
-            //             animation: fadeIn 6s ease-in-out forwards;
-    
-            //             @keyframes fadeIn {
-            //                 0% {
-            //                   opacity: 0; /* 开始时完全透明 */
-            //                 }
-            //                 100% {
-            //                   opacity: 1; /* 结束时完全不透明 */
-            //                 }
-            //             }
-                        
-            //         }
-            //     }
-            // }
-            .coffeeimg {
-                position: relative;
-                width: 400px;
-                height: 400px;
+            position: relative;
+
+            .youtube {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 80%;
             }
         }
 
@@ -82,10 +38,10 @@
             display: flex;
             justify-content: space-between;
 
-            footer {
-                position: absolute;
-                bottom: 0;
-            }
+            // footer {
+            //     position: absolute;
+            //     bottom: 0;
+            // }
         }
     }
 
