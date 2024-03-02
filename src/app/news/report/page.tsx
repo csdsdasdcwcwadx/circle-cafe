@@ -25,7 +25,6 @@ export default function Report() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen></iframe>
                 </div>
-                {/* <Image src={storySrc} alt='storyicon' className={styles.storyicon}/> */}
             </div>
         </Default>
     )
