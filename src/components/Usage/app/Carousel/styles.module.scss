@@ -45,8 +45,9 @@
                 }
 
                 .content {
+                    position: relative;
                     display: flex;
-                    justify-content: space-evenly;
+                    justify-content: center;
                     flex-direction: column;
                     height: 100%;
                     opacity: 0;
@@ -54,12 +55,23 @@
                     transition-delay: 2s;
 
                     div {
-                        margin-bottom: 20px;
-                        font-size: 40px;
+                        font-size: 80px;
                         letter-spacing: 10px;
                         color: rgb(200 200 200);
                         text-shadow: rgb(19, 18, 18) 0.1em 0.1em 0.2em;
+
+                        @include only-mobile {
+                            font-size: 60px;
+                        }
                     }
+
+                    span {
+                        position: absolute;
+                        top: calc(50% + 65px);
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 20px
+                    };
                 }
 
                 &.active {

@@ -7,7 +7,7 @@ import clearSrc from '@/image/golden.jpeg';
 // import  ReactPageScroll  from  'react-page-scroll';
 import Carousel from '@/components/Usage/app/Carousel';
 // import Footer from '@/components/Common/Footer';
-// import SwapBanner from '@/components/Usage/app/SwapBanner';
+import SwapBanner from '@/components/Usage/app/SwapBanner';
 // import coffeeSrc from '@/image/1ea5f3a2f2f21e96.png';
 // import Image from 'next/image';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
@@ -43,7 +43,7 @@ export default function Home() {
           </LazyLoadingComp>
         </section>
         <section className={styles.thirdpage}>
-          {/* <SwapBanner/> */}
+          <SwapBanner/>
           {/* <Footer/> */}
         </section>
         <PreAnimate/>
