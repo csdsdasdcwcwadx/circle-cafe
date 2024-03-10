@@ -61,10 +61,12 @@ function GoogleComment() {
     const [effect, setEffect] = useState(true);
 
     useEffect(() => {
-        api_fetch_google_comment(process.env.GOOGLE_ID!);
-        const firstReviews = reviewer[0];
-        const lastReviewes = reviewer[reviewer.length - 1];
-        setReviews([lastReviewes, ...reviewer, firstReviews]);
+        (async function() {
+            const data = await api_fetch_google_comment(process.env.GOOGLE_ID!);
+            const firstReviews = data[0];
+            const lastReviewes = data[data.length - 1];
+            setReviews([lastReviewes, ...data, firstReviews]);
+        })()
     }, [])
 
     useEffect(() => {
@@ -121,18 +123,18 @@ function GoogleComment() {
 
     return (
         <div className={styles.googlecommment}>
-            <button className={styles.leftclick} onClick={() => !preventDoubleClick && setClick(E_clicktype.left)}>左</button>
+            { reviews && <button className={styles.leftclick} onClick={() => !preventDoubleClick && setClick(E_clicktype.left)}></button> }
             <div className={styles.carding}>
                 {
                     reviews && reviews.map((review, ind) => {
                         return (
-                            <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect})} style={{
-                                marginLeft: `${(ind-rotation)*100}%`
+                            <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect}, {[styles.active]: ind-rotation === 0})} style={{
+                                left: `${(ind-rotation)*100 + 10}%`
                             }}>
                                 <div className={styles.topper}>
                                     <div className={styles.people}>
                                         <Link href={review.author_url}>
-                                            <Image src={review.profile_photo_url} alt={review.author_name} layout="fill"/>
+                                            <Image src={review.profile_photo_url} alt={review.author_name} layout="fill" sizes="100%"/>
                                         </Link>
                                         <span>{review.author_name}</span>
                                     </div>
@@ -151,7 +153,7 @@ function GoogleComment() {
                     })
                 }
             </div>
-            <button className={styles.rightclick} onClick={() => !preventDoubleClick && setClick(E_clicktype.right)}>右</button>
+            { reviews && <button className={styles.rightclick} onClick={() => !preventDoubleClick && setClick(E_clicktype.right)}></button> }
         </div>
     )
 }

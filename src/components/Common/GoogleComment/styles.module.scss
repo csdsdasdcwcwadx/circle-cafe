@@ -1,5 +1,6 @@
 .googlecommment {
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
@@ -7,14 +8,14 @@
 
     .carding {
         position: relative;
-        width: 300px;
+        width: 80%;
         height: 100%;
         overflow: hidden;
 
         .commentcard {
             position: absolute;
             height: 100%;
-            width: 100%;
+            width: 80%;
             background-color: #fff;
             border: 1px solid #b9c0c7;
             border-radius: 12px;
@@ -55,12 +56,12 @@
 
                 .stars {
                     height: 30px;
-                    margin: 5px 0 3px 5px;
+                    margin: 5px 0 3px 8px;
                     background-repeat: no-repeat;
 
                     > span {
                         display: inline-block;
-                        width: 35px;
+                        width: 25px;
                         height: 30px;
                         background-size: 75%;
                         background-repeat: no-repeat;
@@ -82,10 +83,18 @@
 
             .commentcontent {
                 padding: 20px;
+                height: calc(60% - 40px);
 
                 p {
+                    display: -webkit-box;
+                    height: calc(100% - 10px);
+                    margin: 0;
                     color: #222;
                     text-align: left;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 7;
+                    -webkit-box-orient: vertical;
                 }
             }
 
@@ -96,6 +105,17 @@
     }
 
     > button {
+        border: 0;
+        width: 20px;
+        height: 20px;
         cursor: pointer;
+
+        &.leftclick {
+            background: url(../../../icons/left-arrow-backup-2-svgrepo-com.svg);
+        }
+
+        &.rightclick {
+            background: url(../../../icons/right-arrow-backup-2-svgrepo-com.svg);
+        }
     }
 }

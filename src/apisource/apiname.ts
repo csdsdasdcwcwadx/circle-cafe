@@ -141,7 +141,7 @@ export async function api_fetch_google_comment(apikey: string) {
     try {
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?key=${apikey}&placeid=ChIJMTZqYp8haDQRFxD-F4S88Rk`);
         const data: any = await response.json();
-        return data;
+        return data && data.result && data.result.reviews;
     }catch(e) {
         console.log(e);
     }

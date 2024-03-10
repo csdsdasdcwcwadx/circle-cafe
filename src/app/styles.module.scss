@@ -2,8 +2,9 @@
 
 .home {
     background-image: url(https://www.buna.com.tw/images/bg.jpg);
+    padding-bottom: 60px;
 
-    section {
+    > section {
         position: relative;
         height: calc(100vh - 80px);
 
@@ -35,13 +36,7 @@
         }
 
         &.thirdpage {
-            display: flex;
-            justify-content: space-between;
-
-            // footer {
-            //     position: absolute;
-            //     bottom: 0;
-            // }
+            height: auto;
         }
     }
 

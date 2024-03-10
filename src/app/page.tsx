@@ -38,10 +38,11 @@ export default function Home() {
           </LazyLoadingComp>
         </section>
         <section className={styles.thirdpage}>
-          <SwapBanner/>
-          {/* <Footer/> */}
+          <LazyLoadingComp>
+            <SwapBanner/>
+          </LazyLoadingComp>
         </section>
-        {/* <PreAnimate/> */}
+        <PreAnimate/>
     </div>
   )
 }
