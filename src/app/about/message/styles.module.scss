@@ -3,19 +3,20 @@
 .message {
     .section {
         display: flex;
-        align-items: center;
 
         img {
-            width: 80px;
-            height: 80px;
+            width: 200px;
+            height: 400px;
             object-fit: cover;
         }
 
         span {
             display: block;
-            margin-left: 60px;
             color: $riceWhite;
             text-align: left;
+            font-size: 20px;
+            line-height: 30px;
+            margin-left: 80px;
 
             &::before {
                 content: '';
@@ -30,6 +31,7 @@
         }
 
         @include only-mobile {
+            align-items: center;
             flex-direction: column;
         }
     }

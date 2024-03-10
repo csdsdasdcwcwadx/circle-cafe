@@ -6,13 +6,13 @@
             margin: 0 30px;
             font-size: 30px;
 
-            h3 {
-                color: $goldenColor;
+            // h3 {
+            //     color: $goldenColor;
 
-                @include only-mobile {
-                    text-align: center;
-                }
-            }
+            //     @include only-mobile {
+            //         text-align: center;
+            //     }
+            // }
 
             .flexer {
                 display: flex;

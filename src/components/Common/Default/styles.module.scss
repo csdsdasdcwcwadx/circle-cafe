@@ -3,6 +3,7 @@
 .default {
     // background-image: url(https://www.buna.com.tw/images/bg.jpg);
     background-color: #f9e2cb;
+    min-height: calc(100vh - 80px);
 
     .mainbanner {
         height: 270px;

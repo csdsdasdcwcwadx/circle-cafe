@@ -26,23 +26,31 @@ export default function Home() {
         </section>
         <section className={styles.secondpage}>
           <LazyLoadingComp>
-            <div className={styles.youtube}>
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/xNRJwmlRBNU?si=GHazuEEtrwdo_Dqv" 
-                title="YouTube video player" frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen></iframe>
+            <div>
+              <h3>餐廳標題</h3>
+              <div>
+                <div className={styles.youtube}>
+                  {/* <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/xNRJwmlRBNU?si=GHazuEEtrwdo_Dqv" 
+                    title="YouTube video player" frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen></iframe> */}
+                </div>
+                <div>
+                  文字內容
+                </div>
+              </div>
             </div>
           </LazyLoadingComp>
         </section>
-        <section className={styles.thirdpage}>
+        {/* <section className={styles.thirdpage}>
           <LazyLoadingComp>
             <SwapBanner/>
           </LazyLoadingComp>
-        </section>
-        <PreAnimate/>
+        </section> */}
+        {/* <PreAnimate/> */}
     </div>
   )
 }

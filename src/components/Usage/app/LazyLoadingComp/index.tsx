@@ -37,7 +37,7 @@ function LazyLoadingComp({children}: I_props) {
   
     return (
         <div ref={componentRef} className={cN(styles.lazyloading, {[styles.show]: loaded})}>
-            {loaded ? <>{children}</> : <div>Loading...</div>}
+            {children}
         </div>
     );
 }

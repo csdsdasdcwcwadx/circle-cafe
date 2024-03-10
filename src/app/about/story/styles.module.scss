@@ -1,39 +1,64 @@
 @import '../../../common.scss';
 
 .story {
-    p {
-        display: flex;
-        color: $riceWhite;
-        text-align: left;
+    > main > div {
+        padding: 0 8% !important;
 
-        span {
-            margin-right: 60px;
-
-            &::before {
-                content: '';
-                display: inline-block;
-                width: 33px;
-                height: 20px;
+        p {
+            margin: 0 auto;
+            width: 1000px;
+            margin-bottom: 60px;
+            color: $riceWhite;
+            text-align: left;
+    
+            span {
+                font-size: 20px;
+                line-height: 30px;
+    
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 33px;
+                    height: 20px;
+                }
+    
+                @include only-mobile {
+                    margin-right: 0;
+                }
             }
 
+            @include big-pc {
+                width: 1500px;
+            }
+    
+            @include mid-pc {
+                width: 800px;
+            }
+    
             @include only-mobile {
-                margin-right: 0;
+                flex-direction: column-reverse;
+                width: auto;
             }
         }
+    
+        .botimages {
+            display: flex;
+            justify-content: center;
+    
+            > img {
+                object-fit: cover;
+                width: 576px;
+                height: 310px;
+    
+                &:first-of-type {
+                    margin-right: 30px;
+                }
 
-        .storyicon {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-
-            @include only-mobile {
-                margin: 0 auto;
-                margin-bottom: 20px;
+                @include mid-pc {
+                    width: 384px;
+                    height: 216px;
+                }
             }
-        }
-
-        @include only-mobile {
-            flex-direction: column-reverse;
         }
     }
 }

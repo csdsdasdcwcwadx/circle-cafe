@@ -8,7 +8,7 @@ function SwapBanner() {
         <div className={styles.thirdpage}>
             <div className={styles.displayarea}>
                 <section className={styles.area}>
-                    <h3>餐廳資訊</h3>
+                    {/* <h3>餐廳資訊</h3> */}
                     <div className={styles.flexer}>
                         <div className={styles.map}>
                             <GoogleMapper/>

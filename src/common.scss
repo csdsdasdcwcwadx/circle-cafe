@@ -22,6 +22,12 @@ $pc: 980px;
     }
 }
 
+@mixin middler-pc {
+    @media (min-width: 980px) and (max-width: 1300px) {
+        @content;
+    }
+}
+
 @mixin only-mobile {
     @media all and (max-width: 979px) {
         @content;

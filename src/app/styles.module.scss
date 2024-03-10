@@ -6,7 +6,6 @@
 
     > section {
         position: relative;
-        height: calc(100vh - 80px);
 
         @include only-mobile {
             height: calc(100vh - 60px);
@@ -14,6 +13,7 @@
 
         &.firstpage {
             background-color: #fff;
+            height: calc(100vh - 80px);
 
             aside {
                 @include only-mobile {
@@ -24,11 +24,12 @@
 
         &.secondpage {
             position: relative;
+            height: 60vh;
 
             .youtube {
                 position: absolute;
-                top: 50%;
-                left: 50%;
+                // top: 50%;
+                // left: 50%;
                 transform: translate(-50%, -50%);
                 width: 80%;
                 height: 80%;
