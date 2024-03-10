@@ -9,7 +9,7 @@ export const handleServerPath = () => {
     return 'http://localhost:3001';
 }
 
-// POST
+// POST ACTIVITIES
 export async function api_postData(poster: FormData, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
@@ -27,7 +27,7 @@ export async function api_postData(poster: FormData, isServer: boolean = false) 
     }
 }
 
-// GET
+// GET ACTIVITIES
 export async function api_getData(id?: string, isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
@@ -44,7 +44,7 @@ export async function api_getData(id?: string, isServer: boolean = false) {
     }
 }
 
-// DELETE
+// DELETE ACTIVITIES
 export async function api_deleteActivities(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
@@ -63,7 +63,7 @@ export async function api_deleteActivities(id?: string, isServer: boolean = fals
     }
 }
 
-// POST
+// POST DISHES
 export async function api_dishPost(poster: FormData, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
@@ -81,7 +81,7 @@ export async function api_dishPost(poster: FormData, isServer: boolean = false) 
     }
 }
 
-// GET
+// GET DISHES
 export async function api_getDish(type?: E_Dish, isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/getDishes`, {
@@ -98,7 +98,7 @@ export async function api_getDish(type?: E_Dish, isServer: boolean = false) {
     }
 }
 
-// DELETE
+// DELETE DISHES
 export async function api_deleteDishes(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
@@ -130,6 +130,17 @@ export async function api_login(account?: string, password?: string, isServer: b
             body: JSON.stringify({account, password}),
         });
         const data: I_Login = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// GET GOOGLE COMMENT
+export async function api_fetch_google_comment(apikey: string) {
+    try {
+        const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?key=${apikey}&placeid=ChIJMTZqYp8haDQRFxD-F4S88Rk`);
+        const data: any = await response.json();
         return data;
     }catch(e) {
         console.log(e);

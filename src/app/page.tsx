@@ -1,15 +1,10 @@
 import styles from './styles.module.scss';
-// import topperSrc from '@/image/29740091487_1c0c634e53_o.jpg';
 import fullSrc from '@/image/images.jpeg';
 import steakSrc from '@/image/00-41.jpg';
 import wholeSrc from '@/image/20210819234553_73.jpg';
 import clearSrc from '@/image/golden.jpeg';
-// import  ReactPageScroll  from  'react-page-scroll';
 import Carousel from '@/components/Usage/app/Carousel';
-// import Footer from '@/components/Common/Footer';
 import SwapBanner from '@/components/Usage/app/SwapBanner';
-// import coffeeSrc from '@/image/1ea5f3a2f2f21e96.png';
-// import Image from 'next/image';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
 import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
 
@@ -46,7 +41,7 @@ export default function Home() {
           <SwapBanner/>
           {/* <Footer/> */}
         </section>
-        <PreAnimate/>
+        {/* <PreAnimate/> */}
     </div>
   )
 }

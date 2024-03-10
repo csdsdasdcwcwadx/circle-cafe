@@ -134,13 +134,24 @@
     height: calc(100vh - 80px);
     width: 100vw;
 
-    .mapper {
-        width: 50%;
-        height: 50%;
-
-        .mapcontainer {
-            width: 100%;
-            height: 100%;
+    .displayarea {
+        display: flex;
+        height: 300px;
+        
+        .googlemap {
+            width: 50%;
+            color: $goldenColor;
+        }
+    
+        .googlecomment {
+            width: 50%;
+            color: $goldenColor;
+    
+            .comment {
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 70%;
+            }
         }
     }
 }
