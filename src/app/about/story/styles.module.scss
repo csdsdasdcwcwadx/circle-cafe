@@ -8,7 +8,7 @@
             margin: 0 auto;
             width: 1000px;
             margin-bottom: 60px;
-            color: $riceWhite;
+            color: $fontColor;
             text-align: left;
     
             span {
@@ -27,10 +27,6 @@
                 }
             }
 
-            @include big-pc {
-                width: 1500px;
-            }
-    
             @include mid-pc {
                 width: 800px;
             }
@@ -44,6 +40,10 @@
         .botimages {
             display: flex;
             justify-content: center;
+
+            @include only-mobile {
+                flex-direction: column;
+            }
     
             > img {
                 object-fit: cover;
@@ -52,11 +52,22 @@
     
                 &:first-of-type {
                     margin-right: 30px;
+
+                    @include only-mobile {
+                        margin-right: 0;
+                        margin-bottom: 30px;
+                    }
                 }
 
                 @include mid-pc {
                     width: 384px;
                     height: 216px;
+                }
+
+                @include only-mobile {
+                    width: auto;
+                    height: auto;
+                    aspect-ratio: 192/108;
                 }
             }
         }

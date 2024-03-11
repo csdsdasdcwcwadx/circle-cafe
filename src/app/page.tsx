@@ -9,12 +9,12 @@ import PreAnimate from '@/components/Usage/app/PreAnimate';
 import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
 
 const CarouselData = [
-  {src: clearSrc, alt: 'full', content: '內文內文內文', title: '標題標題標題'},
-  {src: steakSrc, alt: 'steak', content: '內文內文內文', title: '標題標題標題'},
-  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
-  {src: fullSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
-  {src: steakSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
-  {src: wholeSrc, alt: 'whole', content: '內文內文內文', title: '標題標題標題'},
+  {src: clearSrc, alt: 'full', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
+  {src: steakSrc, alt: 'steak', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
+  {src: fullSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
+  {src: steakSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
+  {src: wholeSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文', title: '標題標題標題標題'},
 ]
 
 export default function Home() {
@@ -26,30 +26,25 @@ export default function Home() {
         </section>
         <section className={styles.secondpage}>
           <LazyLoadingComp>
-            <div>
-              <h3>餐廳標題</h3>
-              <div>
-                <div className={styles.youtube}>
-                  {/* <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/xNRJwmlRBNU?si=GHazuEEtrwdo_Dqv" 
-                    title="YouTube video player" frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen></iframe> */}
-                </div>
-                <div>
-                  文字內容
-                </div>
+            <div className={styles.displayer}>
+              <div className={styles.youtube}>
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/xNRJwmlRBNU?si=GHazuEEtrwdo_Dqv" 
+                  title="YouTube video player" frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen></iframe>
               </div>
+              <p>內文</p>
             </div>
           </LazyLoadingComp>
         </section>
-        {/* <section className={styles.thirdpage}>
+        <section className={styles.thirdpage}>
           <LazyLoadingComp>
             <SwapBanner/>
           </LazyLoadingComp>
-        </section> */}
+        </section>
         {/* <PreAnimate/> */}
     </div>
   )

@@ -1,7 +1,8 @@
 @import '../common.scss';
 
 .home {
-    background-image: url(https://www.buna.com.tw/images/bg.jpg);
+    // background-image: url(https://www.buna.com.tw/images/bg.jpg);
+    background-color: #f9e2cb;
     padding-bottom: 60px;
 
     > section {
@@ -23,16 +24,23 @@
         }
 
         &.secondpage {
-            position: relative;
             height: 60vh;
+            padding: 30px 90px;
 
-            .youtube {
-                position: absolute;
-                // top: 50%;
-                // left: 50%;
-                transform: translate(-50%, -50%);
-                width: 80%;
-                height: 80%;
+            .displayer {
+                display: flex;
+                align-items: center;
+                height: 60vh;
+
+                .youtube {
+                    width: 700px;
+                    height: 400px;
+                    margin-right: 50px;
+                }
+
+                p {
+                    color: $fontColor;
+                }
             }
         }
 

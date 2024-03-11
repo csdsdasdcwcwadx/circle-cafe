@@ -5,6 +5,7 @@ import { api_getData } from "@/apisource/apiname";
 import { handlepath } from "@/apisource/apiname";
 import { NextRequest } from "next/server";
 import cN from 'classnames';
+import sss from '@/image/1ea5f3a2f2f21e96.png';
 
 interface I_Requester extends NextRequest {
     params: {
@@ -16,13 +17,14 @@ interface I_Requester extends NextRequest {
 }
 
 export default async function Activities(req: I_Requester) {
-    const id = req.searchParams.id
-    const activity = await api_getData(id, true);
+    // const id = req.searchParams.id
+    // const activity = await api_getData(id, true);
     
     return (
-        activity && <Default
+        <Default
             className={styles.activities}
-            imageSrc={`${handlepath()}${activity.activitiesinfo[0].image}`}
+            // imageSrc={`${handlepath()}${activity.activitiesinfo[0].image}`}
+            imageSrc={sss}
             currentPage={E_Page.ACTIVITIES}
             title={req.params.activity}
             altContent="environment"
@@ -46,7 +48,8 @@ export default async function Activities(req: I_Requester) {
             </div>
             <div className={cN(styles.lister, styles.contents)}>
                 <h3 className={styles.subtitle}>活動詳情：</h3>
-                <span>{activity.activitiesinfo[0].content}</span>
+                {/* <span>{activity.activitiesinfo[0].content}</span> */}
+                <span>內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內</span>
             </div>
         </Default>
     )
