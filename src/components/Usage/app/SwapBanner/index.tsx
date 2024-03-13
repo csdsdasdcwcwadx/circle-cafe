@@ -14,13 +14,18 @@ function SwapBanner() {
                             <GoogleMapper/>
                         </div>
                         <div className={styles.info}>
-                            <span>地址</span>
-                            <div>這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊</div>
-                            <span>聯絡方法</span>
-                            <div>{`(03)4336616`}</div>
-                            <div>yuchen@gmail.com</div>
-                            <span>地址</span>
-                            <div>這是地址資訊這是地址資訊這是地址資訊</div>
+                            <div className={styles.qrcode}></div>
+                            <div className={styles.wording}>
+                                <div>地址 / 
+                                    <span> 這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊</span>
+                                </div>
+                                <div>聯絡方法 / 
+                                    <span>{`(03)4336616`} / yuchen@gmail.com</span>
+                                </div>
+                                <div>地址 /  
+                                    <span> 這是地址資訊這是地址資訊這是地址資訊</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
