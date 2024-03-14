@@ -1,13 +1,7 @@
 @import '../common.scss';
 
 .home {
-    // background-image: url(https://www.buna.com.tw/images/bg.jpg);
-    // background-color: #f9e2cb;
     background-image: url(../image/bg10.jpeg);
-    // background-image: linear-gradient(180deg,#fff 25%,hsla(0,0%,100%,.5) 75%),url(../image/bg9.jpeg);
-    // background-image: linear-gradient(0deg, #fff 50%, hsla(0, 0%, 100%, .5) 75%), url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
-    // background-position: 50%;
-    // background-size: cover;
 
     > section {
         position: relative;
@@ -32,7 +26,7 @@
         }
 
         &.secondpage {
-            min-height: 50vh;
+            min-height: 40vh;
             padding: 30px 90px;
 
             .displayer {

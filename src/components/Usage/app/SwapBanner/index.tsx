@@ -26,6 +26,17 @@ function SwapBanner() {
                                     <span> 這是地址資訊這是地址資訊這是地址資訊</span>
                                 </div>
                             </div>
+                            <div className={styles.wording}>
+                                <div>地址 / 
+                                    <span> 這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊這是地址資訊</span>
+                                </div>
+                                <div>聯絡方法 / 
+                                    <span>{`(03)4336616`} / yuchen@gmail.com</span>
+                                </div>
+                                <div>地址 /  
+                                    <span> 這是地址資訊這是地址資訊這是地址資訊</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
