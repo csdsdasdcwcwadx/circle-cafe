@@ -52,14 +52,16 @@ export default function Home() {
           </LazyLoadingComp>
         </section>
         <section className={styles.thirdpage}>
-          <SwapBanner/>
+          <LazyLoadingComp>
+            <SwapBanner/>
+          </LazyLoadingComp>
         </section>
         <section className={styles.forthpage}>
           <LazyLoadingComp>
             <MapperInfo/>
           </LazyLoadingComp>
         </section>
-        {/* <PreAnimate/> */}
+        <PreAnimate/>
     </div>
   )
 }
