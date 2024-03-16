@@ -4,8 +4,9 @@ import steakSrc from '@/image/00-41.jpg';
 import wholeSrc from '@/image/20210819234553_73.jpg';
 import clearSrc from '@/image/golden.jpeg';
 import Carousel from '@/components/Usage/app/Carousel';
-import SwapBanner from '@/components/Usage/app/SwapBanner';
+import MapperInfo from '@/components/Usage/app/MapperInfo';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
+import SwapBanner from '@/components/Usage/app/SwapBanner';
 import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
 
 const CarouselData = [
@@ -51,8 +52,11 @@ export default function Home() {
           </LazyLoadingComp>
         </section>
         <section className={styles.thirdpage}>
+          <SwapBanner/>
+        </section>
+        <section className={styles.forthpage}>
           <LazyLoadingComp>
-            <SwapBanner/>
+            <MapperInfo/>
           </LazyLoadingComp>
         </section>
         {/* <PreAnimate/> */}

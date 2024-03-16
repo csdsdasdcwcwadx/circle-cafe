@@ -27,7 +27,7 @@
 
         &.secondpage {
             min-height: 40vh;
-            padding: 30px 90px;
+            padding: 30px 90px 0;
 
             @include big-pc {
                 padding-bottom: 60px;
@@ -144,7 +144,9 @@
             }
         }
 
-        &.thirdpage {
+        // &.thirdpage {}
+
+        &.forthpage, &.thirdpage {
             height: auto;
         }
     }
