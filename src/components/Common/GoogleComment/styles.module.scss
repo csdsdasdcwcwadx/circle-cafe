@@ -1,0 +1,121 @@
+.googlecommment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    .carding {
+        position: relative;
+        width: 80%;
+        height: 100%;
+        overflow: hidden;
+
+        .commentcard {
+            position: absolute;
+            height: 100%;
+            width: 80%;
+            background-color: #fff;
+            border: 1px solid #b9c0c7;
+            border-radius: 12px;
+            transition: all .5s ease-in-out;
+
+            .topper {
+                height: calc(40% - 20px);
+                padding: 10px;
+                border-bottom: 1px solid #b9c0c7;
+
+                .people {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40%;
+                    text-align: left;
+
+                    > a {
+                        position: relative;
+                        display: block;
+                        height: 100%;
+                        margin-right: 50px;
+    
+                        > img {
+                            width: auto !important;
+                        }
+                    }
+    
+                    > span {
+                        display: block;
+                        color: #222;
+                    }
+                }
+
+                .commenttime {
+                    color: #70757a;
+                }
+
+                .stars {
+                    height: 30px;
+                    margin: 5px 0 3px 8px;
+                    background-repeat: no-repeat;
+
+                    > span {
+                        display: inline-block;
+                        width: 25px;
+                        height: 30px;
+                        background-size: 75%;
+                        background-repeat: no-repeat;
+
+                        &.fullstar {
+                            background-image: url(../../../icons/full_star.png);
+                        }
+
+                        &.halfstar {
+                            background-image: url(../../../icons/half_star.png);
+                        }
+
+                        &.emptystar {
+                            background-image: url(../../../icons/empty_star.png);
+                        }
+                    }
+                }
+            }
+
+            .commentcontent {
+                padding: 20px;
+                height: calc(60% - 40px);
+
+                p {
+                    display: -webkit-box;
+                    height: calc(100% - 10px);
+                    margin: 0;
+                    color: #222;
+                    text-align: left;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 7;
+                    -webkit-box-orient: vertical;
+                }
+            }
+
+            &.disabledeffect {
+                transition: none;
+            }
+        }
+    }
+
+    > button {
+        border: 0;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+
+        &.leftclick {
+            background: url(../../../icons/left-arrow-backup-2-svgrepo-com.svg);
+        }
+
+        &.rightclick {
+            background: url(../../../icons/right-arrow-backup-2-svgrepo-com.svg);
+        }
+    }
+}

@@ -2,7 +2,8 @@ import styles from './styles.module.scss';
 import { E_Page } from '@/redux/interfaces';
 import steakSrc from '@/image/20221001122155672158.jpg';
 import Image from 'next/image';
-import storySrc from '@/image/FesOdoNUoAEaCAR.jpg';
+import firstImg from '@/image/clear.jpg';
+import secondImg from '@/image/images2.jpeg';
 import Default from '@/components/Common/Default';
 
 export default function Story() {
@@ -25,9 +26,17 @@ export default function Story() {
                     故事故事故事故事故事故事故事故事故事故事
                     故事故事故事故事故事故事故事故事故事故事
                     故事故事故事故事故事故事故事故事故事故事
+                    故事故事故事故事故事故事故事故事故事故事
+                    故事故事故事故事故事故事故事故事故事故事
+                    故事故事故事故事故事故事故事故事故事故事
+                    故事故事故事故事故事故事故事故事故事故事
+                    故事故事故事故事故事故事故事故事故事故事
                 </span>
-                <Image src={storySrc} alt='storyicon' className={styles.storyicon}/>
             </p>
+            <div className={styles.botimages}>
+                <Image src={firstImg} alt='第一張圖片'/>
+                <Image src={firstImg} alt='第二張圖片'/>
+            </div>
         </Default>
     )
 }

@@ -1,0 +1,103 @@
+@import '../../../../common.scss';
+
+.thirdpage {
+    .displayarea {
+        .area {
+            font-size: 30px;
+
+            &.comment {
+                height: 500px;
+                margin-bottom: 40px;
+            }
+
+            .flexer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                .map {
+                    width: 80%;
+                    height: 300px;
+                    color: $fontColor;
+                    text-align: center;
+
+                    @include only-mobile {
+                        height: 500px;
+                        width: 95%;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 30px 0;
+                    margin-top: 70px;
+                    color: #fff;
+                    text-align: center;
+                    background-color: #253b4f;
+
+                    .qrcode {
+                        width: 200px;
+                        height: 200px;
+                        background: url(../../../../image/qrcode.png) no-repeat;
+                        background-size: 100%;
+                        margin: 0 50px;
+                    }
+
+                    .wording {
+                        margin-right: 30px;
+
+                        > div {
+                            display: block;
+                            font-size: 25px;
+                            font-weight: bold;
+                            text-align: left;
+    
+                            &:not(:first-of-type) {
+                                margin-top: 30px;
+                            }
+
+                            > span {
+                                font-size: 18px;
+                            }
+
+                            @include only-mobile {
+                                width: 80%;
+                                text-align: center;
+                                margin: 0 auto;
+                            }
+                        }
+
+                        @include only-mobile {
+                            margin-top: 30px;
+                            margin-right: 0;
+                        }
+                    }
+
+                    @include only-mobile {
+                        flex-direction: column;
+                        margin-top: 30px;
+                    }
+                }
+
+                @include only-mobile {
+                    flex-direction: column;
+                }
+            }
+        }
+    
+        .comment {
+            width: 50%;
+            color: $goldenColor;
+    
+            .comment {
+                transform: translate(-50%, -50%);
+                width: 80%;
+                height: 70%;
+            }
+        }
+    }
+}

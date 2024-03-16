@@ -1,8 +1,10 @@
-$goldenColor: rgb(213, 173, 120);
-$blueColor: rgb(7 47 98);
-$darkerBlue: rgb(5 13 64);
-$mainBackColor: rgb(31, 31, 31);
+$goldenColor: #D5AD78;
+$blueColor: #072F62;
+$darkerBlue: #050D40;
+$mainBackColor: #1F1F1F;
 $riceWhite: #fbefe3;
+$fontColor: #1c5c55;
+$fontBasis: #dbdbdb;
 
 $pc: 980px;
 
@@ -18,6 +20,12 @@ $pc: 980px;
 
 @mixin mid-pc {
     @media (min-width: 980px) and (max-width: 1599px) {
+        @content;
+    }
+}
+
+@mixin middler-pc {
+    @media (min-width: 980px) and (max-width: 1300px) {
         @content;
     }
 }

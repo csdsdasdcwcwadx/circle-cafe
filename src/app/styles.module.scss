@@ -1,91 +1,153 @@
 @import '../common.scss';
 
 .home {
-    background-image: url(https://www.buna.com.tw/images/bg.jpg);
+    background-image: url(../image/bg10.jpeg);
 
-    section {
+    > section {
         position: relative;
-        height: calc(100vh - 60px);
+
+        @include only-mobile {
+            height: calc(100vh - 60px);
+        }
 
         &.firstpage {
             background-color: #fff;
+            height: calc(100vh - 80px);
 
             aside {
                 @include only-mobile {
                     width: 100%;
                 }
             }
+
+            @include only-mobile {
+                height: calc(100vh - 60px);
+            }
         }
 
         &.secondpage {
-            // .topperImage {
-            //     position: relative;
-            //     display: block;
-            //     height: inherit;
-            //     pointer-events: none;
-        
-            //     img {
-            //         object-fit: cover;
-            //         object-position: 98% center;
-            //         user-select: none;
-            //     }
-            // }
-    
-            // h2 {
-            //     position: absolute;
-            //     top: calc(50% - 70px);
-            //     left: 50%;
-            //     transform: translate(-50%, -50%);
-            //     color: $goldenColor;
-            //     animation: fadeIn 3s ease-in-out forwards;
-            //     user-select: none;
-    
-            //     @keyframes fadeIn {
-            //         0% {
-            //           opacity: 0; /* 开始时完全透明 */
-            //         }
-            //         100% {
-            //           opacity: 1; /* 结束时完全不透明 */
-            //         }
-            //     }
-    
-            //     span {
-            //         font-size: 70px;
-            //         font-weight: bold;
-    
-            //         &:last-of-type {
-            //             display: block;
-            //             font-size: 40px;
-            //             text-align: center;
-            //             animation: fadeIn 6s ease-in-out forwards;
-    
-            //             @keyframes fadeIn {
-            //                 0% {
-            //                   opacity: 0; /* 开始时完全透明 */
-            //                 }
-            //                 100% {
-            //                   opacity: 1; /* 结束时完全不透明 */
-            //                 }
-            //             }
-                        
-            //         }
-            //     }
-            // }
-            .coffeeimg {
-                position: relative;
-                width: 400px;
-                height: 400px;
+            min-height: 40vh;
+            padding: 30px 90px 0;
+
+            @include big-pc {
+                padding-bottom: 60px;
+            }
+
+            .displayer {
+                display: flex;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+
+                > div {
+                    width: 50%;
+                }
+
+                @include big-pc {
+                    margin-top: 30px;
+                }
+
+                @include middler-pc {
+                    flex-direction: column-reverse;
+                }
+
+                @include only-mobile {
+                    flex-direction: column-reverse;
+                }
+
+                .youtube {
+                    position: relative;
+                    margin-right: 50px;
+                    width: 700px;
+                    height: 400px;
+
+                    iframe {
+                        position: absolute;
+                        // top: 50%;
+                        // left: 50%;
+                        // transform: translate(-50%, -50%);
+
+                        // @include middler-pc {
+                        //     aspect-ratio: 7/4;
+                        // }
+                    }
+
+                    @include mid-pc {
+                        width: 583px;
+                        height: 333px;
+                    }
+
+                    @include middler-pc {
+                        margin-right: 0;
+                        width: 100%;
+                    }
+
+                    @include only-mobile {
+                        width: 100%;
+                        height: 100%;
+                        margin-right: 0;
+                        min-height: 300px;
+                    }
+                }
+
+                .commercontent {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: calc(100% - 60px);
+                    text-align: center;
+
+                    @include middler-pc {
+                        width: 100%;
+                    }
+
+                    @include only-mobile {
+                        height: auto;
+                        width: 100%;
+                        margin: 20px 0 50px;
+                    }
+
+                    > div {
+                        padding: 50px 30px;
+
+                        > div {
+                            margin-bottom: 50px;
+                            font-size: 60px;
+                            text-align: center;
+                        }
+                        p {
+                            color: $fontColor;
+                            line-height: 30px;
+                            font-size: 17px;
+                        }
+
+                        @include mid-pc {
+                            width: 90%;
+                        }
+
+                        @include only-mobile {
+                            padding: 0 30px;
+                        }
+                    }
+                }
+            }
+
+            @include middler-pc {
+                margin-bottom: 80px;
+            }
+
+            @include only-mobile {
+                margin-bottom: 80px;
+                padding: 30px;
+                min-height: auto;
+                height: auto;
             }
         }
 
-        &.thirdpage {
-            display: flex;
-            justify-content: space-between;
+        // &.thirdpage {}
 
-            footer {
-                position: absolute;
-                bottom: 0;
-            }
+        &.forthpage, &.thirdpage {
+            height: auto;
         }
     }
 

@@ -12,9 +12,25 @@
         .lister {
             display: flex;
             margin-bottom: 20px;
+            text-align: left;
+            color: $fontColor;
 
             h3 {
                 margin-right: 20px;
+            }
+
+            span {
+                @include big-pc {
+                    width: 1000px;
+                }
+
+                @include mid-pc {
+                    width: 800px;
+                }
+
+                @include middler-pc {
+                    width: 500px;
+                }
             }
 
             h3, span {

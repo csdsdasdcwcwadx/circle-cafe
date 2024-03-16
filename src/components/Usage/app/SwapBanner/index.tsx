@@ -1,23 +1,23 @@
 'use client';
 
-import { useEffect, useState, memo } from "react";
+import { memo, useEffect, useState } from "react";
+import image1Src from '@/image/mcdongal.jpeg';
+import image2Src from '@/image/maree-taipei-73-jpg.webp';
 import styles from './styles.module.scss';
-import cN from 'classnames';
-import Image from 'next/image';
-import bottomSrc from '@/image/45196969044_3e0fcf8a6c_h.jpg';
-import topperSrc from '@/image/29740091487_1c0c634e53_o.jpg';
-import fullSrc from '@/image/images.jpeg';
+import Image from "next/image";
+import { useMediaQuery } from 'react-responsive';
 
-const bottomDataSrc = [
-    {src: fullSrc, info: '第三張'},
-    {src: bottomSrc, info: '第一張'},
-    {src: topperSrc, info: '第二張'},
-    {src: fullSrc, info: '第三張'},
-    {src: bottomSrc, info: '第一張'},
+const images = [
+    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 1  },
+    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 2  },
+    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片2', id: 3  },
+    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 4  },
+    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 5  },
 ]
 
 let preventDoubleClick = true;
 function SwapBanner() {
+    const isMobile = useMediaQuery({ query: '(max-width: 980px)' });
     const [focuspage, setFocuspage] = useState(1);
     const [onside, setOnside] = useState({side: 0, trigger: false});
 
@@ -31,39 +31,42 @@ function SwapBanner() {
     }, [onside])
 
     return (
-        <div className={styles.frame}>
-            <span className={cN(styles.lefticon, styles.icon)} onClick={() => {
+        <div className={styles.swapbanner}>
+            <span className={styles.lefticon} onClick={() => {
                 if(preventDoubleClick) {
                     if(focuspage-1 < 0) {
                         setOnside({side: 2, trigger: true});
-                        setFocuspage(bottomDataSrc.length-2);
+                        setFocuspage(images.length-2);
                     } else setFocuspage(pre=>pre-1);
     
                     preventDoubleClick = false;
                     setTimeout(() => {
                         preventDoubleClick = true;
-                    }, 1000)
+                    }, 1100)
                 }
-            }}>
-                <i/>
-            </span>
-            {
-                bottomDataSrc.map((data, ind) => {
-                    return (
-                        <aside data-info={data.info} key={ind} style={{
-                            marginLeft: `calc(${100*ind}%  - ${100*focuspage}%)`,
-                            transition: onside.trigger ? 'none' : 'all 1s ease-in-out',
-                        }}>
-                            <div className={styles.bottomsrc} >
-                            <Image src={data.src} alt='123' fill sizes='100%'/>
+            }}><i/></span>
+            <div className={styles.images}>
+                {
+                    images.map((image, ind) => {
+                        return (
+                            <div className={styles.image} key={ind} style={{
+                                marginLeft: isMobile ? `calc(${100*ind}%  - ${100*focuspage}%)` : `${(ind-1)*34}%`,
+                                transition: onside.trigger ? 'none' : 'all 1s ease-in-out',
+                            }}>
+                                <Image src={image.src} alt={image.alt} sizes="100%" fill/>
+                                <div className={styles.content}>
+                                    <h3>{image.title}</h3>
+                                    <span>{image.subtitle}</span>
+                                </div>
+                                <div className={styles.backer}/>
                             </div>
-                        </aside>
-                    )
-                })
-            }
-            <span className={cN(styles.righticon, styles.icon)} onClick={() => {
+                        )
+                    })
+                }
+            </div>
+            <span className={styles.righticon} onClick={() => {
                 if(preventDoubleClick) {
-                    if(bottomDataSrc.length === focuspage+1) {
+                    if(images.length === focuspage+1) {
                         setOnside({side: 1, trigger: true});
                         setFocuspage(1);
                     } else setFocuspage(pre=>pre+1);
@@ -71,11 +74,9 @@ function SwapBanner() {
                     preventDoubleClick = false;
                     setTimeout(() => {
                         preventDoubleClick = true;
-                    }, 1000)
+                    }, 1100)
                 }
-            }}>
-                <i/>
-            </span>
+            }}><i/></span>
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default async function Activity() {
             currentPage={E_Page.ACTIVITY}
             imageSrc={envSrc}
             altContent='envSrc'
-            // faded
+            faded
         >
             <div className={styles.articles}>
                 {

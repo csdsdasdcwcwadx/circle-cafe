@@ -60,7 +60,7 @@ function Header() {
                         <nav className={cN(styles.navigators)}>
                             {NavigatingOptions()}
                         </nav>
-                        <div className={styles.logo}>logo</div>
+                        <Link href='/' className={styles.logo}><div>logo</div></Link>
                         <Applicationer/>
                     </div>
                     <LightBox

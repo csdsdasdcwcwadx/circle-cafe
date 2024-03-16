@@ -1,39 +1,75 @@
 @import '../../../common.scss';
 
 .story {
-    p {
-        display: flex;
-        color: $riceWhite;
-        text-align: left;
+    > main > div {
+        padding: 0 8% !important;
 
-        span {
-            margin-right: 60px;
-
-            &::before {
-                content: '';
-                display: inline-block;
-                width: 33px;
-                height: 20px;
+        p {
+            margin: 0 auto;
+            width: 1000px;
+            margin-bottom: 60px;
+            color: $fontColor;
+            text-align: left;
+    
+            span {
+                font-size: 20px;
+                line-height: 30px;
+    
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 33px;
+                    height: 20px;
+                }
+    
+                @include only-mobile {
+                    margin-right: 0;
+                }
             }
 
+            @include mid-pc {
+                width: 800px;
+            }
+    
             @include only-mobile {
-                margin-right: 0;
+                flex-direction: column-reverse;
+                width: auto;
             }
         }
-
-        .storyicon {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
+    
+        .botimages {
+            display: flex;
+            justify-content: center;
 
             @include only-mobile {
-                margin: 0 auto;
-                margin-bottom: 20px;
+                flex-direction: column;
             }
-        }
+    
+            > img {
+                object-fit: cover;
+                width: 576px;
+                height: 310px;
+    
+                &:first-of-type {
+                    margin-right: 30px;
 
-        @include only-mobile {
-            flex-direction: column-reverse;
+                    @include only-mobile {
+                        margin-right: 0;
+                        margin-bottom: 30px;
+                    }
+                }
+
+                @include mid-pc {
+                    width: 384px;
+                    height: 216px;
+                }
+
+                @include only-mobile {
+                    width: auto;
+                    height: auto;
+                    aspect-ratio: 192/108;
+                }
+            }
         }
     }
 }

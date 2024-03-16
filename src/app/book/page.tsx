@@ -43,11 +43,11 @@ export default function Book() {
                         <span>03-12345667</span>
                     </li>
                     <li>
-                        <span>e-mail電子信箱</span>
+                        <span>電子信箱</span>
                         <span>abcdefghi@gmail.com</span>
                     </li>
                     <li>
-                        <span>e-mail電子信箱</span>
+                        <span>電子信箱</span>
                         <span>請於備註欄備註『我要參加慶生活動』，服務人員會再去電與您確認，或可直接來電洽詢</span>
                     </li>
                 </aside>
