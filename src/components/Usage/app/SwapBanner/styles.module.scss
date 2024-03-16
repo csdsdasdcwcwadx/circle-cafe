@@ -5,13 +5,10 @@
         .area {
             font-size: 30px;
 
-            // h3 {
-            //     color: $goldenColor;
-
-            //     @include only-mobile {
-            //         text-align: center;
-            //     }
-            // }
+            &.comment {
+                height: 500px;
+                margin-bottom: 40px;
+            }
 
             .flexer {
                 display: flex;

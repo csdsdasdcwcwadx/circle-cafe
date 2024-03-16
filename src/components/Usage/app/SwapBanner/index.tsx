@@ -1,13 +1,13 @@
 import { useEffect, useState, memo } from "react";
 import styles from './styles.module.scss';
 import GoogleMapper from '@/components/Common/GoogleMapper';
-import GoogleComment from "@/components/Common/GoogleComment";
+import cN from 'classnames';
 
 function SwapBanner() {
     return (
         <div className={styles.thirdpage}>
             <div className={styles.displayarea}>
-                <section className={styles.area}>
+                <div className={styles.area}>
                     {/* <h3>餐廳資訊</h3> */}
                     <div className={styles.flexer}>
                         <div className={styles.map}>
@@ -39,13 +39,7 @@ function SwapBanner() {
                             </div>
                         </div>
                     </div>
-                </section>
-                <section className={styles.area}>
-                    
-                </section>
-                {/* <div className={styles.comment}>
-                    <GoogleComment/>
-                </div> */}
+                </div>
             </div>
         </div>
     )
