@@ -29,7 +29,6 @@
                 .people {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
                     height: 40%;
                     text-align: left;
 
@@ -37,7 +36,8 @@
                         position: relative;
                         display: block;
                         height: 100%;
-                        margin-right: 50px;
+                        aspect-ratio: 1;
+                        margin-right: 10px;
     
                         > img {
                             width: auto !important;
@@ -52,12 +52,14 @@
 
                 .commenttime {
                     color: #70757a;
+                    text-align: left;
                 }
 
                 .stars {
                     height: 30px;
                     margin: 5px 0 3px 8px;
                     background-repeat: no-repeat;
+                    text-align: left;
 
                     > span {
                         display: inline-block;

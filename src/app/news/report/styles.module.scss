@@ -5,7 +5,7 @@
 
     .youtube {
         width: 100%;
-        height: 500px;
+        aspect-ratio: 7/4;
     }
 
     @include only-mobile {
@@ -29,4 +29,8 @@
         height: 80px;
         object-fit: cover;
     }
+}
+
+.comment {
+    height: 500px;
 }

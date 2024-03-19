@@ -11,6 +11,26 @@
             width: 100%;
             color: $fontColor;
 
+            .half {
+                display: flex;
+
+                aside {
+                    margin-left: 20px;
+
+                    @include only-mobile {
+                        margin-left: 0;
+                    }
+                }
+
+                @include only-mobile {
+                    flex-direction: column;
+
+                    &:not(:first-of-type) {
+                        margin-top: 40px;
+                    }
+                }
+            }
+
             h3 {
                 margin-top: 0;
                 font-size: 30px;

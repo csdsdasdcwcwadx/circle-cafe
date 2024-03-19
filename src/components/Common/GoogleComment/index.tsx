@@ -8,45 +8,6 @@ import cN from 'classnames';
 import { I_reviews } from "@/apisource/apitype";
 import { api_fetch_google_comment } from "@/apisource/apiname";
 
-const reviewer = [
-    {
-        "author_name" : "Hero Chen",
-        "author_url" : "https://www.google.com/maps/contrib/107059735362750625313/reviews",
-        "language" : "zh-Hant",
-        "original_language" : "zh-Hant",
-        "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocLIQMfYfe-vnJhzd6SNpW0SDecP0eVrgFYK-iAxTpy1zu0=s128-c0x00000000-cc-rp-mo",
-        "rating" : 5,
-        "relative_time_description" : "1 個月前",
-        "text" : "環境很優美且舒適。老闆處處用心，食材與料理都是精心挑選製作的。以後會常來❤️",
-        "time" : 1704904687,
-        "translated" : false
-    },
-    {
-        "author_name" : "Kate Chen",
-        "author_url" : "https://www.google.com/maps/contrib/110670404072620252345/reviews",
-        "language" : "zh-Hant",
-        "original_language" : "zh-Hant",
-        "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjWpDOkauGgXN24wHB-hlkTProllYpMLD5XOOKph8PhiESOp=s128-c0x00000000-cc-rp-mo-ba6",
-        "rating" : 5,
-        "relative_time_description" : "2 個月前",
-        "text" : "在這裡享用了瑪格麗特披薩、柳橙汁。\n坐在靠窗的位置，可以看見庭院裡種的香草植物、山茶等花卉，覺得氣氛很好，服務態度也好。",
-        "time" : 1703249134,
-        "translated" : false
-    },
-    {
-        "author_name" : "Hu Betta",
-        "author_url" : "https://www.google.com/maps/contrib/112672409759334511631/reviews",
-        "language" : "zh-Hant",
-        "original_language" : "zh-Hant",
-        "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocINMJlsGmsb-RkqXcUu4ZSPNLbl7pO7CqeoOTJNNa4R2Q=s128-c0x00000000-cc-rp-mo-ba6",
-        "rating" : 4,
-        "relative_time_description" : "4 個月前",
-        "text" : "環境：🌟🌟🌟🌟🌟\n餐廳內外環境都很好，停車也十分方便。\n服務：🌟🌟🌟🌟🌟\n態度十分親切，詳盡的介紹餐點，謝謝🙏\n餐點：🌟🌟🌟🌟\n有些餐點還不錯吃，有些味道則普通。\n甜點：🌟🌟🌟\n今日選了布朗尼及檸檬塔兩款甜點，口味真的很一般。\n咖啡：🌟🌟🌟\n鬆餅：🌟🌟🌟",
-        "time" : 1697353316,
-        "translated" : false
-    },
-]
-
 enum E_clicktype {
     origin = 0,
     right = 1,

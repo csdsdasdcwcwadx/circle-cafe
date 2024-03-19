@@ -14,18 +14,20 @@ export default function Book() {
             // faded
         >
             <section>
-                <h3>營業時間</h3>
-                <aside>
-                    <div>平日11:00-21:00</div>
-                    <div>平日11:00-21:00</div>
-                </aside>
-            </section>
-            <section>
-                <h3>供餐時間</h3>
-                <aside>
-                    <div>11:00-14:30</div>
-                    <div>11:00-14:30</div>
-                </aside>
+                <div className={styles.half}>
+                    <h3>營業時間</h3>
+                    <aside>
+                        <div>平日11:00-21:00</div>
+                        <div>平日11:00-21:00</div>
+                    </aside>
+                </div>
+                <div className={styles.half}>
+                    <h3>供餐時間</h3>
+                    <aside>
+                        <div>11:00-14:30</div>
+                        <div>11:00-14:30</div>
+                    </aside>
+                </div>
             </section>
             <section>
                 <h3>包場資訊</h3>

@@ -21,7 +21,7 @@ export default function RootLayout({
       <head>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
       </head>
-      <body className='locker'>
+      <body>
         <Providers>
           <nav className='header'>
             <Header/>

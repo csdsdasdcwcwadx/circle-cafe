@@ -5,6 +5,7 @@ import Image from 'next/image';
 import firstImg from '@/image/clear.jpg';
 import secondImg from '@/image/images2.jpeg';
 import Default from '@/components/Common/Default';
+import signSrc from '@/icons/Jacky文字圖.png';
 
 export default function Story() {
 
@@ -37,6 +38,9 @@ export default function Story() {
                 <Image src={firstImg} alt='第一張圖片'/>
                 <Image src={firstImg} alt='第二張圖片'/>
             </div>
+            {/* <span>
+                <Image src={signSrc} alt='Jacky'/>
+            </span> */}
         </Default>
     )
 }
