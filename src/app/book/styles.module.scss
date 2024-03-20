@@ -51,12 +51,6 @@
                     border-radius: 7px;
                     background-color: $fontBasis;
                     text-align: left;
-                    // color: $blueColor;
-
-                    @include only-mobile {
-                        margin: 0 auto;
-                        width: 90%;
-                    }
                 }
     
                 &.list {
@@ -90,6 +84,11 @@
                     }
                 }
 
+                &.map {
+                    width: 80%;
+                    aspect-ratio: 2;
+                }
+
                 @include only-mobile {
                     &.list {
                         li {
@@ -112,6 +111,15 @@
                                 }
                             }
                         }
+                    }
+
+                    &.base {
+                        margin: 0 auto;
+                        width: 90%;
+                    }
+
+                    &.map {
+                        margin: 0 auto;
                     }
                 }
             }

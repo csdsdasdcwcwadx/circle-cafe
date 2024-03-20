@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState, useMemo } from "react";
 import styles from './styles.module.scss'
 import Image from "next/image";
 import Link from "next/link";
@@ -14,19 +14,28 @@ enum E_clicktype {
     left = 2,
 }
 
+const displayCount = 3;
+
 let preventDoubleClick = false;
 function GoogleComment() {
     const [reviews, setReviews] = useState<Array<I_reviews>>();
-    const [rotation, setRotation] = useState(1);
+    const [rotation, setRotation] = useState(displayCount);
     const [click, setClick] = useState<E_clicktype>(E_clicktype.origin);
     const [effect, setEffect] = useState(true);
 
+    // 設定初始化評論數量
     useEffect(() => {
         (async function() {
-            const data = await api_fetch_google_comment(process.env.GOOGLE_ID!);
-            const firstReviews = data[0];
-            const lastReviewes = data[data.length - 1];
-            setReviews([lastReviewes, ...data, firstReviews]);
+            const data: Array<I_reviews> = await api_fetch_google_comment(process.env.GOOGLE_ID!);
+            const frontArr: I_reviews[] = [];
+            const backArr: I_reviews[] = [];
+
+            Array.from({length: displayCount}).forEach((_, ind) => {
+                frontArr.push(data[ind]);
+                backArr.unshift(data[data.length-1-ind]);
+            })
+            console.log([...backArr, ...data, ...frontArr])
+            setReviews([...backArr, ...data, ...frontArr]);
         })()
     }, [])
 
@@ -41,22 +50,22 @@ function GoogleComment() {
                 case E_clicktype.left:
                     // rotation = 0
                     if(!rotation) {
-                        setRotation(reviews.length - 2);
+                        setRotation(reviews.length - displayCount*2);
                         setEffect(false);
                         setTimeout(() => {
                             setEffect(true);
-                            setRotation(reviews.length - 3);
+                            setRotation(reviews.length - 1 - displayCount*2);
                         }, 20)
                     }
                     else setRotation(pre => pre - 1);
                     break;
                 case E_clicktype.right:
-                    if(rotation+1 >= reviews.length) {
+                    if(rotation+displayCount >= reviews.length) {
                         setEffect(false);
-                        setRotation(1);
+                        setRotation(displayCount);
                         setTimeout(() => {
                             setEffect(true);
-                            setRotation(2);
+                            setRotation(displayCount + 1);
                         }, 20)
                     }
                     else setRotation(pre => pre + 1);
@@ -82,6 +91,10 @@ function GoogleComment() {
         })
     }, [])
 
+    const rotateCalculation = useCallback((ind: number) => {
+        return (ind-rotation)*(100/displayCount) + (10/displayCount);
+    }, [rotation])
+
     return (
         <div className={styles.googlecommment}>
             { reviews && <button className={styles.leftclick} onClick={() => !preventDoubleClick && setClick(E_clicktype.left)}></button> }
@@ -90,7 +103,8 @@ function GoogleComment() {
                     reviews && reviews.map((review, ind) => {
                         return (
                             <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect}, {[styles.active]: ind-rotation === 0})} style={{
-                                left: `${(ind-rotation)*100 + 10}%`
+                                left: `${rotateCalculation(ind)}%`,
+                                width: `${80 / displayCount}%`
                             }}>
                                 <div className={styles.topper}>
                                     <div className={styles.people}>

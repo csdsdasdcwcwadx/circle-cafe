@@ -1,36 +1,74 @@
 @import '../../../common.scss';
 
-.content {
-    display: flex;
-
-    .youtube {
-        width: 100%;
-        aspect-ratio: 7/4;
-    }
-
-    @include only-mobile {
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    span {
-        display: inline-block;
-        margin-right: 60px;
-        color: $riceWhite;
-
-        @include only-mobile {
-            margin-right: 0;
-            margin-top: 20px;
+.report {
+    main > div {
+        @include only-pc {
+            padding: 0 5% !important;
         }
     }
+    .content {
+        display: flex;
+        align-items: center;
+    
+        .youtube {
+            width: 60%;
+            aspect-ratio: 7/4;
+        }
+    
+        p {
+            color: $fontColor;
+            margin: 50px 0 50px 40px;
+            width: 30%;
+            font-size: 20px;
+        }
+    
+        @include only-mobile {
+            flex-direction: column;
+            align-items: center;
 
-    img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
+            .youtube {
+                width: 100%;
+            }
+
+            p {
+                width: 80%;
+                margin-left: 0;
+            }
+        }
+    
+        span {
+            display: inline-block;
+            margin-right: 60px;
+            color: $riceWhite;
+    
+            @include only-mobile {
+                margin-right: 0;
+                margin-top: 20px;
+            }
+        }
+    
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
     }
-}
+    
+    .comment {
+        h3 {
+            font-size: 50px;
 
-.comment {
-    height: 500px;
+            @include big-pc {
+                margin-top: 70px;
+            }
+
+            @include only-mobile {
+                margin-top: 0;
+            }
+        }
+
+        .commenter {
+            height: 500px;
+        }
+    }
 }
