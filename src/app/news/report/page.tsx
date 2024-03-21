@@ -25,9 +25,15 @@ export default function Report() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen></iframe>
                 </div>
-                <p>文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容
-                文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容
-                </p>
+                <div className={styles.videocontent}>
+                    <div className={styles.title}>
+                        <h3>𝓞𝓾𝓻 𝓢𝓽𝓸𝓻𝔂</h3>
+                        <h3>標題標題標題標題</h3>
+                    </div>
+                    <p>文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容
+                    文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容文字內容
+                    </p>
+                </div>
             </div>
             <div className={styles.comment}>
                 <h3>𝓖𝓸𝓸𝓰𝓵𝓮 𝓒𝓸𝓶𝓶𝓮𝓷𝓽𝓼</h3>

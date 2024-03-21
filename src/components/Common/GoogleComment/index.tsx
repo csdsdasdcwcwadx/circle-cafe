@@ -7,6 +7,7 @@ import Link from "next/link";
 import cN from 'classnames';
 import { I_reviews } from "@/apisource/apitype";
 import { api_fetch_google_comment } from "@/apisource/apiname";
+import { useMediaQuery } from 'react-responsive';
 
 enum E_clicktype {
     origin = 0,
@@ -19,9 +20,13 @@ const displayCount = 3;
 let preventDoubleClick = false;
 function GoogleComment() {
     const [reviews, setReviews] = useState<Array<I_reviews>>();
-    const [rotation, setRotation] = useState(displayCount);
     const [click, setClick] = useState<E_clicktype>(E_clicktype.origin);
     const [effect, setEffect] = useState(true);
+    const isMobile = useMediaQuery({ query: '(max-width: 980px)' });
+    const displayCount = useMemo(() => {
+        return isMobile ? 1 : 3;
+    }, [isMobile])
+    const [rotation, setRotation] = useState(displayCount);
 
     // 設定初始化評論數量
     useEffect(() => {
@@ -34,9 +39,9 @@ function GoogleComment() {
                 frontArr.push(data[ind]);
                 backArr.unshift(data[data.length-1-ind]);
             })
-            console.log([...backArr, ...data, ...frontArr])
             setReviews([...backArr, ...data, ...frontArr]);
         })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -72,6 +77,7 @@ function GoogleComment() {
                     break;
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [click, reviews, rotation])
 
     const handleStars = useCallback((rating: number) => {
@@ -93,6 +99,7 @@ function GoogleComment() {
 
     const rotateCalculation = useCallback((ind: number) => {
         return (ind-rotation)*(100/displayCount) + (10/displayCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rotation])
 
     return (
@@ -102,23 +109,23 @@ function GoogleComment() {
                 {
                     reviews && reviews.map((review, ind) => {
                         return (
-                            <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect}, {[styles.active]: ind-rotation === 0})} style={{
+                            <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect}, {[styles.active]: rotateCalculation(ind) < 100 && rotateCalculation(ind) > 0})} style={{
                                 left: `${rotateCalculation(ind)}%`,
                                 width: `${80 / displayCount}%`
                             }}>
                                 <div className={styles.topper}>
-                                    <div className={styles.people}>
-                                        <Link href={review.author_url}>
-                                            <Image src={review.profile_photo_url} alt={review.author_name} layout="fill" sizes="100%"/>
-                                        </Link>
-                                        <span>{review.author_name}</span>
+                                    <Link href={review.author_url} className={styles.peopleimg}>
+                                        <Image src={review.profile_photo_url} alt={review.author_name} layout="fill" sizes="100%"/>
+                                    </Link>
+                                    <div className={styles.peopleinfo}>
+                                        <div className={styles.peoplename}>{review.author_name}</div>
+                                        <div className={styles.stars}>
+                                            {
+                                                handleStars(review.rating)
+                                            }
+                                        </div>
+                                        <div className={styles.commenttime}>{review.relative_time_description}</div>
                                     </div>
-                                    <div className={styles.stars}>
-                                        {
-                                            handleStars(review.rating)
-                                        }
-                                    </div>
-                                    <div className={styles.commenttime}>{review.relative_time_description}</div>
                                 </div>
                                 <div className={styles.commentcontent}>
                                     <p>{review.text}</p>

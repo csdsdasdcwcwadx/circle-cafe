@@ -2,24 +2,52 @@
 
 .report {
     main > div {
-        @include only-pc {
-            padding: 0 5% !important;
-        }
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .content {
         display: flex;
+        justify-content: space-around;
         align-items: center;
+        padding: 0 10%;
+        margin-top: 20px;
     
         .youtube {
-            width: 60%;
+            flex: 1;
             aspect-ratio: 7/4;
         }
-    
-        p {
-            color: $fontColor;
-            margin: 50px 0 50px 40px;
-            width: 30%;
-            font-size: 20px;
+
+        .videocontent {
+            width: 40%;
+            margin-left: 70px;
+
+            .title {
+                h3 {
+                    margin: 0;
+                    font-size: 50px;
+                }
+            }
+
+            p {
+                color: $fontColor;
+                margin: 50px 0;
+                font-size: 20px;
+            }
+
+            @include middler-pc {
+                width: 50%;
+            }
+
+            @include only-mobile {
+                flex: 1;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 30px;
+            }
+        }
+
+        @include middler-pc {
+            padding: 0 5%;
         }
     
         @include only-mobile {
@@ -31,7 +59,6 @@
             }
 
             p {
-                width: 80%;
                 margin-left: 0;
             }
         }
@@ -55,16 +82,22 @@
     }
     
     .comment {
-        h3 {
-            font-size: 50px;
+        padding-top: 30px;
+        // background-color: $blueColor;
+        background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
 
-            @include big-pc {
-                margin-top: 70px;
-            }
+        h3 {
+            margin: 0;
+            font-size: 50px;
+            color: $goldenColor;
 
             @include only-mobile {
                 margin-top: 0;
             }
+        }
+
+        @include only-pc {
+            margin-top: 70px;
         }
 
         .commenter {
