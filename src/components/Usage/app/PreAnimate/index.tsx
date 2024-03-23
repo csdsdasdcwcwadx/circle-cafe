@@ -14,11 +14,10 @@ function PreAnimate() {
     useEffect(() => {
         dispatch(setPage(E_Page.HOME));
         const body = document.getElementsByTagName('body')[0];
-        body.style.overflow = 'hidden';
     
         setTimeout(() => {
           setPreAnimate(false);
-          body.style.overflow = 'auto';
+          body.classList.remove('locker');
         }, 2000)
       },[dispatch])
 

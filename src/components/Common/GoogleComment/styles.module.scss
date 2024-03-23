@@ -1,3 +1,5 @@
+@import '../../../common.scss';
+
 .googlecommment {
     display: flex;
     align-items: center;
@@ -8,82 +10,80 @@
 
     .carding {
         position: relative;
-        width: 80%;
-        height: 100%;
+        width: 90%;
+        height: 80%;
         overflow: hidden;
 
         .commentcard {
             position: absolute;
             height: 100%;
-            width: 80%;
             background-color: #fff;
-            border: 1px solid #b9c0c7;
+            // border: 1px solid #b9c0c7;
             border-radius: 12px;
             transition: all .5s ease-in-out;
 
             .topper {
-                height: calc(40% - 20px);
-                padding: 10px;
+                display: flex;
+                align-items: center;
+                height: calc(25% - 20px);
+                padding: 20px;
                 border-bottom: 1px solid #b9c0c7;
 
-                .people {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 40%;
-                    text-align: left;
+                .peopleimg {
+                    position: relative;
+                    height: 100%;
+                    margin-right: 20px;
+                    aspect-ratio: 1;
+                }
 
-                    > a {
-                        position: relative;
-                        display: block;
-                        height: 100%;
-                        margin-right: 50px;
-    
-                        > img {
-                            width: auto !important;
+                .peopleinfo {
+                    > div {
+                        &:not(:first-of-type) {
+                            margin-top: 5px;
                         }
                     }
-    
-                    > span {
-                        display: block;
-                        color: #222;
+
+                    .peoplename {
+                        font-size: 18px;
+                        text-align: left;
                     }
-                }
 
-                .commenttime {
-                    color: #70757a;
-                }
-
-                .stars {
-                    height: 30px;
-                    margin: 5px 0 3px 8px;
-                    background-repeat: no-repeat;
-
-                    > span {
-                        display: inline-block;
-                        width: 25px;
-                        height: 30px;
-                        background-size: 75%;
+                    .commenttime {
+                        color: #b2b2b2;
+                        text-align: left;
+                    }
+    
+                    .stars {
+                        height: 20px;
                         background-repeat: no-repeat;
-
-                        &.fullstar {
-                            background-image: url(../../../icons/full_star.png);
-                        }
-
-                        &.halfstar {
-                            background-image: url(../../../icons/half_star.png);
-                        }
-
-                        &.emptystar {
-                            background-image: url(../../../icons/empty_star.png);
+                        text-align: left;
+    
+                        > span {
+                            display: inline-block;
+                            width: 25px;
+                            height: 100%;
+                            background-size: 75%;
+                            background-repeat: no-repeat;
+    
+                            &.fullstar {
+                                background-image: url(../../../icons/full_star.png);
+                            }
+    
+                            &.halfstar {
+                                background-image: url(../../../icons/half_star.png);
+                            }
+    
+                            &.emptystar {
+                                background-image: url(../../../icons/empty_star.png);
+                            }
                         }
                     }
                 }
             }
 
             .commentcontent {
-                padding: 20px;
-                height: calc(60% - 40px);
+                padding: 30px;
+                height: calc(75% - 85px);
 
                 p {
                     display: -webkit-box;
@@ -93,14 +93,24 @@
                     text-align: left;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    -webkit-line-clamp: 7;
+                    line-height: 25px;
+                    -webkit-line-clamp: 9;
                     -webkit-box-orient: vertical;
+                    font-size: 20px;
                 }
             }
 
             &.disabledeffect {
                 transition: none;
             }
+
+            &.active {
+                display: block;
+            }
+        }
+
+        @include middler-pc {
+            width: 90%;
         }
     }
 

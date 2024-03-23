@@ -4,3 +4,7 @@ body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace, 'cwTeXYen';
 }
+
+body.locker {
+    overflow: hidden;
+}

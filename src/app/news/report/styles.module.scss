@@ -1,32 +1,107 @@
 @import '../../../common.scss';
 
-.content {
-    display: flex;
-
-    .youtube {
-        width: 100%;
-        height: 500px;
+.report {
+    main > div {
+        padding: 0 !important;
+        margin: 0 !important;
     }
-
-    @include only-mobile {
-        flex-direction: column-reverse;
+    .content {
+        display: flex;
+        justify-content: space-around;
         align-items: center;
-    }
+        padding: 0 10%;
+        margin-top: 20px;
+    
+        .youtube {
+            flex: 1;
+            aspect-ratio: 7/4;
+        }
 
-    span {
-        display: inline-block;
-        margin-right: 60px;
-        color: $riceWhite;
+        .videocontent {
+            width: 40%;
+            margin-left: 70px;
 
+            .title {
+                h3 {
+                    margin: 0;
+                    font-size: 50px;
+                }
+            }
+
+            p {
+                color: $fontColor;
+                margin: 50px 0;
+                font-size: 20px;
+            }
+
+            @include middler-pc {
+                width: 50%;
+            }
+
+            @include only-mobile {
+                flex: 1;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 30px;
+            }
+        }
+
+        @include middler-pc {
+            padding: 0 5%;
+        }
+    
         @include only-mobile {
-            margin-right: 0;
-            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+
+            .youtube {
+                width: 100%;
+            }
+
+            p {
+                margin-left: 0;
+            }
+        }
+    
+        span {
+            display: inline-block;
+            margin-right: 60px;
+            color: $riceWhite;
+    
+            @include only-mobile {
+                margin-right: 0;
+                margin-top: 20px;
+            }
+        }
+    
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
         }
     }
+    
+    .comment {
+        padding-top: 30px;
+        // background-color: $blueColor;
+        background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
 
-    img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
+        h3 {
+            margin: 0;
+            font-size: 50px;
+            color: $goldenColor;
+
+            @include only-mobile {
+                margin-top: 0;
+            }
+        }
+
+        @include only-pc {
+            margin-top: 70px;
+        }
+
+        .commenter {
+            height: 500px;
+        }
     }
 }

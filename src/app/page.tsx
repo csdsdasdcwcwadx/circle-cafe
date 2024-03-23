@@ -8,6 +8,7 @@ import MapperInfo from '@/components/Usage/app/MapperInfo';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
 import SwapBanner from '@/components/Usage/app/SwapBanner';
 import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
+import Image from 'next/image';
 
 const CarouselData = [
   {src: clearSrc, alt: 'full', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
@@ -39,7 +40,7 @@ export default function Home() {
               </div>
               <div className={styles.commercontent}>
                 <div>
-                  <div>這是標屜</div>
+                  <div>𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂</div>
                   <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
                     內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
                     內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
@@ -52,14 +53,35 @@ export default function Home() {
           </LazyLoadingComp>
         </section>
         <section className={styles.thirdpage}>
-          <SwapBanner/>
+          <LazyLoadingComp>
+            <div className={styles.contenter}>
+              <div className={styles.area}>
+                <div className={styles.imagebacker}>
+                  <Image src={clearSrc} alt='alter' fill sizes="100%"/>
+                </div>
+              </div>
+              <div className={styles.textdisplay}>
+                <h3>About Us</h3>
+                <div className={styles.text}>
+                  內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
+                  內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
+                  內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
+                </div>
+              </div>
+            </div>
+          </LazyLoadingComp>
         </section>
         <section className={styles.forthpage}>
+          <LazyLoadingComp>
+            <SwapBanner/>
+          </LazyLoadingComp>
+        </section>
+        <section className={styles.fifthpage}>
           <LazyLoadingComp>
             <MapperInfo/>
           </LazyLoadingComp>
         </section>
-        {/* <PreAnimate/> */}
+        <PreAnimate/>
     </div>
   )
 }

@@ -28,7 +28,7 @@ export default async function Activities(req: I_Requester) {
             currentPage={E_Page.ACTIVITIES}
             title={req.params.activity}
             altContent="environment"
-            // faded
+            faded
         >
             <div className={styles.lister}>
                 <h3 className={styles.subtitle}>活動日期：</h3>
@@ -49,7 +49,27 @@ export default async function Activities(req: I_Requester) {
             <div className={cN(styles.lister, styles.contents)}>
                 <h3 className={styles.subtitle}>活動詳情：</h3>
                 {/* <span>{activity.activitiesinfo[0].content}</span> */}
-                <span>內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內</span>
+                <span>
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
+                </span>
+            </div>
+            <div className={styles.subcontent}>
+                <strong>副標題</strong>
+                <div className={styles.lister}>
+                    <h3 className={styles.subtitle}>活動日期：</h3>
+                    <span>活動日期內容</span>
+                </div>
             </div>
         </Default>
     )

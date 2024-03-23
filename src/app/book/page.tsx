@@ -2,6 +2,7 @@ import Default from "@/components/Common/Default";
 import { E_Page } from "@/redux/interfaces";
 import BackImage from '../../image/00-41.jpg';
 import styles from './styles.module.scss';
+import GoogleMapper from "@/components/Common/GoogleMapper";
 
 export default function Book() {
     return (
@@ -14,18 +15,20 @@ export default function Book() {
             // faded
         >
             <section>
-                <h3>營業時間</h3>
-                <aside>
-                    <div>平日11:00-21:00</div>
-                    <div>平日11:00-21:00</div>
-                </aside>
-            </section>
-            <section>
-                <h3>供餐時間</h3>
-                <aside>
-                    <div>11:00-14:30</div>
-                    <div>11:00-14:30</div>
-                </aside>
+                <div className={styles.half}>
+                    <h3>營業時間</h3>
+                    <aside>
+                        <div>平日11:00-21:00</div>
+                        <div>平日11:00-21:00</div>
+                    </aside>
+                </div>
+                <div className={styles.half}>
+                    <h3>供餐時間</h3>
+                    <aside>
+                        <div>11:00-14:30</div>
+                        <div>11:00-14:30</div>
+                    </aside>
+                </div>
             </section>
             <section>
                 <h3>包場資訊</h3>
@@ -50,6 +53,12 @@ export default function Book() {
                         <span>電子信箱</span>
                         <span>請於備註欄備註『我要參加慶生活動』，服務人員會再去電與您確認，或可直接來電洽詢</span>
                     </li>
+                </aside>
+            </section>
+            <section>
+                <h3>地圖資訊</h3>
+                <aside className={styles.map}>
+                    <GoogleMapper/>
                 </aside>
             </section>
         </Default>

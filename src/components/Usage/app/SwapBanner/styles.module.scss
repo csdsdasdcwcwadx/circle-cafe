@@ -6,16 +6,16 @@
     .images {
         display: flex;
         position: relative;
-        height: 500px;
         width: 100%;
         overflow: hidden;
+        aspect-ratio: 3;
         
         .image {
             position: absolute;
-            height: 500px;
             width: 32%;
             cursor: pointer;
             transition: all 1s ease-in-out;
+            aspect-ratio: 1;
 
             @include only-pc {
                 &:first-of-type, &:last-of-type {
@@ -25,6 +25,8 @@
 
             @include only-mobile {
                 width: 100%;
+                height: 100%;
+                aspect-ratio: auto;
             }
 
             img {
@@ -81,6 +83,11 @@
                     background-color: rgba($color: #000, $alpha: .5);
                 }
             }
+        }
+
+        @include only-mobile {
+            height: 500px;
+            aspect-ratio: auto;
         }
     }
 
