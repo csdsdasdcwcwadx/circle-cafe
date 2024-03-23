@@ -15,17 +15,17 @@ enum E_clicktype {
     left = 2,
 }
 
-const displayCount = 3;
-
 let preventDoubleClick = false;
 function GoogleComment() {
     const [reviews, setReviews] = useState<Array<I_reviews>>();
     const [click, setClick] = useState<E_clicktype>(E_clicktype.origin);
     const [effect, setEffect] = useState(true);
     const isMobile = useMediaQuery({ query: '(max-width: 980px)' });
+    const isMiddlerPC = useMediaQuery({ query: '(max-width: 1300px)' });
+
     const displayCount = useMemo(() => {
-        return isMobile ? 1 : 3;
-    }, [isMobile])
+        return isMobile ? 1 : isMiddlerPC ? 2 : 3;
+    }, [isMobile, isMiddlerPC])
     const [rotation, setRotation] = useState(displayCount);
 
     // 設定初始化評論數量
