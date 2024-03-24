@@ -38,7 +38,10 @@ export async function api_getData(id?: string, isServer: boolean = false) {
             body: JSON.stringify({id}),
         });
         const data: I_GET_GETACTIVITIES = await response.json();
-        return data;
+        const duplicate = {...data, activitiesinfo: [
+            ...data.activitiesinfo, ...data.activitiesinfo
+        ] }
+        return duplicate;
     }catch(e) {
         console.log(e);
     }

@@ -3,12 +3,14 @@
 .activity {
     main > div {
         padding: 0 5% !important;
+        overflow: hidden;
 
         .articles {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             margin: 0 auto;
             width: 100%;
+            grid-template-rows: auto;
 
             @include big-pc {
                 width: 1200px;
@@ -23,84 +25,119 @@
             }
     
             .news {
+                position: relative;
                 width: calc(100% - 20px);
                 margin: 10px;
                 border-radius: 7px;
                 text-decoration: none;
-        
-                .frame {
-                    position: relative;
-                    width: 100%;
-                    height: 80%;
-                    aspect-ratio: 16/20;
-                    overflow: hidden;
-                    border-radius: 7px 7px 0 0;
-        
-                    img {
-                        transition: all 1s ease-out;
-                        border-radius: 7px 7px 0 0;
-                        object-fit: cover;
-                    }
+                margin-bottom: 40px;
 
-                    &:hover {
+                .activecard {
+                    box-shadow: 10px 10px 5px #9c9797;
+                    border-radius: 7px;
+                    margin-top: 30px;
+
+                    .frame {
+                        position: relative;
+                        width: 100%;
+                        height: 40%;
+                        aspect-ratio: 2;
+                        overflow: hidden;
+                        border-radius: 7px 7px 0 0;
+                        margin-top: 10%;
+            
                         img {
-                            transform: scale(1.2,1.2);
+                            transition: all 1s ease-out;
+                            border-radius: 7px 7px 0 0;
+                            object-fit: cover;
+                        }
+    
+                        &:hover {
+                            img {
+                                transform: scale(1.2,1.2);
+                            }
                         }
                     }
-                }
-        
-                .wording {
-                    padding: 10px;
-                    overflow: hidden;
-                    min-height: 70px;
-                    background-color: $fontBasis;
-                    border-radius: 0 0 7px 7px;
-        
-                    .topper {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-        
-                        h3 {
+            
+                    .wording {
+                        position: relative;
+                        padding: 10px;
+                        overflow: hidden;
+                        // height: calc(60% - 20px);
+                        height: 180px;
+                        background-color: $fontBasis;
+                        border-radius: 0 0 7px 7px;
+            
+                        .topper {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+            
+                            h3 {
+                                width: 80%;
+                                font-size: 23px;
+                                margin: 0 0 15px 0;
+                                text-align: left;
+                                color: #555;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                letter-spacing: 5px;
+                            }
+                        }
+            
+                        .timerange {
                             width: 80%;
-                            font-size: 23px;
-                            margin: 0 0 10px 0;
-                            text-align: left;
                             color: #000;
                             text-overflow: ellipsis;
                             overflow: hidden;
                             white-space: nowrap;
+                            text-align: left;
                         }
-        
-                        .socialmedia {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-        
-                            span {
-                                display: block;
-                                height: 10px;
-                                width: 10px;
-                            }
-        
-                            .lineshare {
-                                background-color: aqua;
-                            }
-        
-                            .insshare {
-                                background-color: red;
-                            }
+
+                        .contents {
+                            display: -webkit-box;
+                            height: 88px;
+                            overflow: hidden;
+                            text-align: left;
+                            font-size: 20px;
+                            color: #777;
+                            text-overflow: ellipsis;
+                            // line-height: 25px;
+                            -webkit-line-clamp: 4;
+                            -webkit-box-orient: vertical;
+                        }
+
+                        .readmore {
+                            position: absolute;
+                            right: 10px;
+                            bottom: 10px;
+                            color: #b0b0b0;
+                            letter-spacing: 3px;
                         }
                     }
-        
-                    .timerange {
-                        width: 80%;
-                        color: #000;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-                        white-space: nowrap;
+                }
+
+                .socialmedia {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    left: 10px;
+                    height: 30px;
+                    width: 100%;
+                    z-index: 9;
+                    overflow: hidden;
+
+                    > div {
+                        width: 100%;
                         text-align: left;
                     }
+                }
+
+                @include small-m {
+                    margin-bottom: 60px;
                 }
             }
         }

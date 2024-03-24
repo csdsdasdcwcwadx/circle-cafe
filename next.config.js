@@ -15,6 +15,12 @@ const nextConfig = {
         GOOGLE_ID: 'AIzaSyAHVz-pXx5jCMeh87LLqxZtPeXLUGK3Dm0',
         GOOGLE_MAP_ID: '61f7405a4126f824',
     },
+    headers: [
+        {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+        }
+    ]
 }
 
 module.exports = nextConfig;
