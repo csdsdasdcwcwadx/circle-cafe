@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { handlepath } from '@/apisource/apiname';
 import { api_getData } from '@/apisource/apiname';
 import FBLikeButton from '@/components/Common/FBLikeButton';
+import ActivityPager from '@/components/Usage/activity/ActivityPager';
 
 export default async function Activity() {
     const activities = await api_getData(undefined, true);
@@ -24,8 +25,8 @@ export default async function Activity() {
                 {
                     activities && activities.activitiesinfo.map((activity, ind) => {
                         return (
-                            <Link key={ind} href={`/news/activity/${activity.title}?id=${activity.id}`} className={styles.news}>
-                                <div className={styles.activecard}>
+                            <div key={ind} className={styles.news}>
+                                <Link className={styles.activecard}  href={`/news/activity/${activity.title}?id=${activity.id}`}>
                                     <div className={styles.frame}>
                                         <Image src={`${handlepath()}${activity.image}`} alt={activity.title} fill sizes='100%'/>
                                     </div>
@@ -41,15 +42,16 @@ export default async function Activity() {
                                             閱讀更多{`>>`}
                                         </aside>
                                     </div>
-                                </div>
+                                </Link>
                                 <div className={styles.socialmedia}>
                                     <FBLikeButton/>
                                 </div>
-                            </Link>
+                            </div>
                         )
                     })
                 }
             </div>
+            <ActivityPager/>
         </Default>
     )
 }
