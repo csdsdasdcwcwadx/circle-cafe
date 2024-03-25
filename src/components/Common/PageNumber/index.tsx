@@ -31,7 +31,7 @@ function PageNumber ({setSerial, maxpage, serial, typeIn}: I_props) {
             </div>
             {
                 typeIn && <div>
-                    <input type="text" placeholder="請輸入頁碼" ref={page} onKeyUp={e=>{
+                    <input type="text" placeholder="頁碼" ref={page} onKeyUp={e=>{
                         clearTimeout(typingTimer);
                         if(e.code === "Enter") {
                             timerFunc();

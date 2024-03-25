@@ -11,12 +11,12 @@
 
     input {
         display: block;
-        width: 50%;
+        width: 25%;
         height: 20px;
         padding: 5px;
         outline: none;
         border: 1px solid #b0b0b0;
-        border-radius: 3px;
+        border-radius: 5px;
 
         &::placeholder {
             color: #b0b0b0;
