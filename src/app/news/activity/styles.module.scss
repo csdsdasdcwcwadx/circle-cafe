@@ -61,8 +61,6 @@
                     .wording {
                         position: relative;
                         padding: 10px;
-                        overflow: hidden;
-                        // height: calc(60% - 20px);
                         height: 180px;
                         background-color: $fontBasis;
                         border-radius: 0 0 7px 7px;
@@ -113,6 +111,32 @@
                             bottom: 10px;
                             color: #b0b0b0;
                             letter-spacing: 0;
+                        }
+
+                        .posttime {
+                            position: absolute;
+                            top: -45px;
+                            right: 10px;
+
+                            > img {
+                                height: 85px;
+                                width: 85px;
+                            }
+
+                            .month {
+                                position: absolute;
+                                top: 36%;
+                                right: 28px;
+                                color: #9e9e9e;
+                                font-size: 15px;
+                            }
+
+                            .date {
+                                position: absolute;
+                                bottom: 9px;
+                                font-size: 30px;
+                                right: 22px;
+                            }
                         }
                     }
                 }

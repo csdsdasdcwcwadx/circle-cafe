@@ -37,7 +37,7 @@ function PageNumber ({setSerial, maxpage, serial, typeIn}: I_props) {
                             timerFunc();
                             return;
                         }
-                        typingTimer = setTimeout(timerFunc, 2000)
+                        typingTimer = setTimeout(timerFunc, 1000)
 
                         function timerFunc() {
                             if(

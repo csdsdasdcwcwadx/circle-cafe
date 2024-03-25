@@ -11,10 +11,16 @@
 
     input {
         display: block;
-        margin: auto;
-        margin-top: 5px;
+        width: 50%;
+        height: 20px;
         padding: 5px;
         outline: none;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+
+        &::placeholder {
+            color: #b0b0b0;
+        }
     }
 }
 

@@ -8,6 +8,7 @@ import { handlepath } from '@/apisource/apiname';
 import { api_getData } from '@/apisource/apiname';
 import FBLikeButton from '@/components/Common/FBLikeButton';
 import ActivityPager from '@/components/Usage/activity/ActivityPager';
+import calenderSrc from '@/icons/calendar.png';
 
 export default async function Activity() {
     const activities = await api_getData(undefined, true);
@@ -41,6 +42,11 @@ export default async function Activity() {
                                         <aside className={styles.readmore}>
                                             閱讀更多{`>>`}
                                         </aside>
+                                        <div className={styles.posttime}>
+                                            <Image src={calenderSrc} alt='calender'/>
+                                            <span className={styles.month}>Sep</span>
+                                            <span className={styles.date}>31</span>
+                                        </div>
                                     </div>
                                 </Link>
                                 <div className={styles.socialmedia}>
