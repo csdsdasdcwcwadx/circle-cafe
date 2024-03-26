@@ -30,7 +30,7 @@ function PageNumber ({setSerial, maxpage, serial, typeIn}: I_props) {
                 <Nums num={maxpage} click={setSerial} maxpage={maxpage}/>
             </div>
             {
-                typeIn && <div>
+                typeIn && <div className={styles.inputbar}>
                     <input type="text" placeholder="頁碼" ref={page} onKeyUp={e=>{
                         clearTimeout(typingTimer);
                         if(e.code === "Enter") {
