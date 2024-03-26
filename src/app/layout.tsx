@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+        {/* <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js" nonce="Zvy4JATi"></script> */}
       </head>
       <body>
         <Providers>

@@ -6,6 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { handlepath } from '@/apisource/apiname';
 import { api_getData } from '@/apisource/apiname';
+import FBLikeButton from '@/components/Common/FBLikeButton';
+import ActivityPager from '@/components/Usage/activity/ActivityPager';
+import calenderSrc from '@/icons/calendar.png';
 
 export default async function Activity() {
     const activities = await api_getData(undefined, true);
@@ -23,25 +26,38 @@ export default async function Activity() {
                 {
                     activities && activities.activitiesinfo.map((activity, ind) => {
                         return (
-                            <Link key={ind} href={`/news/activity/${activity.title}?id=${activity.id}`} className={styles.news}>
-                                <div className={styles.frame}>
-                                    <Image src={`${handlepath()}${activity.image}`} alt={activity.title} fill sizes='100%'/>
-                                </div>
-                                <div className={styles.wording}>
-                                    <aside className={styles.topper}>
-                                        <h3>{activity.title}</h3>
-                                        <div className={styles.socialmedia}>
-                                            <span className={styles.lineshare}></span>
-                                            <span className={styles.insshare}></span>
+                            <div key={ind} className={styles.news}>
+                                <Link className={styles.activecard}  href={`/news/activity/${activity.title}?id=${activity.id}`}>
+                                    <div className={styles.frame}>
+                                        <Image src={`${handlepath()}${activity.image}`} alt={activity.title} fill sizes='100%'/>
+                                    </div>
+                                    <div className={styles.wording}>
+                                        <aside className={styles.topper}>
+                                            <h3>{activity.title}</h3>
+                                        </aside>
+                                        {/* <aside className={styles.timerange}>時間區間：500-1000</aside> */}
+                                        <aside className={styles.contents}>
+                                            {activity.content}
+                                        </aside>
+                                        <aside className={styles.readmore}>
+                                            閱讀更多{`>>`}
+                                        </aside>
+                                        <div className={styles.posttime}>
+                                            <Image src={calenderSrc} alt='calender'/>
+                                            <span className={styles.month}>Sep</span>
+                                            <span className={styles.date}>31</span>
                                         </div>
-                                    </aside>
-                                    <aside className={styles.timerange}>時間區間：500-1000</aside>
+                                    </div>
+                                </Link>
+                                <div className={styles.socialmedia}>
+                                    <FBLikeButton/>
                                 </div>
-                            </Link>
+                            </div>
                         )
                     })
                 }
             </div>
+            <ActivityPager/>
         </Default>
     )
 }
