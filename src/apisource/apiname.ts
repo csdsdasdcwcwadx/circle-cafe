@@ -1,4 +1,3 @@
-import { E_Dish } from "@/redux/interfaces";
 import { I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_Login, I_POST_SET_getter, I_reInfo } from "./apitype";
 
 export const handlepath = () => {
@@ -28,20 +27,17 @@ export async function api_postData(poster: FormData, isServer: boolean = false) 
 }
 
 // GET ACTIVITIES
-export async function api_getData(id?: string, isServer: boolean = false) {
+export async function api_getData(page: number, isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: "POST",
-            body: JSON.stringify({id}),
+            body: JSON.stringify({page}),
         });
         const data: I_GET_GETACTIVITIES = await response.json();
-        const duplicate = {...data, activitiesinfo: [
-            ...data.activitiesinfo, ...data.activitiesinfo
-        ] }
-        return duplicate;
+        return data;
     }catch(e) {
         console.log(e);
     }
@@ -85,14 +81,13 @@ export async function api_dishPost(poster: FormData, isServer: boolean = false) 
 }
 
 // GET DISHES
-export async function api_getDish(type?: E_Dish, isServer: boolean = false) {
+export async function api_getDish(isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/getDishes`, {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: "POST",
-            body: JSON.stringify({type}),
         });
         const data: I_GET_DISHES_GETTER = await response.json();
         return data;

@@ -25,22 +25,13 @@ export interface I_activities {
     content: string;
     image: string;
     date: string;
+    fb: string;
 }
 
 export interface I_dishes {
     id: string;
     title: string;
-    content: string;
-    price: number;
-    type: E_Dish;
+    subtitle: string;
     image: string;
     date: string;
-}
-
-export enum E_Dish {
-    STEAK = '牛排',
-    COFFEE  = '咖啡',
-    PASTA = '義大利麵',
-    BEVARAGE = '飲料',
-    DESSERT = '甜點',
 }

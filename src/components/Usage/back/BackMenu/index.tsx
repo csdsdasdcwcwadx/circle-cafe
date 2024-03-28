@@ -2,10 +2,9 @@
 
 import { memo, useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
-import LightBox, { E_direction } from "../Modules/LightBox";
+import LightBox, { E_direction } from "../../../Modules/LightBox";
 import InputBar, { E_RegexType } from "@/components/Modules/InputBar"
-import { E_Dish, I_dishes } from "@/redux/interfaces";
-import { api_deleteDishes, api_dishPost, api_getDish, handlepath } from "@/apisource/apiname";
+import { api_deleteDishes, api_dishPost, handlepath } from "@/apisource/apiname";
 import Image from "next/image";
 import Loading from "@/app/loading";
 import { handleDate } from "@/utils";
@@ -13,8 +12,7 @@ import { handleDate } from "@/utils";
 function BackMennu() {
     const [isOpen, setIsOpen] = useState(false);
     const [image, setImage] = useState<File>();
-    const [dishData, setDishData] = useState<Array<I_dishes>|undefined>();
-    const [currentType, setCurrentType] = useState<E_Dish>(E_Dish.STEAK);
+    const [dishData, setDishData] = useState<Array<any>|undefined>();
 
     const inputRefs = {
         title: useRef<HTMLInputElement>(null),
@@ -38,10 +36,10 @@ function BackMennu() {
                 const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
                 const result = await api_dishPost(formData);
 
-                if(result?.status) {
-                    setIsOpen(false);
-                    setCurrentType(type.current?.value! as E_Dish);
-                } else alert(result?.message);
+                // if(result?.status) {
+                //     setIsOpen(false);
+                //     setCurrentType(type.current?.value! as E_Dish);
+                // } else alert(result?.message);
 
                 if(title.current) title.current.value = '';
                 if(price.current) price.current.value = '';
@@ -70,23 +68,9 @@ function BackMennu() {
         }
     }
 
-    useEffect(() => {
-        (async function() {
-            const data = await api_getDish(currentType);
-            setDishData(data?.dishesinfo);
-        })()
-    }, [currentType])
-
     return (
         <div className={styles.backmenu}>
             <button className={styles.addactivities} onClick={()=>setIsOpen(true)}>新增菜色</button>
-            <ul className={styles.buttons}>
-                {
-                    Object.values<E_Dish>(E_Dish).map((value, ind) => {
-                        return <button key={ind} onClick={() => setCurrentType(value)}>{value}</button>
-                    })
-                }
-            </ul>
             <div className={styles.displays}>
                 {
                     dishData ? dishData.map((obj, ind) => {
@@ -139,16 +123,6 @@ function BackMennu() {
                             maxlength={10}
                             ref={inputRefs.price}
                         />
-                        <div className={styles.selection}>
-                            <span>菜單種類*</span>
-                            <select placeholder="請選擇菜單種類" ref={inputRefs.type}>
-                                {
-                                    Object.values(E_Dish).map((obj, ind) => {
-                                        return <option key={ind} value={obj}>{obj}</option>
-                                    })
-                                }
-                            </select>
-                        </div>
                         <InputBar
                             title="內文"
                             placeholder="請輸入內文"

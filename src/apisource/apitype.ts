@@ -14,13 +14,14 @@ export interface I_POST_SET_getter {
 export interface I_GET_GETACTIVITIES {
     message: string;
     status: boolean;
+    totalpage: number;
     activitiesinfo: Array<I_activities>
 }
 
 export interface I_POST_MENU_SET {
     message: string;
     status: boolean;
-    dishesinfo: Array<I_dishes>
+    // dishesinfo: Array<I_dishes>
 }
 
 export interface I_GET_DISHES_GETTER {

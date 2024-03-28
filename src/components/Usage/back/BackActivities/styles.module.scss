@@ -1,0 +1,56 @@
+@import '../../../../common.scss';
+
+.backactivities {
+    .addactivities {
+        margin: 40px 0 40px 50%;
+        border: 0;
+        border-radius: 7px;
+        padding: 20px 40px;
+        background-color: #c7c5c5;
+        color: $blueColor;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .displays {
+        margin-bottom: 30px;
+        .buttons {
+            button {
+                border: 0;
+                cursor: pointer;
+                background-color: #fff;
+                font-size: 17px;
+
+                &:hover {
+                    color: $goldenColor;
+                }
+
+                &:last-of-type {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    .lightbox {
+        > div:first-of-type {
+            max-height: 900px;
+            width: 70%;
+            overflow: auto;
+        }
+        
+        .regisblocker {
+            display: block;
+            background-color: #fff;
+            padding: 30px;
+
+            textarea {
+                height: 400px;
+            }
+
+            .file {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
