@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import styles from './styles.module.scss';
 import InputBar, { E_RegexType } from "@/components/Modules/InputBar";
 import LightBox, { E_direction } from "@/components/Modules/LightBox";
@@ -11,6 +11,7 @@ import ActivityDisplay from "../../activity/ActivityDisplay";
 function BackActivities() {
     const [image, setImage] = useState<File>();
     const [isOpen, setIsOpen] = useState(false);
+    const [editor, setEditor] = useState<I_activities|null>(null);
 
     const title = useRef<HTMLInputElement>(null);
     const content = useRef<HTMLInputElement>(null);
@@ -26,11 +27,21 @@ function BackActivities() {
             formData.append('image', image!);
             
             try {
-                const result = await api_postData(formData);
-                // setIsOpen(false);
-
-                if(result?.status) location.reload();
-                else alert(result?.message);
+                if(editor) {
+                    // update
+                    const result = await api_postData(formData);
+                    setIsOpen(false);
+    
+                    if(result?.status) location.reload();
+                    else alert(result?.message);
+                } else {
+                    // post
+                    const result = await api_postData(formData);
+                    setIsOpen(false);
+    
+                    if(result?.status) location.reload();
+                    else alert(result?.message);
+                }
 
                 // if(result?.status) {
                 //     const data = await api_getData(1);
@@ -57,7 +68,7 @@ function BackActivities() {
             try {
                 const data = await api_deleteActivities(id);
                 alert(data?.message);
-                // if(data?.status) location.reload();
+                if(data?.status) location.reload();
                 
             }catch(e) {
                 console.log(e);
@@ -68,15 +79,24 @@ function BackActivities() {
     const renderBlock = (activity: I_activities) => {
         return (
             <div className={styles.buttons}>
-                <button>編輯</button>
+                <button onClick={() => {
+                    setIsOpen(true);
+                    setEditor(activity);
+                }}>編輯</button>
                 <button onClick={() => handleDelete(activity.id)}>刪除</button>
             </div>
         )
     }
 
+    useEffect(() => {
+        if(!isOpen) setEditor(null)
+    }, [isOpen])
+
     return (
         <div className={styles.backactivities}>
-            <button className={styles.addactivities} onClick={()=>setIsOpen(true)}>新增活動</button>
+            <div className={styles.addactivities}>
+                <button onClick={()=>setIsOpen(true)}>新增活動</button>
+            </div>
             <div className={styles.displays}>
                 <ActivityDisplay renderBlock={renderBlock}/>
             </div>
@@ -94,6 +114,7 @@ function BackActivities() {
                             type={E_RegexType.NAME}
                             maxlength={10}
                             ref={title}
+                            value={editor?.title}
                         />
                         <InputBar
                             title="FB連結"
@@ -101,6 +122,7 @@ function BackActivities() {
                             type={E_RegexType.NAME}
                             maxlength={500}
                             ref={fb}
+                            value={editor?.fb}
                         />
                         <InputBar
                             title="內文"
@@ -108,12 +130,13 @@ function BackActivities() {
                             type={E_RegexType.TEXTING}
                             maxlength={2048}
                             ref={content}
+                            value={editor?.content}
                         />
                         <input type="file" className={styles.file} onChange={e => {
                             const file = e.target.files![0];
                             setImage(file);
                         }}/>
-                        <button onClick={handleClick}>送出</button>
+                        <button className={styles.sender} onClick={handleClick}>送出</button>
                     </div>
                 </LightBox>
             </div>

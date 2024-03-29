@@ -43,6 +43,24 @@ export async function api_getData(page: number, isServer: boolean = false) {
     }
 }
 
+// UPDATE ACTIVITIES
+export async function api_updateData(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/updateactivities`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        });
+        const data: I_POST_SET_getter = await response.json();
+        return data;
+    } catch(e) {
+        console.log(e);
+    }
+}
+
 // DELETE ACTIVITIES
 export async function api_deleteActivities(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
@@ -73,7 +91,7 @@ export async function api_dishPost(poster: FormData, isServer: boolean = false) 
                 'Authorization': `Bearer ${accessToken}`,
             }
         });
-        const data: I_GET_GETACTIVITIES = await response.json();
+        const data: I_GET_DISHES_GETTER = await response.json();
         return data;
     }catch(e) {
         console.log(e);
@@ -88,6 +106,24 @@ export async function api_getDish(isServer: boolean = false) {
                 'Content-Type': 'application/json',
             },
             method: "POST",
+        });
+        const data: I_GET_DISHES_GETTER = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// UPDATE DISHES
+export async function api_dishUpdate(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/updateDishes`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
         });
         const data: I_GET_DISHES_GETTER = await response.json();
         return data;
