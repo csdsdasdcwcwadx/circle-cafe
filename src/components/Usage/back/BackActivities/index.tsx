@@ -5,8 +5,10 @@ import styles from './styles.module.scss';
 import InputBar, { E_RegexType } from "@/components/Modules/InputBar";
 import LightBox, { E_direction } from "@/components/Modules/LightBox";
 import { I_activities } from "@/redux/interfaces";
-import { api_getData, api_postData, api_deleteActivities } from "@/apisource/apiname";
+import { api_postData, api_deleteActivities, api_updateData } from "@/apisource/apiname";
 import ActivityDisplay from "../../activity/ActivityDisplay";
+
+const pageCount = 1;
 
 function BackActivities() {
     const [image, setImage] = useState<File>();
@@ -29,7 +31,7 @@ function BackActivities() {
             try {
                 if(editor) {
                     // update
-                    const result = await api_postData(formData);
+                    const result = await api_updateData(formData);
                     setIsOpen(false);
     
                     if(result?.status) location.reload();
@@ -98,7 +100,7 @@ function BackActivities() {
                 <button onClick={()=>setIsOpen(true)}>新增活動</button>
             </div>
             <div className={styles.displays}>
-                <ActivityDisplay renderBlock={renderBlock}/>
+                <ActivityDisplay renderBlock={renderBlock} pageCount={pageCount}/>
             </div>
             <div className={styles.lightbox}>
                 <LightBox

@@ -44,12 +44,21 @@ export const initFacebookSdk = () => {
         js = d.createElement('script'); js.id = id; js.async = true;
         js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
         if(ref.parentNode) ref.parentNode.insertBefore(js, ref);
-    }(document, /*debug*/ false));
+    }(document, false));
     // window.FB.XFBML.parse();
     return new Promise<HTMLElement | null>((resolve, reject) => {
         // 正確順序 : dom 引入sdk、生成fb-root、插入我要的按鈕
         // 當前順序 : dom 引入sdk、插入按鈕、生成fb-root
-        window.fbAsyncInit = () => {
+        if(!window.fbAsyncInit) {
+            window.fbAsyncInit = () => {
+                window.FB.init({
+                    appId: '1065861224471609',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v19.0'
+                })
+            }
+        } else {
             window.FB.init({
                 appId: '1065861224471609',
                 cookie: true,

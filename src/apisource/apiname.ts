@@ -27,14 +27,17 @@ export async function api_postData(poster: FormData, isServer: boolean = false) 
 }
 
 // GET ACTIVITIES
-export async function api_getData(page: number, isServer: boolean = false) {
+export async function api_getData(page: number, count: number,isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: "POST",
-            body: JSON.stringify({page}),
+            body: JSON.stringify({
+                page,
+                count,
+            }),
         });
         const data: I_GET_GETACTIVITIES = await response.json();
         return data;

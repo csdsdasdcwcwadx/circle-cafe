@@ -9,26 +9,27 @@ import ActivityComp from "@/components/Usage/activity/ActivityComp";
 
 interface I_props {
     renderBlock?: Function;
+    pageCount: number;
 }
 
-function ActivityDisplay({renderBlock}: I_props) {
+function ActivityDisplay({renderBlock, pageCount}: I_props) {
     const [serial, setSerial] = useState(1);
     const [activities, setActivities] = useState<I_GET_GETACTIVITIES|null>();
 
     useEffect(() => {
         setActivities(null);
         (async function() {
-            const data = await api_getData(serial);
+            const data = await api_getData(serial, pageCount);
             setActivities(data);
         })()
-    }, [serial])
+    }, [serial, pageCount])
     
     return (
         <>
             <div className={styles.articles}>
                 <ActivityComp activities={activities?.activitiesinfo!} renderBlock={renderBlock}/>
             </div>
-            <PageNumber serial={serial} setSerial={setSerial} maxpage={activities?.totalpage!}/>
+            {activities && <PageNumber serial={serial} setSerial={setSerial} maxpage={activities?.totalpage!}/>}
         </>
     )
 }
