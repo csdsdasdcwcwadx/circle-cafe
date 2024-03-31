@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { handlepath } from '@/apisource/apiname';
 import calenderSrc from '@/icons/calendar.png';
-import FBLikeButton from '../../../Common/FBLikeButton';
+import FBLikeButton from '../../../Modules/FBLikeButton';
 import { memo } from 'react';
 import cN from 'classnames';
 import { I_activities } from '@/redux/interfaces';

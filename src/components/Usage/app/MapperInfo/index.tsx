@@ -1,6 +1,6 @@
 import { useEffect, useState, memo } from "react";
 import styles from './styles.module.scss';
-import GoogleMapper from '@/components/Common/GoogleMapper';
+import GoogleMapper from '@/components/Modules/GoogleMapper';
 import cN from 'classnames';
 
 function MapperInfo() {

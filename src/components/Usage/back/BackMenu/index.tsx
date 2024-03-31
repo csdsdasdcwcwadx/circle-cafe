@@ -7,7 +7,7 @@ import InputBar, { E_RegexType } from "@/components/Modules/InputBar"
 import { api_deleteDishes, api_dishPost, api_dishUpdate, api_getDish, handlepath } from "@/apisource/apiname";
 import { I_dishes, Dishes_Key } from "@/redux/interfaces";
 import Columnar from "../Columnar";
-import InputFile from "@/components/Common/InputFile";
+import InputFile from "@/components/Modules/InputFile";
 
 function BackMennu() {
     const [isOpen, setIsOpen] = useState(false);

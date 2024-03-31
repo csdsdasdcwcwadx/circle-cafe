@@ -4,7 +4,7 @@ import { memo, useEffect, useState } from "react";
 import styles from './styles.module.scss';
 import { api_getData } from "@/apisource/apiname";
 import { I_GET_GETACTIVITIES } from "@/apisource/apitype";
-import PageNumber from "@/components/Common/PageNumber";
+import PageNumber from "@/components/Modules/PageNumber";
 import ActivityComp from "@/components/Usage/activity/ActivityComp";
 
 interface I_props {

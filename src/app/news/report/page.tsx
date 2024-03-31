@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
 import reportSrc from '@/image/下載scaasc.jpeg';
 import Image from "next/image";
-import GoogleComment from "@/components/Common/GoogleComment";
+import GoogleComment from "@/components/Modules/GoogleComment";
 
 export default function Report() {
     return (

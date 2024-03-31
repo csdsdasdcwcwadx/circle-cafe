@@ -7,8 +7,8 @@ import LightBox, { E_direction } from "@/components/Modules/LightBox";
 import { Activities_Key, I_activities } from "@/redux/interfaces";
 import { api_postData, api_deleteActivities, api_updateData, api_getData } from "@/apisource/apiname";
 import Columnar from "../Columnar";
-import InputFile from "@/components/Common/InputFile";
-import PageNumber from "@/components/Common/PageNumber";
+import InputFile from "@/components/Modules/InputFile";
+import PageNumber from "@/components/Modules/PageNumber";
 
 const pageCount = 10;
 
