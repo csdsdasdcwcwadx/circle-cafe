@@ -37,6 +37,7 @@ function InputFile({onChange, accept, defaultImage}: I_props) {
 
     return (
         <div className={styles.inputfile}>
+            <div className={styles.title}>上傳圖片</div>
             <label htmlFor={styles.upload} className={cN(styles.uploadclass)}>
                 { displayImage && <Image src={displayImage as string} alt="image" fill sizes='100%'/>}
                 <div className={styles.uploadicon}>

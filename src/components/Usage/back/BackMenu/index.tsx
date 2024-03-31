@@ -36,7 +36,7 @@ function BackMennu() {
             formData.append('dind', dind.current?.value!);
             formData.append('image', image!);
             if(editor) {
-                formData.append('oldimg', editor.image);
+                editor.image && formData.append('oldimg', editor.image);
                 formData.append('id', editor.id);
             }
 
@@ -113,6 +113,9 @@ function BackMennu() {
                     theName={styles.regisblocker}
                 >
                     <div className={styles.regisblocker}>
+                        <div className={styles.displaytitle}>
+                            {editor ? '編輯' : '新增'}
+                        </div>
                         <InputFile 
                             onChange={(e: ChangeEvent<HTMLInputElement>|null) => {
                                 let file = null;

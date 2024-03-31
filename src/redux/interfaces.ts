@@ -28,8 +28,34 @@ export interface I_activities {
     date: string;
     fb: string;
 }
-
-export const Activities_Key = ['id', 'title', 'content', 'image', 'date', 'fb'];
+export const Activities_Key = [
+    {
+        display: 'id',
+        conditions: [E_column.isHide],
+    },
+    {
+        display: 'title',
+        text: '標題'
+    },
+    {
+        display: 'content',
+        text: '內文',
+    },
+    {
+        display: 'image',
+        conditions: [E_column.isImage],
+        text: '圖片',
+    },
+    {
+        display: 'fb',
+        text: '臉書連結',
+    },
+    {
+        display: 'date',
+        conditions: [E_column.isDate],
+        text: '上傳日期',
+    },
+];
 
 export interface I_dishes {
     id: string;

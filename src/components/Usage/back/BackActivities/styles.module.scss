@@ -19,7 +19,8 @@
     }
 
     .displays {
-        margin-bottom: 30px;
+        overflow-x: auto;
+        margin: 0 30px;
         
         .buttons {
             button {
@@ -51,6 +52,12 @@
             background-color: #fff;
             padding: 30px;
 
+            .displaytitle {
+                margin: 20px 0;
+                font-weight: bold;
+                font-size: 30px;
+            }
+
             textarea {
                 height: 400px;
             }
@@ -71,5 +78,9 @@
             font-size: 17px;
             cursor: pointer;
         }
+    }
+
+    .pages {
+        margin-top: 30px;
     }
 }

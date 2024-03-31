@@ -35,11 +35,6 @@ function Columnar({keys, values, handleDelete, handleEdit, handleShow}: I_props)
                     style: {...returnDOM.props.style, display: 'none'}
                 })
             }
-            if(key.conditions.indexOf(E_column.isImage) > -1 && !isHeader) {
-                returnDOM = cloneElement(returnDOM, {
-                    className: styles.isImage
-                })
-            }
             if(key.conditions.indexOf(E_column.isDate) > -1 && !isHeader) {
                 returnDOM = cloneElement(returnDOM, {
                     children: handleDate(value[key.display], false, true),
