@@ -9,6 +9,7 @@ import { api_postData, api_deleteActivities, api_updateData, api_getData } from 
 import Columnar from "../Columnar";
 import InputFile from "@/components/Modules/InputFile";
 import PageNumber from "@/components/Modules/PageNumber";
+import InputContents from "@/components/Modules/InputContents";
 
 const pageCount = 10;
 
@@ -119,6 +120,7 @@ function BackActivities() {
             <div className={styles.pages}>
                 <PageNumber serial={serial} setSerial={setSerial} maxpage={maxPage}/>
             </div>
+            <InputContents/>
             <div className={styles.lightbox}>
                 <LightBox
                     isOpen={isOpen}

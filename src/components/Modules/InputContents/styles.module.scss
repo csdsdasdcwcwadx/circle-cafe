@@ -1,0 +1,122 @@
+@import '../../../common.scss';
+
+.inputcontents {
+    .block {
+        width: 800px;
+        border: 2px solid #514b4b;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        padding: 30px;
+
+        .listerblock {
+            .lister {
+                margin-bottom: 20px;
+
+                > div {
+                    margin: 0 auto;
+                    width: 50%;
+
+                    &:first-of-type {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+
+        .displays {
+            position: relative;
+
+            &.lister {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                text-align: left;
+                font-size: 17px;
+
+                .title {
+                    margin-right: 10px;
+                    font-weight: bold;
+                    max-width: 80px;
+
+                    &::before {
+                        content: "◎";
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+
+                    &::after {
+                        content: "：";
+                        display: inline-block;
+                    }
+                }
+
+                .content {
+                    width: 70%;
+                }
+            }
+
+            &.subcontent {
+                margin-bottom: 20px;
+
+                strong {
+                    margin: 0;
+                    background-color: rgb(255, 204, 204);
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 0;
+                border: 0;
+                cursor: pointer;
+                font-size: 17px;
+                color: #072F62;
+                background-color: #c7c5c5;
+                cursor: pointer;
+
+                &:hover {
+                    color: #ff0606;
+                }
+            }
+        }
+
+        .subtitleblock {
+            .subtitle {
+                margin-bottom: 20px;
+
+                > div {
+                    width: 50%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    .buttons {
+        text-align: center;
+
+        button {
+            border: 0;
+            border-radius: 7px;
+            padding: 10px 15px;
+            background-color: #c7c5c5;
+            color: #072F62;
+            font-size: 15px;
+            cursor: pointer;
+
+            &:not(:first-of-type) {
+                margin-left: 10px;
+            }
+
+            &.disabled {
+                opacity: .5;
+                cursor: auto;
+            }
+        }
+    }
+
+    .sender {
+        text-align: center;
+    }
+}

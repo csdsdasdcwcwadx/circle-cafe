@@ -107,7 +107,7 @@ function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxle
                 type === E_RegexType.TEXTING ? <textarea placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLTextAreaElement>)} defaultValue={value} maxLength={maxlength}/>:
                 <input placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLInputElement>)} defaultValue={value} maxLength={maxlength}/>
             }
-            {errMsg && <span className={cN(styles.err, 'error')}>{errMsg}</span>}
+            {errMsg && <span className={cN(styles.err, 'error', styles[type])}>{errMsg}</span>}
         </div>
     );
 }
