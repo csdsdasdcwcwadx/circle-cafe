@@ -78,3 +78,16 @@ export const initFacebookSdk = () => {
         resolve(root);
     })
 }
+
+export enum E_Block {
+    list = '2',
+    subtitle = '3',
+}
+
+export interface I_Block {
+    type: E_Block;
+    value: string;
+    id: string;
+}
+
+export const splitter = '||||||';

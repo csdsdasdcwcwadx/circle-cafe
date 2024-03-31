@@ -24,12 +24,11 @@ function BackActivities() {
     const [getapi, setGetApi] = useState(true);
 
     const title = useRef<HTMLInputElement>(null);
-    const content = useRef<HTMLInputElement>(null);
+    const [content, setContent] = useState('');
     const fb = useRef<HTMLInputElement>(null);
 
     const clearInput = () => {
         if(title.current) title.current.value = '';
-        if(content.current) content.current.value = '';
         if(fb.current) fb.current.value = ''; 
     }
 
@@ -38,7 +37,7 @@ function BackActivities() {
         if(error.length === 0) {
             const formData = new FormData();
             formData.append('title', title.current?.value!);
-            formData.append('content', content.current?.value!);
+            formData.append('content', content);
             formData.append('fb', fb.current?.value!);
             formData.append('image', image!);
             if(editor) {
@@ -65,10 +64,10 @@ function BackActivities() {
         } else alert(error[0].textContent);
     }
 
-    const handleDelete = async (id: string) => {
+    const handleDelete = async (activity: I_activities) => {
         if(confirm('確定要刪除此活動 ? ')) {
             try {
-                const data = await api_deleteActivities(id);
+                const data = await api_deleteActivities(activity.id);
                 alert(data?.message);
                 if(data?.status) setGetApi(true);
                 
@@ -83,7 +82,7 @@ function BackActivities() {
         setIsOpen(true);
 
         if(title.current) title.current.value = activity.title;
-        if(content.current) content.current.value = activity.content;
+        setContent(activity.content);
         if(fb.current) fb.current.value = activity.fb + ''; 
     }
 
@@ -108,6 +107,10 @@ function BackActivities() {
             setGetApi(false);
         } else fetchData();
     }, [getapi, serial])
+    
+    useEffect(() => {
+        console.log(content)
+    }, [content])
 
     return (
         <div className={styles.backactivities}>
@@ -120,7 +123,7 @@ function BackActivities() {
             <div className={styles.pages}>
                 <PageNumber serial={serial} setSerial={setSerial} maxpage={maxPage}/>
             </div>
-            <InputContents/>
+            {/* <InputContents/> */}
             <div className={styles.lightbox}>
                 <LightBox
                     isOpen={isOpen}
@@ -160,13 +163,9 @@ function BackActivities() {
                             unnecessary
                             clear={!isOpen}
                         />
-                        <InputBar
-                            title="內文"
-                            placeholder="請輸入內文"
-                            type={E_RegexType.TEXTING}
-                            maxlength={2048}
-                            ref={content}
-                            value={editor?.content}
+                        <InputContents
+                            defaultValue={content}
+                            dispatch={setContent}
                             clear={!isOpen}
                         />
                         <button className={styles.sender} onClick={handleClick}>送出</button>

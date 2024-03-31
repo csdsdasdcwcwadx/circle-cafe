@@ -1,9 +1,18 @@
 @import '../../../common.scss';
 
 .inputcontents {
+    margin-bottom: 20px;
+
+    > span {
+        display: block;
+        color: $goldenColor;
+        margin: 0 0 5px 5px;
+        font-size: 15px;
+        text-align: left;
+    }
+
     .block {
-        width: 800px;
-        border: 2px solid #514b4b;
+        border: 1px solid #ddd;
         border-radius: 5px;
         margin: 0 auto;
         margin-bottom: 30px;
@@ -113,6 +122,15 @@
                 opacity: .5;
                 cursor: auto;
             }
+        }
+
+        &.inner {
+            padding-bottom: 20px;
+        }
+
+        &.outer {
+            padding-top: 20px;
+            border-top: 2px solid #bbb;
         }
     }
 
