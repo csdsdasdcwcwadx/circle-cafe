@@ -20,21 +20,12 @@ interface I_props {
     trigger?: boolean;
     maxlength: number;
     className?: string;
+    clear?: boolean;
 }
 
-function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className}: I_props, ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>) {
+function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className, clear}: I_props, ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>) {
     const [input, setInput] = useState<string>('');
-    const [errMsg, setErrMsg] = useState<string | undefined>();
-
-    useEffect(() => {
-        value && setInput(`${value}`);
-    },[value])
-
-    useEffect(() => {
-        if(trigger) setErrMsg(undefined);
-        else setErrMsg(`${title}必填`);
-    },[trigger, title])
-
+    const [errMsg, setErrMsg] = useState<string | undefined>(`${title}必填`);
 
     const validateInput = useCallback((checker: string | number | undefined) => {
         let flag = true;
@@ -101,8 +92,13 @@ function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxle
     }, [input, validateInput]);
     
     useEffect(() => {
+        value && setInput(`${value}`);
         validateInput(value);
-    }, [validateInput, value]);
+    },[value, validateInput])
+
+    useEffect(() => {
+        if(clear) setInput('');
+    }, [clear])
 
     return (
         <div className={cN(styles.inputblock, className)}>

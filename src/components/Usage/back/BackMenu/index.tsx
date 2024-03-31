@@ -1,49 +1,53 @@
 'use client';
 
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState, ChangeEvent } from "react";
 import styles from './styles.module.scss';
 import LightBox, { E_direction } from "../../../Modules/LightBox";
 import InputBar, { E_RegexType } from "@/components/Modules/InputBar"
-import { api_deleteDishes, api_dishPost, handlepath } from "@/apisource/apiname";
-import Image from "next/image";
-import Loading from "@/app/loading";
-import { handleDate } from "@/utils";
+import { api_deleteDishes, api_dishPost, api_dishUpdate, api_getDish, handlepath } from "@/apisource/apiname";
+import { I_dishes, Dishes_Key } from "@/redux/interfaces";
+import Columnar from "../Columnar";
+import InputFile from "@/components/Common/InputFile";
 
 function BackMennu() {
     const [isOpen, setIsOpen] = useState(false);
-    const [image, setImage] = useState<File>();
-    const [dishData, setDishData] = useState<Array<any>|undefined>();
 
-    const inputRefs = {
-        title: useRef<HTMLInputElement>(null),
-        price: useRef<HTMLInputElement>(null),
-        content: useRef<HTMLInputElement>(null),
-        type: useRef<HTMLSelectElement>(null),
+    const [image, setImage] = useState<File>();
+    const [dishData, setDishData] = useState<I_dishes[]|null>(null);
+    const [editor, setEditor] = useState<I_dishes|null>(null);
+    const [getapi, setGetApi] = useState(true);
+
+    const title = useRef<HTMLInputElement>(null);
+    const subtitle = useRef<HTMLInputElement>(null);
+    const dind = useRef<HTMLInputElement>(null);
+
+    const clearInput = () => {
+        if(title.current) title.current.value = '';
+        if(subtitle.current) subtitle.current.value = '';
+        if(dind.current) dind.current.value = ''; 
     }
 
     const handlePost = async () => {
         const error = document.getElementsByClassName('error');
         if(error.length === 0) {
-            const { title, price, content, type } = inputRefs;
             const formData = new FormData();
             formData.append('title', title.current?.value!);
-            formData.append('content', content.current?.value!);
-            formData.append('price', price.current?.value!);
-            formData.append('type', type.current?.value!);
+            formData.append('subtitle', subtitle.current?.value!);
+            formData.append('dind', dind.current?.value!);
             formData.append('image', image!);
+            if(editor) {
+                formData.append('oldimg', editor.image);
+                formData.append('id', editor.id);
+            }
 
             try {
                 const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
-                const result = await api_dishPost(formData);
+                const result = editor ? await api_dishUpdate(formData) : await api_dishPost(formData);
 
-                // if(result?.status) {
-                //     setIsOpen(false);
-                //     setCurrentType(type.current?.value! as E_Dish);
-                // } else alert(result?.message);
-
-                if(title.current) title.current.value = '';
-                if(price.current) price.current.value = '';
-                if(content.current) content.current.value = '';
+                if(result?.status) {
+                    setGetApi(true);
+                    setIsOpen(false);
+                } else alert(result?.message);
 
                 if (fileInput) {
                     fileInput.value = ''; // 清空 file input 的值
@@ -55,52 +59,52 @@ function BackMennu() {
         } else alert(error[0].textContent);
     }
 
-    const handleDelete = async (id: string) => {
-        if(confirm('確定要刪除此菜色 ? ')) {
+    const handleDelete = async (menu: I_dishes) => {
+        if(confirm('確定要刪除此菜單 ? ')) {
             try {
-                const data = await api_deleteDishes(id);
+                const data = await api_deleteDishes(menu.id);
                 alert(data?.message);
-                location.reload();
-                
+                if(data?.status) setGetApi(true);
             }catch(e) {
                 console.log(e);
             }
         }
     }
 
+    const handleEdit = (menu: I_dishes) => {
+        setEditor(menu);
+        setIsOpen(true);
+
+        if(title.current) title.current.value = menu.title;
+        if(subtitle.current) subtitle.current.value = menu.subtitle;
+        if(dind.current) dind.current.value = menu.dind + ''; 
+    }
+
+    useEffect(() => {
+        if(!isOpen) {
+            clearInput();
+            setEditor(null);
+        }
+    }, [isOpen])
+
+    useEffect(() => {
+        if(getapi) {
+            (async function() {
+                const data = await api_getDish();
+                setDishData(data?.dishesinfo!);
+            })()
+            setGetApi(false);
+        }
+    }, [getapi])
+
     return (
         <div className={styles.backmenu}>
-            <button className={styles.addactivities} onClick={()=>setIsOpen(true)}>新增菜色</button>
-            <div className={styles.displays}>
-                {
-                    dishData ? dishData.map((obj, ind) => {
-                        return (
-                            <aside key={ind}>
-                                <div className={styles.frame}>
-                                    <Image src={`${handlepath()}${obj.image}`} alt={obj.title} width={300} height={300}/>
-                                </div>
-                                <div className={styles.contents}>
-                                    <div className={styles.topline}>
-                                        <h3>{obj.title}</h3>
-                                        <div>{obj.content}</div>
-                                    </div>
-                                    <div className={styles.bottomline}>
-                                        <div className={styles.price}>NT$ {obj.price}</div>
-                                        <div className={styles.type}>{obj.type}</div>
-                                    </div>
-                                  <div className={styles.date}>
-                                        上傳時間: 
-                                        <span>{handleDate(obj.date)}</span>
-                                        <span>{handleDate(obj.date, true)}</span>
-                                        <button onClick={() => handleDelete(obj.id)}>刪除</button>
-                                    </div>
-                                </div>
-                            </aside>
-                        )
-                    }) : <Loading/>
-                }
+            <div className={styles.addactivities}>
+                <button onClick={()=>setIsOpen(true)}>新增菜單</button>
             </div>
-
+            <div className={styles.displays}>
+                <Columnar keys={Dishes_Key} values={dishData!} handleDelete={handleDelete} handleEdit={handleEdit}/>
+            </div>
             <div className={styles.lightbox}>
                 <LightBox
                     isOpen={isOpen}
@@ -109,32 +113,43 @@ function BackMennu() {
                     theName={styles.regisblocker}
                 >
                     <div className={styles.regisblocker}>
+                        <InputFile 
+                            onChange={(e: ChangeEvent<HTMLInputElement>|null) => {
+                                let file = null;
+                                if(e) file = e.target.files![0];
+                                setImage(file!);
+                            }}
+                            accept=".jpg, .jpeg"
+                            defaultImage={editor ? editor.image : undefined}
+                        />
                         <InputBar
                             title="標題"
                             placeholder="請輸入標題"
                             type={E_RegexType.NAME}
                             maxlength={10}
-                            ref={inputRefs.title}
+                            ref={title}
+                            value={editor?.title}
+                            clear={!isOpen}
                         />
                         <InputBar
-                            title="金額"
-                            placeholder="請輸入金額"
+                            title="副標題"
+                            placeholder="請輸入副標題"
+                            type={E_RegexType.NAME}
+                            maxlength={20}
+                            ref={subtitle}
+                            value={editor?.subtitle}
+                            clear={!isOpen}
+                        />
+                        <InputBar
+                            title="順序"
+                            placeholder="請輸入順序"
                             type={E_RegexType.NUMBER}
-                            maxlength={10}
-                            ref={inputRefs.price}
+                            maxlength={2}
+                            ref={dind}
+                            value={editor?.dind}
+                            clear={!isOpen}
                         />
-                        <InputBar
-                            title="內文"
-                            placeholder="請輸入內文"
-                            type={E_RegexType.TEXTING}
-                            maxlength={2048}
-                            ref={inputRefs.content}
-                        />
-                        <input type="file" onChange={e => {
-                            const file = e.target.files![0];
-                            setImage(file);
-                        }}/>
-                        <button onClick={handlePost}>送出</button>
+                        <button className={styles.sender} onClick={handlePost}>送出</button>
                     </div>
                 </LightBox>
             </div>

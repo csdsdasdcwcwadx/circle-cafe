@@ -8,25 +8,31 @@ import { I_activities } from "@/redux/interfaces";
 import { api_postData, api_deleteActivities, api_updateData } from "@/apisource/apiname";
 import ActivityDisplay from "../../activity/ActivityDisplay";
 
-const pageCount = 1;
+const pageCount = 10;
 
 function BackActivities() {
     const [image, setImage] = useState<File>();
     const [isOpen, setIsOpen] = useState(false);
     const [editor, setEditor] = useState<I_activities|null>(null);
 
-    const title = useRef<HTMLInputElement>(null);
-    const content = useRef<HTMLInputElement>(null);
-    const fb = useRef<HTMLInputElement>(null);
+    const inputRefs = {
+       title: useRef<HTMLInputElement>(null),
+       content: useRef<HTMLInputElement>(null),
+       fb: useRef<HTMLInputElement>(null),
+    }
 
     const handleClick = async () => {
         const error = document.getElementsByClassName('error');
         if(error.length === 0) {
             const formData = new FormData();
-            formData.append('title', title.current?.value!);
-            formData.append('content', content.current?.value!);
-            formData.append('fb', content.current?.value!);
+            formData.append('title', inputRefs.title.current?.value!);
+            formData.append('content', inputRefs.content.current?.value!);
+            formData.append('fb', inputRefs.content.current?.value!);
             formData.append('image', image!);
+            if(editor) {
+                formData.append('id', editor.id);
+                formData.append('oldimage', editor.image);
+            }
             
             try {
                 if(editor) {
@@ -50,9 +56,6 @@ function BackActivities() {
                 //     // setData(data?.activitiesinfo);
 
                 // } else alert(result?.message);
-
-                // if(title.current) title.current.value = '';
-                // if(content.current) content.current.value = '';
 
                 // const fileInput = document.querySelector<HTMLInputElement>('input[type="file"]');
                 // if (fileInput) {
@@ -91,7 +94,7 @@ function BackActivities() {
     }
 
     useEffect(() => {
-        if(!isOpen) setEditor(null)
+        if(!isOpen) setEditor(null);
     }, [isOpen])
 
     return (
@@ -115,7 +118,7 @@ function BackActivities() {
                             placeholder="請輸入標題"
                             type={E_RegexType.NAME}
                             maxlength={10}
-                            ref={title}
+                            ref={inputRefs.title}
                             value={editor?.title}
                         />
                         <InputBar
@@ -123,15 +126,16 @@ function BackActivities() {
                             placeholder="請輸入FB貼文連結"
                             type={E_RegexType.NAME}
                             maxlength={500}
-                            ref={fb}
+                            ref={inputRefs.fb}
                             value={editor?.fb}
+                            unnecessary
                         />
                         <InputBar
                             title="內文"
                             placeholder="請輸入內文"
                             type={E_RegexType.TEXTING}
                             maxlength={2048}
-                            ref={content}
+                            ref={inputRefs.content}
                             value={editor?.content}
                         />
                         <input type="file" className={styles.file} onChange={e => {

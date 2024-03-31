@@ -1,3 +1,4 @@
+import { E_column } from "@/components/Usage/back/Columnar";
 
 export interface I_RootState {
     page: E_Page;
@@ -28,10 +29,41 @@ export interface I_activities {
     fb: string;
 }
 
+export const Activities_Key = ['id', 'title', 'content', 'image', 'date', 'fb'];
+
 export interface I_dishes {
     id: string;
     title: string;
     subtitle: string;
     image: string;
+    dind: number;
     date: string;
 }
+export const Dishes_Key = [
+    {
+        display: 'id',
+        conditions: [E_column.isHide],
+    },
+    {
+        display: 'title',
+        text: '標題'
+    },
+    {
+        display: 'subtitle',
+        text: '副標題',
+    },
+    {
+        display: 'image',
+        conditions: [E_column.isImage],
+        text: '圖片',
+    },
+    {
+        display: 'dind',
+        text: '順序',
+    },
+    {
+        display: 'date',
+        conditions: [E_column.isDate],
+        text: '上傳日期',
+    },
+];

@@ -1,8 +1,14 @@
-export const handleDate = (date: string, isTime: boolean = false) => {
+export const handleDate = (date: string, isTime: boolean = false, isReverse = false) => {
     const utcDateTime = date;
     const localDateTime = new Date(utcDateTime).toLocaleString('en-US', { timeZone: 'Asia/Taipei', hour12: false });
     if(isTime) return localDateTime.split(',')[1];
-    return localDateTime.split(',')[0];
+    return isReverse? handleReverse(localDateTime.split(',')[0]) : localDateTime.split(',')[0];
+
+    function handleReverse(date: string) {
+        const DayandMonth = date.split('/');
+        const year = DayandMonth.pop();
+        return year + '/' + DayandMonth.join('/')
+    }
 }
 
 export const handleMonth = (nums: number) => {
@@ -59,12 +65,14 @@ export const initFacebookSdk = () => {
                 })
             }
         } else {
-            window.FB.init({
-                appId: '1065861224471609',
-                cookie: true,
-                xfbml: true,
-                version: 'v19.0'
-            })
+            if(window.FB && window.FB.init) {
+                window.FB.init({
+                    appId: '1065861224471609',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v19.0'
+                })
+            }
         }
         const root = document.getElementById('fb-root');
         resolve(root);
