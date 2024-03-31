@@ -86,18 +86,6 @@ function BackActivities() {
         if(fb.current) fb.current.value = activity.fb + ''; 
     }
 
-    // const renderBlock = (activity: I_activities) => {
-    //     return (
-    //         <div className={styles.buttons}>
-    //             <button onClick={() => {
-    //                 setIsOpen(true);
-    //                 setEditor(activity);
-    //             }}>編輯</button>
-    //             <button onClick={() => handleDelete(activity.id)}>刪除</button>
-    //         </div>
-    //     )
-    // }
-
     useEffect(() => {
         if(!isOpen) {
             clearInput();

@@ -15,7 +15,13 @@ export interface I_GET_GETACTIVITIES {
     message: string;
     status: boolean;
     totalpage: number;
-    activitiesinfo: Array<I_activities>
+    activitiesinfo: Array<I_activities>;
+}
+
+export interface I_GET_A_ACTIVITY {
+    message: string;
+    status: boolean;
+    activitiesinfo: Array<I_activities>;
 }
 
 export interface I_POST_MENU_SET {

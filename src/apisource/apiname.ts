@@ -1,4 +1,4 @@
-import { I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_Login, I_POST_SET_getter, I_reInfo } from "./apitype";
+import { I_GET_A_ACTIVITY, I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_Login, I_POST_SET_getter, I_reInfo } from "./apitype";
 
 export const handlepath = () => {
     return '/local';
@@ -27,7 +27,7 @@ export async function api_postData(poster: FormData, isServer: boolean = false) 
 }
 
 // GET ACTIVITIES
-export async function api_getData(page: number, count: number,isServer: boolean = false) {
+export async function api_getData(page: number, count: number, isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
             headers: {
@@ -40,6 +40,25 @@ export async function api_getData(page: number, count: number,isServer: boolean 
             }),
         });
         const data: I_GET_GETACTIVITIES = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// GET ONE ACTIVITY
+export async function api_get_a_activity(id: string, isServer: boolean = false) {
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivity`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: "POST",
+            body: JSON.stringify({
+                id,
+            }),
+        });
+        const data: I_GET_A_ACTIVITY = await response.json();
         return data;
     }catch(e) {
         console.log(e);

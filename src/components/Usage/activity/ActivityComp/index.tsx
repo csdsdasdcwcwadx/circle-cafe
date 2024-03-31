@@ -13,10 +13,9 @@ import { handleDate, handleMonth } from '@/utils';
 interface I_props {
     activities: I_activities[]|null;
     isServerComp?: boolean;
-    renderBlock?: Function;
 }
 
-function ActivityComp({activities, isServerComp, renderBlock}: I_props) {
+function ActivityComp({activities, isServerComp}: I_props) {
 
     return (
         <div className={cN(styles.articles, {[styles.hide]: isServerComp})}>
@@ -51,7 +50,6 @@ function ActivityComp({activities, isServerComp, renderBlock}: I_props) {
                             <div className={styles.socialmedia}>
                                 {!isServerComp && <FBLikeButton link={activity.fb}/>}
                             </div>
-                            {renderBlock && renderBlock(activity)}
                         </div>
                     )
                 })

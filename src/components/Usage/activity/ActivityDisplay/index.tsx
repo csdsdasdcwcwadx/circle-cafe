@@ -8,11 +8,10 @@ import PageNumber from "@/components/Common/PageNumber";
 import ActivityComp from "@/components/Usage/activity/ActivityComp";
 
 interface I_props {
-    renderBlock?: Function;
     pageCount: number;
 }
 
-function ActivityDisplay({renderBlock, pageCount}: I_props) {
+function ActivityDisplay({pageCount}: I_props) {
     const [serial, setSerial] = useState(1);
     const [activities, setActivities] = useState<I_GET_GETACTIVITIES|null>();
 
@@ -27,7 +26,7 @@ function ActivityDisplay({renderBlock, pageCount}: I_props) {
     return (
         <>
             <div className={styles.articles}>
-                <ActivityComp activities={activities?.activitiesinfo!} renderBlock={renderBlock}/>
+                <ActivityComp activities={activities?.activitiesinfo!}/>
             </div>
             {activities && <PageNumber serial={serial} setSerial={setSerial} maxpage={activities?.totalpage!}/>}
         </>

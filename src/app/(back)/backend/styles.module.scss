@@ -2,7 +2,7 @@
 
 .backend {
     .block {
-        height: 80px;
+        height: 60px;
     }
     
     .header {
@@ -14,13 +14,13 @@
         background-color: $blueColor;
         padding-left: 0;
         z-index: 2;
-        height: 80px;
+        height: 60px;
         margin: 0;
 
         .lefter {
             display: flex;
             align-items: center;
-            height: 80px;
+            height: 60px;
             
             nav {
                 position: relative;
@@ -30,8 +30,8 @@
                 width: 100px;
                 height: 100%;
                 padding: 0 10px;
+                margin: 0 10px;
                 list-style-type: none;
-                transition: all 0.5s ease-in-out;
                 cursor: pointer;
                 text-align: center;
                 text-decoration: none;
