@@ -92,6 +92,10 @@ function InputContents({defaultValue, dispatch, clear}: I_props) {
     },[list, subtitle])
 
     useEffect(() => {
+        if(defaultValue) setListBlock(JSON.parse(defaultValue) as I_Block[]);
+    }, [defaultValue])
+
+    useEffect(() => {
         if(dispatch) dispatch(JSON.stringify(listBlock));
     }, [listBlock, dispatch])
 
