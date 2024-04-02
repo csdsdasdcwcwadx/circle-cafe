@@ -1,4 +1,4 @@
-import { I_activities, I_dishes } from "@/redux/interfaces";
+import { I_activities, I_banner, I_dishes } from "@/redux/interfaces";
 
 export interface I_reInfo {
     message: string;
@@ -53,4 +53,10 @@ export interface I_reviews {
     text : string;
     time : number;
     translated : boolean;
+}
+
+export interface I_GET_BANNER_GETTER {
+    message: string;
+    status: boolean;
+    bannerinfo: Array<I_banner>
 }

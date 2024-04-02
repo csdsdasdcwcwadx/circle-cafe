@@ -93,3 +93,11 @@ export const Dishes_Key = [
         text: '上傳日期',
     },
 ];
+
+export interface I_banner {
+    id: string;
+    title: string;
+    subtitle: string;
+    image: string;
+    date: string;
+}
