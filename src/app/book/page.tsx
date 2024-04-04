@@ -2,7 +2,7 @@ import Default from "@/components/Common/Default";
 import { E_Page } from "@/redux/interfaces";
 import BackImage from '../../image/00-41.jpg';
 import styles from './styles.module.scss';
-import GoogleMapper from "@/components/Common/GoogleMapper";
+import GoogleMapper from "@/components/Modules/GoogleMapper";
 
 export default function Book() {
     return (

@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from "react"
 import styles from './styles.module.scss';
-import InputBar, { E_RegexType } from "../Modules/InputBar";
+import InputBar, { E_RegexType } from "../../../Modules/InputBar";
 import { api_login } from "@/apisource/apiname";
 
 interface I_props {

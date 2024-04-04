@@ -1,0 +1,61 @@
+@import '../../../../common.scss';
+
+.columnar {
+    display: table;
+    width: 100%;
+    overflow: auto;
+    
+    .bar {
+        display: table-row-group;
+
+        aside {
+            display: table-cell;
+            padding: 10px 20px 10px 15px;
+            color: #fff;
+            max-width: 200px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+            &:not(:last-of-type) {
+                border-right: 1px solid #fff;
+            }
+
+            &.buttons {
+                min-width: 120px;
+                width: 9%;
+
+                button {
+                    border: 0;
+                    cursor: pointer;
+                    font-size: 17px;
+                    color: $blueColor;
+                    background-color: #c7c5c5;
+    
+                    &:hover {
+                        color: #ff0606;
+                    }
+    
+                    &:last-of-type {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        &.titlebar {
+            display: table-header-group;
+            background-color: $blueColor;
+        }
+        
+        &.contentbar {
+            background-color: $lightBlue;
+
+            &:nth-of-type(odd) {
+                background-color: $middleBlue;
+            }
+        }
+    }
+}

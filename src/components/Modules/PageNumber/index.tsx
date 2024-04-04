@@ -14,10 +14,6 @@ let typingTimer: NodeJS.Timeout;
 function PageNumber ({setSerial, maxpage, serial, typeIn}: I_props) {
     const page = useRef<HTMLInputElement>(null);
 
-    // useEffect(() => {
-    //     page.current!.value = serial + '';
-    // }, [serial])
-
     return (
         <div className={styles.pages}>
             <div className={styles.pagenumber}>

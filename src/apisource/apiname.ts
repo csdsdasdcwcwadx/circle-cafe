@@ -1,5 +1,4 @@
-import { E_Dish } from "@/redux/interfaces";
-import { I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_Login, I_POST_SET_getter, I_reInfo } from "./apitype";
+import { I_GET_A_ACTIVITY, I_GET_BANNER_GETTER, I_GET_DISHES_GETTER, I_GET_GETACTIVITIES, I_Login, I_POST_SET_getter, I_reInfo } from "./apitype";
 
 export const handlepath = () => {
     return '/local';
@@ -28,21 +27,58 @@ export async function api_postData(poster: FormData, isServer: boolean = false) 
 }
 
 // GET ACTIVITIES
-export async function api_getData(id?: string, isServer: boolean = false) {
+export async function api_getData(page: number, count: number, isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivities`, {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: "POST",
-            body: JSON.stringify({id}),
+            body: JSON.stringify({
+                page,
+                count,
+            }),
         });
         const data: I_GET_GETACTIVITIES = await response.json();
-        const duplicate = {...data, activitiesinfo: [
-            ...data.activitiesinfo, ...data.activitiesinfo
-        ] }
-        return duplicate;
+        return data;
     }catch(e) {
+        console.log(e);
+    }
+}
+
+// GET ONE ACTIVITY
+export async function api_get_a_activity(id: string, isServer: boolean = false) {
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/getActivity`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: "POST",
+            body: JSON.stringify({
+                id,
+            }),
+        });
+        const data: I_GET_A_ACTIVITY = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// UPDATE ACTIVITIES
+export async function api_updateData(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/updateactivities`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        });
+        const data: I_POST_SET_getter = await response.json();
+        return data;
+    } catch(e) {
         console.log(e);
     }
 }
@@ -77,7 +113,7 @@ export async function api_dishPost(poster: FormData, isServer: boolean = false) 
                 'Authorization': `Bearer ${accessToken}`,
             }
         });
-        const data: I_GET_GETACTIVITIES = await response.json();
+        const data: I_GET_DISHES_GETTER = await response.json();
         return data;
     }catch(e) {
         console.log(e);
@@ -85,14 +121,31 @@ export async function api_dishPost(poster: FormData, isServer: boolean = false) 
 }
 
 // GET DISHES
-export async function api_getDish(type?: E_Dish, isServer: boolean = false) {
+export async function api_getDish(isServer: boolean = false) {
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/getDishes`, {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: "POST",
-            body: JSON.stringify({type}),
+        });
+        const data: I_GET_DISHES_GETTER = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// UPDATE DISHES
+export async function api_dishUpdate(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/updateDishes`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
         });
         const data: I_GET_DISHES_GETTER = await response.json();
         return data;
@@ -145,6 +198,77 @@ export async function api_fetch_google_comment(apikey: string) {
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?key=${apikey}&placeid=ChIJMTZqYp8haDQRFxD-F4S88Rk`);
         const data: any = await response.json();
         return data && data.result && data.result.reviews;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// POST BANNER
+export async function api_bannerPost(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/set`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        });
+        const data: I_GET_BANNER_GETTER = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// GET BANNER
+export async function api_getBanner(isServer: boolean = false) {
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/getBanner`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: "POST",
+        });
+        const data: I_GET_BANNER_GETTER = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// UPDATE BANNER
+export async function api_bannerUpdate(poster: FormData, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/updateBanner`, {
+            method: "POST",
+            body: poster,
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        });
+        const data: I_GET_BANNER_GETTER = await response.json();
+        return data;
+    }catch(e) {
+        console.log(e);
+    }
+}
+
+// DELETE BANNER
+export async function api_bannerDishes(id?: string, isServer: boolean = false) {
+    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    try {
+        const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/delBanner`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
+            },
+            method: "POST",
+            body: JSON.stringify({id}),
+        });
+        const data: I_reInfo = await response.json();
+        return data;
     }catch(e) {
         console.log(e);
     }

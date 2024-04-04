@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, forwardRef, ForwardedRef, RefObject } from "react";
+import { memo, useState, useEffect, forwardRef, ForwardedRef, RefObject, useCallback } from "react";
 import styles from './styles.module.scss';
 import cN from 'classnames';
 
@@ -20,82 +20,85 @@ interface I_props {
     trigger?: boolean;
     maxlength: number;
     className?: string;
+    clear?: boolean;
 }
 
-function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className}: I_props, ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>) {
+function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxlength, className, clear}: I_props, ref: ForwardedRef<HTMLInputElement | HTMLTextAreaElement>) {
     const [input, setInput] = useState<string>('');
-    const [errMsg, setErrMsg] = useState<string | undefined>();
+    const [errMsg, setErrMsg] = useState<string | undefined>(`${title}必填`);
 
-    useEffect(() => {
-        value && setInput(`${value}`);
-    },[value])
-
-    useEffect(() => {
-        if(trigger) setErrMsg(undefined);
-        else setErrMsg(`${title}必填`);
-    },[trigger, title])
-
-
-    useEffect(() => {
-        
+    const validateInput = useCallback((checker: string | number | undefined) => {
         let flag = true;
         const RegexNumTypes = /^[0-9]*$/;
         const RegexChineseTypes = /^[^\u4e00-\u9fa5]+$/;
         const RegexPhoneNum = /^09\d{8}$/;
         const RegexDecimalPoint = /^\d+$/;
         const Regexmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        switch(type) {
-            // 手機驗證，不為空、為數字、為手機格式
+    
+        switch (type) {
             case E_RegexType.PHONE:
-                if(!RegexPhoneNum.test(input!)) {
+                if (!RegexPhoneNum.test(`${checker}`)) {
                     flag = false;
                     setErrMsg('此欄位須為手機格式');
                 }
-                if(!RegexNumTypes.test(input!)) {
+                if (!RegexNumTypes.test(`${checker}`)) {
                     flag = false;
                     setErrMsg('此欄位須為數字');
                 }
-                if(!unnecessary && input === '') {
+                if (!unnecessary && (checker === '' || !checker)) {
                     flag = false;
                     setErrMsg(`${title}必填`);
                 }
                 break;
             case E_RegexType.NAME:
             case E_RegexType.ADDRESS:
-                if(!unnecessary && input === '') {
+                if (!unnecessary && (checker === '' || !checker)) {
                     flag = false;
                     setErrMsg(`${title}必填`);
                 }
                 break;
             case E_RegexType.EMAIL:
-                if(!Regexmail.test(input!)) {
+                if (!Regexmail.test(`${checker}`)) {
                     flag = false;
                     setErrMsg('此欄位須為信箱格式');
                 }
-                if(!unnecessary && input === '') {
+                if (!unnecessary && (checker === '' || !checker)) {
                     flag = false;
                     setErrMsg(`${title}必填`);
                 }
                 break;
             case E_RegexType.NUMBER:
-                if(!RegexDecimalPoint.test(input!)) {
+                if (!RegexDecimalPoint.test(`${checker}`)) {
                     flag = false;
                     setErrMsg('此欄位只允許數字');
                 }
-                if(!unnecessary && input === '') {
+                if (!unnecessary && (checker === '' || !checker)) {
                     flag = false;
                     setErrMsg(`${title}必填`);
                 }
                 break;
             default:
-                if(!unnecessary && input === '') {
+                if (!unnecessary && (checker === '' || !checker)) {
                     flag = false;
                     setErrMsg(`${title}必填`);
                 }
+                break;
         }
-        if(flag) setErrMsg(undefined);
-    },[input, type, unnecessary, title])
+        if (flag) setErrMsg(undefined);
+    }, [title, type, unnecessary])
+    
+    useEffect(() => {
+        validateInput(input);
+    }, [input, validateInput]);
+    
+    useEffect(() => {
+        value && setInput(`${value}`);
+        validateInput(value);
+    },[value, validateInput])
+
+    useEffect(() => {
+        if(clear) setInput('');
+    }, [clear])
 
     return (
         <div className={cN(styles.inputblock, className)}>
@@ -104,7 +107,7 @@ function InputBar ({title, placeholder, type, value, unnecessary, trigger, maxle
                 type === E_RegexType.TEXTING ? <textarea placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLTextAreaElement>)} defaultValue={value} maxLength={maxlength}/>:
                 <input placeholder={placeholder} onChange={e=>setInput(e.target.value)} ref={(ref as RefObject<HTMLInputElement>)} defaultValue={value} maxLength={maxlength}/>
             }
-            {errMsg && <span className={cN(styles.err, 'error')}>{errMsg}</span>}
+            {errMsg && <span className={cN(styles.err, 'error', styles[type])}>{errMsg}</span>}
         </div>
     );
 }

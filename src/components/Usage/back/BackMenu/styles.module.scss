@@ -1,0 +1,95 @@
+@import '../../../../common.scss';
+
+.backmenu {
+    .addactivities {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+        width: 100%;
+
+        button {
+            border: 0;
+            border-radius: 7px;
+            padding: 20px 40px;
+            background-color: #c7c5c5;
+            color: $blueColor;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .lightbox {
+        > div:first-of-type {
+            width: 70%;
+        }
+
+        .regisblocker {
+            display: block;
+            background-color: #fff;
+            padding: 30px;
+
+            .displaytitle {
+                margin: 20px 0;
+                font-weight: bold;
+                font-size: 30px;
+            }
+
+            .imageframe {
+                position: relative;
+                width: 80%;
+                height: 200px;
+                margin: 0 auto;
+                background-color: #000;
+                margin-bottom: 20px;
+                border-radius: 12px;
+
+                > img {
+                    object-fit: cover;
+                    border-radius: 12px;
+                }
+            }
+
+            .selection {
+                margin-bottom: 20px;
+                
+                > span {
+                    display: block;
+                    color: rgb(213, 173, 120);
+                    margin: 0 0 5px 5px;
+                    font-size: 12px;
+                    text-align: left;
+                }
+
+                select {
+                    width: 100%;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    padding: 10px;
+                    outline: none;
+                    cursor: pointer;
+                }
+            }
+
+            textarea {
+                height: 200px;
+            }
+        }
+    }
+
+    .displays {
+        overflow-x: auto;
+        margin: 0 30px;
+    }
+
+    .sender {
+        margin: 0 auto;
+        display: block;
+        border: 0;
+        border-radius: 7px;
+        padding: 15px 30px;
+        background-color: #c7c5c5;
+        color: $blueColor;
+        font-size: 17px;
+        cursor: pointer;
+    }
+}

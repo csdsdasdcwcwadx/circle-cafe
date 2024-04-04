@@ -1,4 +1,4 @@
-import { I_activities, I_dishes } from "@/redux/interfaces";
+import { I_activities, I_banner, I_dishes } from "@/redux/interfaces";
 
 export interface I_reInfo {
     message: string;
@@ -14,13 +14,20 @@ export interface I_POST_SET_getter {
 export interface I_GET_GETACTIVITIES {
     message: string;
     status: boolean;
-    activitiesinfo: Array<I_activities>
+    totalpage: number;
+    activitiesinfo: Array<I_activities>;
+}
+
+export interface I_GET_A_ACTIVITY {
+    message: string;
+    status: boolean;
+    activitiesinfo: Array<I_activities>;
 }
 
 export interface I_POST_MENU_SET {
     message: string;
     status: boolean;
-    dishesinfo: Array<I_dishes>
+    // dishesinfo: Array<I_dishes>
 }
 
 export interface I_GET_DISHES_GETTER {
@@ -46,4 +53,10 @@ export interface I_reviews {
     text : string;
     time : number;
     translated : boolean;
+}
+
+export interface I_GET_BANNER_GETTER {
+    message: string;
+    status: boolean;
+    bannerinfo: Array<I_banner>
 }

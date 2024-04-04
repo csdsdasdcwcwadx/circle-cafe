@@ -1,11 +1,12 @@
 import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
-import { api_getData } from "@/apisource/apiname";
+import { api_get_a_activity } from "@/apisource/apiname";
 import { handlepath } from "@/apisource/apiname";
 import { NextRequest } from "next/server";
 import cN from 'classnames';
-import sss from '@/image/1ea5f3a2f2f21e96.png';
+import { handleDate, E_Block, I_Block, splitter } from "@/utils";
+import { Fragment } from "react";
 
 interface I_Requester extends NextRequest {
     params: {
@@ -17,60 +18,49 @@ interface I_Requester extends NextRequest {
 }
 
 export default async function Activities(req: I_Requester) {
-    // const id = req.searchParams.id
-    // const activity = await api_getData(id, true);
+    const id = req.searchParams.id
+    const activity = await api_get_a_activity(id, true);
+
+    const listBlock: I_Block[] = JSON.parse(activity?.activitiesinfo[0].content!);
     
     return (
         <Default
             className={styles.activities}
-            // imageSrc={`${handlepath()}${activity.activitiesinfo[0].image}`}
-            imageSrc={sss}
+            imageSrc={`${handlepath()}${activity?.activitiesinfo[0].image}`}
+            // imageSrc={sss}
             currentPage={E_Page.ACTIVITIES}
-            title={req.params.activity}
+            title={activity?.activitiesinfo[0].title!}
             altContent="environment"
             faded
         >
             <div className={styles.lister}>
                 <h3 className={styles.subtitle}>活動日期：</h3>
-                <span>活動日期內容</span>
+                <span>{handleDate(activity?.activitiesinfo[0].date!, false, true)}</span>
             </div>
-            <div className={styles.lister}>
-                <h3 className={styles.subtitle}>活動區間：</h3>
-                <span>活動區間內容</span>
-            </div>
-            <div className={styles.lister}>
-                <h3 className={styles.subtitle}>活動對象：</h3>
-                <span>活動對象內容</span>
-            </div>
-            <div className={styles.lister}>
-                <h3 className={styles.subtitle}>活動區間：</h3>
-                <span>活動區間內容</span>
-            </div>
-            <div className={cN(styles.lister, styles.contents)}>
-                <h3 className={styles.subtitle}>活動詳情：</h3>
-                {/* <span>{activity.activitiesinfo[0].content}</span> */}
-                <span>
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                    內文內文內文內內文內文內文內內文內文內文內內文內文內文內內文內文內文內
-                </span>
-            </div>
-            <div className={styles.subcontent}>
-                <strong>副標題</strong>
-                <div className={styles.lister}>
-                    <h3 className={styles.subtitle}>活動日期：</h3>
-                    <span>活動日期內容</span>
-                </div>
-            </div>
+            {
+                listBlock.map((block, ind) => {
+                    switch(block.type) {
+                        case E_Block.list:
+                            const title = block.value.split(splitter)[0];
+                            const content = block.value.split(splitter)[1];
+
+                            return (
+                                <div className={styles.lister} key={ind}>
+                                    <h3 className={styles.subtitle}>{title}：</h3>
+                                    <span>{content}</span>
+                                </div>
+                            );
+                        case E_Block.subtitle:
+                                return (
+                                    <div className={styles.subcontent} key={ind}>
+                                        <strong>{block.value}</strong>
+                                    </div>
+                                );
+                        default:
+                            return <Fragment key={ind}></Fragment>
+                    }
+                })
+            }
         </Default>
     )
 }

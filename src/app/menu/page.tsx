@@ -1,10 +1,9 @@
 import Default from '@/components/Common/Default';
 import styles from './styles.module.scss';
 import MenuSrc from '../../image/下載.jpeg';
-import { E_Page, I_dishes } from '@/redux/interfaces';
+import { E_Page } from '@/redux/interfaces';
 import Image from 'next/image';
-import { E_Dish } from '@/redux/interfaces';
-import { api_getDish, handlepath } from '@/apisource/apiname';
+import { handlepath } from '@/apisource/apiname';
 import DisplayDishes from '@/components/Usage/menu/DisplayDishes';
 import cN from 'classnames';
 

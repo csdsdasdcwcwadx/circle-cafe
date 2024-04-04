@@ -8,7 +8,7 @@
         display: block;
         color: $goldenColor;
         margin: 0 0 5px 5px;
-        font-size: 12px;
+        font-size: 15px;
         text-align: left;
     }
 
@@ -42,5 +42,10 @@
     .err {
         color: red;
         margin-bottom: 0;
+        font-size: 15px;
+
+        &:not(.TEXTING) {
+            margin-top: 5px;
+        }
     }
 }
