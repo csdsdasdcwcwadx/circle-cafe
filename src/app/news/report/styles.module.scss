@@ -3,14 +3,13 @@
 .report {
     main > div {
         padding: 0 !important;
-        margin: 0 !important;
+        margin-bottom: 0 !important;
     }
     .content {
         display: flex;
         justify-content: space-around;
         align-items: center;
         padding: 0 10%;
-        margin-top: 20px;
     
         .youtube {
             flex: 1;
@@ -82,9 +81,21 @@
     }
     
     .comment {
+        position: relative;
         padding-top: 30px;
-        // background-color: $blueColor;
-        background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
+        background-color: #2c3236;
+        // background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
+
+        &::after {
+            content: '';
+            width: calc(100% - 18px);
+            height: calc(100% - 18px);
+            border: 1px solid #787878;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            pointer-events: none;
+        }
 
         h3 {
             margin: 0;

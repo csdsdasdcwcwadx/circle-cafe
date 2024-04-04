@@ -3,8 +3,7 @@
 .activities {
     main {
         > div {
-            background: url(https://www.bravobeer.com.tw/themes/zh-tw/assets/images/newsview_bg2.jpg);
-            padding: 40px 15% !important;
+            padding: 0 !important;
 
             .subtitle {
                 margin: 0;
@@ -13,54 +12,72 @@
             }
         }
 
-        .lister {
-            display: flex;
-            margin-bottom: 20px;
+        .like {
             text-align: left;
-            color: $fontColor;
+            padding-left: 15%;
+            margin-bottom: 20px;
 
-            span {
-                width: 80%;
-                font-size: 22px;
+            @include only-mobile {
+                padding-left: 5%;
             }
+        }
 
-            h3 {
-                margin-right: 20px;
-                font-size: 22px;
-                font-weight: bold;
+        .activity {
+            // background: url(https://www.bravobeer.com.tw/themes/zh-tw/assets/images/newsview_bg2.jpg);
+            background-color: #e3d7c7;
+            padding: 40px 15%;
 
-                &::before {
-                    content: '◎';
-                    display: inline-block;
+            .lister {
+                display: flex;
+                margin-bottom: 20px;
+                text-align: left;
+                color: $fontColor;
+    
+                span {
+                    width: 80%;
+                    font-size: 22px;
+                }
+    
+                h3 {
                     margin-right: 20px;
+                    font-size: 22px;
+                    font-weight: bold;
+    
+                    &::before {
+                        content: '◎';
+                        display: inline-block;
+                        margin-right: 20px;
+                    }
+                }
+    
+                @include only-mobile {
+                    flex-direction: column;
+                    text-align: left;
+    
+                    span {
+                        width: auto;
+                        padding: 25px 0 0 40px;
+                    }
+                }
+            }
+    
+            .subcontent {
+                margin: 50px 20px 20px;
+                font-size: 25px;
+                text-align: left;
+    
+                > strong {
+                    margin: 0;
+                    background-color: rgb(255, 204, 204);
+                }
+    
+                .lister {
+                    margin-top: 20px;
                 }
             }
 
             @include only-mobile {
-                flex-direction: column;
-                text-align: left;
-
-                span {
-                    width: auto;
-                    padding: 25px 0 0 40px;
-                }
-            }
-        }
-
-        .subcontent {
-            margin: 40px 20px 0;
-            margin-top: 50px;
-            margin-right: 20px;
-            font-size: 25px;
-            text-align: left;
-
-            > strong {
-                margin: 0;
-                background-color: rgb(255, 204, 204);
-            }
-
-            .lister {
-                margin-top: 20px;
+                padding: 40px 5%;
             }
         }
     }

@@ -48,7 +48,7 @@ export const initFacebookSdk = () => {
         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
         if (d.getElementById(id)) {return;}
         js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+        js.src = "//connect.facebook.net/zh_TW/all" + (debug ? "/debug" : "") + ".js";
         if(ref.parentNode) ref.parentNode.insertBefore(js, ref);
     }(document, false));
     // window.FB.XFBML.parse();

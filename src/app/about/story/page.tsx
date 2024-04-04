@@ -35,12 +35,13 @@ export default function Story() {
                 </span>
             </p>
             <div className={styles.botimages}>
-                <Image src={firstImg} alt='第一張圖片'/>
-                <Image src={firstImg} alt='第二張圖片'/>
+                <div className={styles.frame}>
+                    <Image src={firstImg} alt='第一張圖片' fill sizes='100%'/>
+                </div>
+                <div className={styles.frame}>
+                    <Image src={firstImg} alt='第一張圖片' fill sizes='100%'/>
+                </div>
             </div>
-            {/* <span>
-                <Image src={signSrc} alt='Jacky'/>
-            </span> */}
         </Default>
     )
 }

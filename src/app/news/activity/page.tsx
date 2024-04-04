@@ -20,7 +20,7 @@ export default async function Activity() {
             altContent='envSrc'
             faded
         >
-            <ActivityComp activities={activities?.activitiesinfo!} isServerComp/>
+            {/* <ActivityComp activities={activities?.activitiesinfo!} isServerComp/> */}
             <ActivityDisplay pageCount={pageCount}/>
         </Default>
     )

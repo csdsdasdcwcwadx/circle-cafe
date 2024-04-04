@@ -82,8 +82,9 @@
             }
 
             .commentcontent {
+                position: relative;
                 padding: 30px;
-                height: calc(75% - 85px);
+                height: calc(75% - 90px);
 
                 p {
                     display: -webkit-box;
@@ -94,9 +95,16 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     line-height: 25px;
-                    -webkit-line-clamp: 9;
+                    -webkit-line-clamp: 8;
                     -webkit-box-orient: vertical;
                     font-size: 20px;
+                }
+
+                .timestamp {
+                    position: absolute;
+                    right: 30px;
+                    bottom: 10px;
+                    color: #747474;
                 }
             }
 
