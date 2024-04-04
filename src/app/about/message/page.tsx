@@ -1,7 +1,7 @@
 import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
-import messageSrc from '@/image/mcdongal.jpeg';
+import coverSrc from '@/image/temp/拾旅食 (43).jpg';
 import iconSrc from '@/image/temp/fixed.jpg';
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ export default function message() {
         <Default
             className={styles.message}
             currentPage={E_Page.MESSAGE}
-            imageSrc={messageSrc}
+            imageSrc={coverSrc}
             altContent="message"
             title="廚師對話"
             faded

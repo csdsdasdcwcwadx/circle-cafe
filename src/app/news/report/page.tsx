@@ -1,8 +1,7 @@
 import Default from "@/components/Common/Default";
 import styles from './styles.module.scss';
 import { E_Page } from "@/redux/interfaces";
-import reportSrc from '@/image/下載scaasc.jpeg';
-import Image from "next/image";
+import reportSrc from '@/image/temp/拾旅食 (1).jpg';
 import GoogleComment from "@/components/Modules/GoogleComment";
 
 export default function Report() {

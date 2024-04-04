@@ -1,25 +1,34 @@
 'use client';
 
-import { memo, useEffect, useState } from "react";
-import image1Src from '@/image/mcdongal.jpeg';
-import image2Src from '@/image/maree-taipei-73-jpg.webp';
+import { memo, useEffect, useMemo, useState } from "react";
+// import image1Src from '@/image/mcdongal.jpeg';
+// import image2Src from '@/image/maree-taipei-73-jpg.webp';
+import imageSrc1 from '@/image/temp/拾旅食 (2).jpg';
+import imageSrc2 from '@/image/temp/拾旅食 (3).jpg';
+import imageSrc3 from '@/image/temp/拾旅食 (5).jpg';
 import styles from './styles.module.scss';
 import Image from "next/image";
-import { useMediaQuery } from 'react-responsive';
+import cN from 'classnames';
 
+
+declare const window: Window;
 const images = [
-    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 1  },
-    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 2  },
-    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片2', id: 3  },
-    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 4  },
-    { src: image2Src, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 5  },
+    { src: imageSrc3, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 1  },
+    { src: imageSrc1, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 2  },
+    { src: imageSrc2, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片2', id: 3  },
+    { src: imageSrc3, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 4  },
+    { src: imageSrc1, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 5  },
 ]
 
 let preventDoubleClick = true;
 function SwapBanner() {
-    const isMobile = useMediaQuery({ query: '(max-width: 980px)' });
+    const [isMobile, setIsMobile] = useState(false);
     const [focuspage, setFocuspage] = useState(1);
     const [onside, setOnside] = useState({side: 0, trigger: false});
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 980);
+    }, [])
 
     useEffect(() => {
         if(onside.trigger) {
@@ -49,8 +58,8 @@ function SwapBanner() {
                 {
                     images.map((image, ind) => {
                         return (
-                            <div className={styles.image} key={ind} style={{
-                                marginLeft: isMobile ? `calc(${100*ind}%  - ${100*focuspage}%)` : `${(ind-1)*34}%`,
+                            <div className={cN(styles.image)} key={ind} style={{
+                                marginLeft: isMobile ? `${100*(ind-focuspage)}%` : `${(ind-1)*34}%`,
                                 transition: onside.trigger ? 'none' : 'all 1s ease-in-out',
                             }}>
                                 <Image src={image.src} alt={image.alt} sizes="100%" fill/>

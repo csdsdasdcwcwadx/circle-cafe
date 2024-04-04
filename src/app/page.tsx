@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import fullSrc from '@/image/images.jpeg';
 import steakSrc from '@/image/00-41.jpg';
 import wholeSrc from '@/image/20210819234553_73.jpg';
-import clearSrc from '@/image/golden.jpeg';
+import coverSrc from '@/image/temp/拾旅食 (9).jpg';
 import Carousel from '@/components/Usage/app/Carousel';
 import MapperInfo from '@/components/Usage/app/MapperInfo';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
@@ -11,7 +11,7 @@ import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
 import Image from 'next/image';
 
 const CarouselData = [
-  {src: clearSrc, alt: 'full', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
+  {src: coverSrc, alt: 'full', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
   {src: steakSrc, alt: 'steak', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
   {src: wholeSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
   {src: fullSrc, alt: 'whole', content: '內文內文內文內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂'},
@@ -57,11 +57,11 @@ export default function Home() {
             <div className={styles.contenter}>
               <div className={styles.area}>
                 <div className={styles.imagebacker}>
-                  <Image src={clearSrc} alt='alter' fill sizes="100%"/>
+                  <Image src={coverSrc} alt='alter' fill sizes="100%"/>
                 </div>
               </div>
               <div className={styles.textdisplay}>
-                <h3>About Us</h3>
+                <h3>關於我們</h3>
                 <div className={styles.text}>
                   內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
                   內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
