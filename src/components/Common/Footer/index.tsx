@@ -1,29 +1,33 @@
 import { memo } from 'react';
 import styles from './styles.module.scss';
-import cN from 'classnames';
-import footerSrc from '@/image/FesOdoNUoAEaCAR.jpg';
+// import cN from 'classnames';
+// import footerSrc from '@/image/FesOdoNUoAEaCAR.jpg';
 import Image from 'next/image';
+import qrcodeSrc from '@/image/qrcode.png';
 
 function Footer() {
 
     return (
-        <footer className={cN(styles.Footer)}>
-            <div className={styles.firstline}>
-                <Image src={footerSrc} alt='footer' className={styles.fooicon}/>
-                <div className={styles.items}>
-                    <div className={styles.redirector}>
-                        <a href="/">好吃好吃好吃</a>
-                        <a href="/">好吃好吃好吃</a>
-                        <a href="/">好吃好吃好吃</a>
-                    </div>
-                    <div className={styles.redirector}>
-                        <a href="/">好吃好吃好吃</a>
-                        <a href="/">好吃好吃好吃</a>
-                        <a href="/">好吃好吃好吃</a>
-                    </div>
+        <footer className={styles.info}>
+            <div className={styles.qrcode}>
+                <Image src={qrcodeSrc} alt='web source' sizes='100%' fill/>
+            </div>
+            <div className={styles.wording}>
+                <div>地址 / 
+                    <span> 這是地址資訊這是地址資訊這是地址</span>
+                </div>
+                {/* <div>聯絡方法 / 
+                    <span>{`(03)4336616`} / yuchen@gmail.com</span>
+                </div>
+                <div>地址 /  
+                    <span> 這是地址資訊這是地址資訊這是地址資訊</span>
+                </div> */}
+            </div>
+            <div className={styles.wording}>
+                <div>地址 / 
+                    <span> 這是地址資訊這是地址資訊這</span>
                 </div>
             </div>
-            <div className={styles.copyright}>Copyright © All Rights Reserved.</div>
         </footer>
     )
 }

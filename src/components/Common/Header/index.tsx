@@ -12,6 +12,8 @@ import facebookImage from '../../../icons/facebook.png';
 import LineImage from '../../../icons/Line.png';
 import { useSelector } from "react-redux";
 import { E_Page, I_RootState } from '@/redux/interfaces';
+import logoSrc from '@/icons/logo.jpg';
+import { log } from 'console';
 
 const aboutLink = [
     {ref: '/about/story', name: '品牌故事', en: 'story'},
@@ -60,7 +62,10 @@ function Header() {
                         <nav className={cN(styles.navigators)}>
                             {NavigatingOptions()}
                         </nav>
-                        <Link href='/' className={styles.logo}><div>logo</div></Link>
+                        <Link href='/' className={styles.logo}>
+                            {/* <Image src={logoSrc} alt='logo' fill sizes='100%'/> */}
+                            logo
+                        </Link>
                         <Applicationer/>
                     </div>
                     <LightBox

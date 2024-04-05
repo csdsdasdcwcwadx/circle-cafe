@@ -91,7 +91,7 @@
     .comment {
         position: relative;
         padding-top: 30px;
-        background-color: #2c3236;
+        background-color: $cardColor;
         // background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
 
         &::after {

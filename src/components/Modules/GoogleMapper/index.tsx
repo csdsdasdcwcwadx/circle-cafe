@@ -137,7 +137,7 @@ function GoogleMapper() {
     return !isLoaded ? <div>isLoading......</div> :
         <div className={styles.mapper}>
             <GoogleMap zoom={17} center={position1} mapContainerClassName={styles.mapcontainer} options={{
-                styles: mapStyle,
+                // styles: mapStyle,
             }}>
                 <Marker
                     position={position2}
