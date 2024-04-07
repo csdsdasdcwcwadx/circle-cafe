@@ -1,8 +1,4 @@
 import styles from './styles.module.scss';
-import fullSrc from '@/image/images.jpeg';
-import steakSrc from '@/image/00-41.jpg';
-import wholeSrc from '@/image/20210819234553_73.jpg';
-import coverSrc from '@/image/temp/拾旅食 (1).jpg';
 import Carousel from '@/components/Usage/app/Carousel';
 import PreAnimate from '@/components/Usage/app/PreAnimate';
 import SwapBanner from '@/components/Usage/app/SwapBanner';
@@ -21,8 +17,8 @@ export default async function Home() {
         <section className={styles.firstpage}>
           <Carousel data={CarouselData?.bannerinfo!}/>
         </section>
-        <section className={styles.secondpage}>
-          <LazyLoadingComp>
+        <LazyLoadingComp>
+          <section className={styles.secondpage}>
             <div className={styles.displayer}>
               <div className={styles.youtube}>
                 <iframe 
@@ -51,10 +47,10 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-          </LazyLoadingComp>
-        </section>
-        <section className={styles.thirdpage}>
-          <LazyLoadingComp>
+          </section>
+        </LazyLoadingComp>
+        <LazyLoadingComp>
+          <section className={styles.thirdpage}>
             <div className={styles.contenter}>
               <div className={styles.area}>
                 <div className={styles.imagebacker}>
@@ -75,10 +71,10 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-          </LazyLoadingComp>
-        </section>
-        <section className={styles.forthpage}>
-          <LazyLoadingComp>
+          </section>
+        </LazyLoadingComp>
+        <LazyLoadingComp>
+          <section className={styles.forthpage}>
             <div className={styles.bannertitle}>
               <h3></h3>
               <span className={styles.bannercontent}>
@@ -86,10 +82,10 @@ export default async function Home() {
               </span>
             </div>
             <SwapBanner/>
-          </LazyLoadingComp>
-        </section>
-        <section className={styles.fifthpage}>
-          <LazyLoadingComp>
+          </section>
+        </LazyLoadingComp>
+        <LazyLoadingComp>
+          <section className={styles.fifthpage}>
             <div className={styles.bottomarea}>
               <div className={styles.map}><GoogleMapper/></div>
               <aside className={styles.mapinfo}>
@@ -115,10 +111,12 @@ export default async function Home() {
                 </div>
                 <div className={styles.Mmap}><GoogleMapper/></div>
               </aside>
-              </div>
-          </LazyLoadingComp>
-        </section>
-        <Footer/>
+            </div>
+          </section>
+        </LazyLoadingComp>
+        <LazyLoadingComp noAnimation>
+          <Footer/>
+        </LazyLoadingComp>
         <PreAnimate/>
     </div>
   )

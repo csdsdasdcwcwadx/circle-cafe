@@ -12,7 +12,8 @@ const nextConfig = {
         domains: [
             'www.google.com',
             'lh3.googleusercontent.com',
-            'http://localhost:3001/'
+            'http://localhost:3001/',
+            'http://localhost:3000/'
         ],
     },
     env: {

@@ -59,13 +59,15 @@
                     opacity: 0;
                     transition: all 2s ease-in-out;
                     transition-delay: 1s;
-                    color: rgb(223 219 219);
+                    color: $goldenColor;
 
                     div {
                         font-size: 100px;
                         letter-spacing: 20px;
                         text-shadow: rgb(19, 18, 18) 0.1em 0.1em 0.2em;
                         margin-bottom: 20px;
+                        font-weight: bold;
+                        user-select: none;
 
                         @include only-mobile {
                             font-size: 60px;
@@ -75,6 +77,8 @@
                     span {
                         width: 30%;
                         font-size: 25px;
+                        letter-spacing: 5px;
+                        user-select: none;
 
                         @include only-mobile {
                             width: 50%;
@@ -119,7 +123,7 @@
                 left: 0;
                 width: inherit;
                 height: inherit;
-                background-color: #000;
+                background-color: #393229;
                 opacity: .5;
                 z-index: 1;
             }

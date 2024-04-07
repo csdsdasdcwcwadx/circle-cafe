@@ -5,7 +5,7 @@
     // background-image: url(../image/background.jpg);
     // background-image: url(https://www.buna.com.tw/images/bg.jpg);
 
-    > section {
+    section {
         position: relative;
 
         @include only-mobile {
