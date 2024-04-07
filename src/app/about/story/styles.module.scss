@@ -2,7 +2,9 @@
 
 .story {
     > main > div {
-        padding: 0 8% !important;
+        @include only-pc {
+            padding: 0 8% !important;
+        }
 
         p {
             margin: 0 auto;

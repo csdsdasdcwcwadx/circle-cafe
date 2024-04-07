@@ -57,6 +57,7 @@
                 transition: all 1s ease-in-out;
                 z-index: 1;
                 border-radius: 30px;
+                user-select: none;
 
                 h3 {
                     margin: 0;
@@ -82,16 +83,34 @@
             }
 
             &:hover {
-                .content {
-                    background-color: rgba($color: #3e4144, $alpha: .8);
+                @include only-pc {
+                    .content {
+                        background-color: rgba($color: #3e4144, $alpha: .8);
+    
+                        h3, span {
+                            color: $goldenColor;
+                        }
+                    }
 
-                    h3, span {
-                        color: $goldenColor;
+                    .backer {
+                        background-color: rgba($color: #000, $alpha: .5);
                     }
                 }
+            }
 
-                .backer {
-                    background-color: rgba($color: #000, $alpha: .5);
+            &:active {
+                @include only-mobile {
+                    .content {
+                        background-color: rgba($color: #3e4144, $alpha: .8);
+    
+                        h3, span {
+                            color: $goldenColor;
+                        }
+                    }
+
+                    .backer {
+                        background-color: rgba($color: #000, $alpha: .5);
+                    }
                 }
             }
         }
@@ -126,7 +145,15 @@
             }
 
             &:hover {
-                background: linear-gradient(to right, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                @include only-pc {
+                    background: linear-gradient(to right, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                }
+            }
+
+            &:active {
+                @include only-mobile {
+                    background: linear-gradient(to right, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                }
             }
         }
 
@@ -139,7 +166,15 @@
             }
 
             &:hover {
-                background: linear-gradient(to left, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                @include only-pc {
+                    background: linear-gradient(to left, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                }
+            }
+
+            &:active {
+                @include only-mobile {
+                    background: linear-gradient(to left, rgba(2, 2, 2, .8), rgba(2, 2, 2, .3));
+                }
             }
         }
 
