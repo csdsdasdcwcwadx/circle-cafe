@@ -96,21 +96,15 @@ function BackActivities() {
 
     useEffect(() => {
         async function fetchData() {
-            (async function() {
-                const data = await api_getData(serial, pageCount);
-                setActivityData(data?.activitiesinfo!);
-                setMaxPage(data?.totalpage!);
-            })()
+            const data = await api_getData(serial, pageCount);
+            setActivityData(data?.activitiesinfo!);
+            setMaxPage(data?.totalpage!);
         }
         if(getapi) {
             fetchData();
             setGetApi(false);
         } else fetchData();
     }, [getapi, serial])
-    
-    useEffect(() => {
-        console.log(content)
-    }, [content])
 
     return (
         <div className={styles.backactivities}>

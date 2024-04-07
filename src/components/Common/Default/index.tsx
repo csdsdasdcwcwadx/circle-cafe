@@ -33,7 +33,7 @@ function Default({ children, currentPage, imageSrc, altContent, title, className
                     </div>
                 </main>
             </div>
-            {/* <Footer/> */}
+            <Footer/>
             <Setter currentPage={currentPage}/>
         </Fragment>
     )

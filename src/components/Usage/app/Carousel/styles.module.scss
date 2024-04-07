@@ -1,22 +1,27 @@
 @import '../../../../common.scss';
 
 .carousel {
+    position: relative;
     background-color: #fff;
+    height: 100%;
 
     .banners {
         position: relative;
         display: flex;
+        height: 100%;
 
         aside {
             position: absolute;
-            height: calc(100vh - 80px);
+            // height: calc(100vh - 80px);
+            height: 100%;
             width: 100%;
             z-index: 1;
             transition: all 1s ease-in-out;
             opacity: 0;
+            pointer-events: none;
 
-            @include only-mobile {
-                height: calc(100vh - 60px);
+            &.edit {
+                cursor: pointer;
             }
 
             img {
@@ -104,6 +109,7 @@
             }
 
             &.active {
+                pointer-events: auto;
                 opacity: 1;
             }
 

@@ -30,7 +30,6 @@ export default function RootLayout({
           </nav>
           {children}
         </Providers>
-        <Footer/>
       </body>
     </html>
   )

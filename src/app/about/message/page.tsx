@@ -4,6 +4,7 @@ import { E_Page } from "@/redux/interfaces";
 import coverSrc from '@/image/temp/拾旅食 (43).jpg';
 import iconSrc from '@/image/temp/fixed.jpg';
 import Image from "next/image";
+import Footer from "@/components/Common/Footer";
 
 export default function message() {
     return (

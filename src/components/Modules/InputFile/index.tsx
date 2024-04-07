@@ -30,8 +30,8 @@ function InputFile({onChange, accept, defaultImage}: I_props) {
     }
 
     useEffect(() => {
-        const currentTime = new Date().getTime();
-        if(defaultImage) setDisplayImage(`${handlepath()}${defaultImage}?timestamp=${currentTime}`);
+        // const currentTime = new Date().getTime();
+        if(defaultImage) setDisplayImage(`${handlepath()}${defaultImage}`);
         else setDisplayImage('');
     }, [defaultImage])
 

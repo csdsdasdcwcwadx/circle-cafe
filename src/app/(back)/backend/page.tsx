@@ -7,6 +7,7 @@ import BackMenu from "@/components/Usage/back/BackMenu";
 import cN from 'classnames';
 import { api_login } from "@/apisource/apiname";
 import Login from "@/components/Usage/back/Login";
+import BackBanner from "@/components/Usage/back/BackBanner";
 
 enum E_Backend {
     BANNER = 'BANNER',
@@ -71,7 +72,8 @@ export default function Backend() {
                         <div className={styles.page}>
                             {
                                 currBack === E_Backend.ACTIVITIES ? <BackActivities/> :
-                                currBack === E_Backend.MENU ? <BackMenu/> : ''
+                                currBack === E_Backend.MENU ? <BackMenu/> :
+                                currBack === E_Backend.BANNER ? <BackBanner/> : ''
                             }
                         </div>
                     </>

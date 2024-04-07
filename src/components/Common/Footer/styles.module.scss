@@ -1,16 +1,11 @@
 @import '../../../common.scss';
 
 .info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    padding: 30px 0;
-    // margin-top: 70px;
+    padding: 20px 0;
     color: #fff;
     text-align: center;
-    background-color: #253b4f;
-    // background-color: rgba($color: #fff, $alpha: 0);
+    background-color: #b9a385;
 
     .qrcode {
         position: relative;
@@ -19,38 +14,30 @@
         margin-left: 15px;
     }
 
+    .logo {
+        cursor: pointer;
+    }
+
     .wording {
-        margin-right: 30px;
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #574c3c;
+        letter-spacing: 4px;
 
-        > div {
-            display: block;
-            font-size: 25px;
-            font-weight: bold;
-            text-align: left;
-
-            &:not(:first-of-type) {
-                margin-top: 30px;
-            }
-
-            > span {
-                font-size: 18px;
-            }
-
-            @include only-mobile {
-                width: 80%;
-                text-align: center;
-                margin: 0 auto;
-            }
+        &:not(:first-of-type) {
+            margin-top: 30px;
         }
 
         @include only-mobile {
-            margin-top: 30px;
-            margin-right: 0;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
         }
-    }
 
-    @include only-mobile {
-        flex-direction: column;
-        // margin-top: 30px;
+        &:not(:first-of-type) {
+            margin-top: 10px;
+        }
     }
 }
