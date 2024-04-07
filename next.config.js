@@ -9,7 +9,11 @@ const nextConfig = {
         ]
     },
     images: {
-        domains: ['www.google.com', 'lh3.googleusercontent.com'],
+        domains: [
+            'www.google.com',
+            'lh3.googleusercontent.com',
+            'http://localhost:3001/'
+        ],
     },
     env: {
         GOOGLE_ID: 'AIzaSyAHVz-pXx5jCMeh87LLqxZtPeXLUGK3Dm0',

@@ -176,6 +176,7 @@ export async function api_deleteDishes(id?: string, isServer: boolean = false) {
 // LOGIN
 export async function api_login(account?: string, password?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
+    const refreshToken = window.localStorage.getItem('refreshToken') ||'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/admin/login`, {
             headers: {
@@ -183,7 +184,7 @@ export async function api_login(account?: string, password?: string, isServer: b
                 'Authorization': `Bearer ${accessToken}`,
             },
             method: "POST",
-            body: JSON.stringify({account, password}),
+            body: JSON.stringify({account, password, refreshToken}),
         });
         const data: I_Login = await response.json();
         return data;

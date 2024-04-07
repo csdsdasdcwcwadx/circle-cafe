@@ -11,17 +11,7 @@ import Image from 'next/image';
 import interSrc from '@/image/temp/拾旅食 (46).jpg';
 import GoogleMapper from '@/components/Modules/GoogleMapper';
 import Footer from '@/components/Common/Footer';
-import { I_banner } from '@/redux/interfaces';
 import { api_getBanner } from '@/apisource/apiname';
-
-// const CarouselData: I_banner[] = [
-//   {image: `${coverSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-//   {image: `${steakSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-//   {image: `${wholeSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-//   {image: `${fullSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-//   {image: `${steakSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-//   {image: `${wholeSrc}`, subtitle: '內文內文內文內文內文內文內文內', title: '𝓼𝓽𝓸𝓻𝔂𝓼𝓽𝓸𝓻𝔂', id: '123456', date: '100'},
-// ]
 
 export default async function Home() {
   const CarouselData = await api_getBanner(true);

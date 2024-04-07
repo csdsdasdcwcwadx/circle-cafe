@@ -94,6 +94,7 @@
 
                     > div {
                         padding: 50px 0 50px 30px;
+                        color: $fontColor;
 
                         > span {
                             position: relative;
@@ -258,20 +259,21 @@
                         width: 400px;
                         height: 400px;
                         padding: 50px;
-                        background-color: #313436;
+                        background-color: $brownColor;
                         z-index: 2;
                         border-radius: 7px;
                         line-height: 30px;
                         transition: ease-in-out 1s all;
 
                         h3 {
-                            color: $mainColor;
+                            color: #fff;
                             font-size: 40px;
                         }
     
                         .text {
-                            font-size: 18px;
-                            color: #fff;
+                            font-size: 15px;
+                            color: $fontColor;
+                            letter-spacing: 2px;
                         }
 
                         @include only-mobile {
@@ -299,7 +301,7 @@
         &.forthpage {
             margin-bottom: 30px;
             padding: 40px 150px;
-            background-color: #222;
+            background-color: $brownColor;
 
             .bannertitle {
                 h3 {
