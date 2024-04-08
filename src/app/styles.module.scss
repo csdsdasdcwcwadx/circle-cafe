@@ -1,7 +1,7 @@
 @import '../common.scss';
 
 .home {
-    background-color: $mainColor;
+    background: url(../image/27_0.jpg);
     // background-image: url(../image/background.jpg);
     // background-image: url(https://www.buna.com.tw/images/bg.jpg);
 
@@ -304,13 +304,13 @@
         }
 
         &.forthpage {
-            margin-bottom: 30px;
             padding: 40px 150px;
-            background-color: $brownColor;
+            // background-color: $brownColor;
+            background: url(../image/28_0.jpg);
 
             .bannertitle {
                 h3 {
-                    height: 80px;
+                    height: 147px;
                     background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/dining-slogan.svg) no-repeat;
                     text-align: center;
                     background-position: 50%;
@@ -327,9 +327,10 @@
                     width: 40%;
                     margin: 40px auto;
                     text-align: center;
-                    color: #fff;
+                    color: $fontColor;
                     font-size: 20px;
                     line-height: 30px;
+                    letter-spacing: 5px;
 
                     @include only-mobile {
                         width: 80%;
@@ -347,14 +348,15 @@
         }
 
         &.fifthpage {
-            padding: 0 12% 70px;
+            padding: 30px 12% 70px;
+            // background: url(../image/7123qwedqw.jpeg);
 
             .bottomarea {
                 display: flex;
 
                 .map {
                     width: 70%;
-                    aspect-ratio: 1.5;
+                    aspect-ratio: 2;
 
                     @include middler-pc {
                         display: none;

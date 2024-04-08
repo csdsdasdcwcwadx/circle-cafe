@@ -85,7 +85,7 @@
             &:hover {
                 @include only-pc {
                     .content {
-                        background-color: rgba($color: #3e4144, $alpha: .8);
+                        background-color: rgba($color: rgb(176 173 170), $alpha: .5);
     
                         h3, span {
                             color: $goldenColor;
@@ -101,7 +101,7 @@
             &:active {
                 @include only-mobile {
                     .content {
-                        background-color: rgba($color: #3e4144, $alpha: .8);
+                        background-color: rgba($color: rgb(176 173 170), $alpha: .5);
     
                         h3, span {
                             color: $goldenColor;

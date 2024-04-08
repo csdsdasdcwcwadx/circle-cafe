@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import cN from 'classnames';
 import Image, { StaticImageData } from "next/image";
 import Footer from "../Footer";
+import decoSrc from "@/image/illustration/13-removebg-preview_0.png";
 
 interface I_props {
     children: ReactNode;
@@ -27,7 +28,11 @@ function Default({ children, currentPage, imageSrc, altContent, title, className
                 </div>
                 <main>
                     <h2>{title}</h2>
-                    <span className={styles.deco}/>
+                    <div className={styles.bottom}>
+                        <span className={styles.deco}>
+                            <Image src={decoSrc} alt="decoration" sizes="100%" fill/>
+                        </span>
+                    </div>
                     <div className={styles.contents}>
                         {children}
                     </div>

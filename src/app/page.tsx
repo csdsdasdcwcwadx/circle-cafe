@@ -72,8 +72,6 @@ export default async function Home() {
               </div>
             </div>
           </section>
-        </LazyLoadingComp>
-        <LazyLoadingComp>
           <section className={styles.forthpage}>
             <div className={styles.bannertitle}>
               <h3></h3>
