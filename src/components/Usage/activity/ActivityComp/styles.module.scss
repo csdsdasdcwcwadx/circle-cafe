@@ -93,12 +93,13 @@
                     height: 88px;
                     overflow: hidden;
                     text-align: left;
-                    font-size: 20px;
+                    font-size: 16px;
                     color: #777;
                     text-overflow: ellipsis;
                     // line-height: 25px;
                     -webkit-line-clamp: 4;
                     -webkit-box-orient: vertical;
+                    letter-spacing: 5px;
                 }
 
                 .readmore {
@@ -129,10 +130,10 @@
 
                     .date {
                         position: absolute;
-                        bottom: 10px;
+                        bottom: 4px;
                         width: 32px;
                         font-size: 28px;
-                        right: 26px;
+                        right: 23px;
                         color: #222;
                         text-align: center;
                     }

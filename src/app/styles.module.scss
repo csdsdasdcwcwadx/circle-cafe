@@ -310,12 +310,14 @@
 
             .bannertitle {
                 h3 {
-                    height: 147px;
-                    background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/dining-slogan.svg) no-repeat;
+                    // background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/dining-slogan.svg) no-repeat;
                     text-align: center;
                     background-position: 50%;
                     background-size: 50%;
                     margin-top: 0;
+                    margin-bottom: 30px;
+                    font-size: 99px;
+                    color: #efc286;
 
                     @include only-mobile {
                         background-size: 70%;

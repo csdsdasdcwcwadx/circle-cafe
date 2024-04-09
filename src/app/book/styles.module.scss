@@ -10,6 +10,7 @@
             justify-content: space-between;
             width: 100%;
             color: $fontColor;
+            letter-spacing: 5px;
 
             .half {
                 display: flex;
@@ -86,6 +87,22 @@
                     aspect-ratio: 2;
                 }
 
+                &.display {
+                    width: 70%;
+
+                    > div {
+                        text-align: left;
+
+                        @include only-mobile {
+                            text-align: center;
+                        }
+                    }
+
+                    @include only-mobile {
+                        width: 100%;
+                    }
+                }
+
                 @include only-mobile {
                     &.list {
                         li {
@@ -118,6 +135,178 @@
                     &.map {
                         margin: 0 auto;
                     }
+                }
+            }
+
+            &.page {
+                flex-direction: column;
+
+                h3 {
+                    text-align: left;
+
+                    @include middler-pc {
+                        text-align: center;
+                    }
+
+                    @include only-mobile {
+                        text-align: center;
+                    }
+                }
+
+                .bottomarea {
+                    display: flex;
+                    width: 100%;
+    
+                    .map {
+                        width: 70%;
+                        aspect-ratio: 2;
+    
+                        @include middler-pc {
+                            display: none;
+                        }
+    
+                        @include only-mobile {
+                            display: none;
+                        }
+                    }
+    
+                    .mapinfo {
+                        position: relative;
+                        display: inline-block;
+                        width: calc(30% - 30px - 60px);
+                        padding: 45px 30px;
+                        margin-left: 30px;
+                        text-align: center;
+                        color: $fontColor;
+                        z-index: 1;
+    
+                        .infotitle {
+                            position: relative;
+                            font-size: 30px;
+                            font-weight: bold;
+                            margin-top: 10px;
+                            color: $goldenColor;
+    
+                            &::before {
+                                content: '小標題';
+                                position: absolute;
+                                top: -7px;
+                                left: 50%;
+                                font-size: 12px;
+                                transform: translate(-50%, -50%);
+                                color: $fontColor;
+                            }
+                        }
+    
+                        .maininfo {
+                            position: relative;
+                            margin-top: 30px;
+                            font-size: 13px;
+    
+                            > div {
+                                line-height: 18px;
+    
+                                &:not(:first-of-type) {
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+    
+                        .subinfo {
+                            position: relative;
+                            margin-top: 45px;
+    
+                            .subtitle {
+                                font-size: 17px;
+                                font-weight: bold;
+                                color: $goldenColor;
+                            }
+    
+                            .maininfo {
+                                margin-top: 10px;
+                            }
+    
+                            &::before {
+                                content: '';
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: -23px;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                display: block;
+                                border: 1px solid $fontColor;
+                            }
+                        }
+    
+                        .Mmap {
+                            display: none;
+                            width: 100%;
+                            margin: 30px auto 0;
+                            aspect-ratio: 3;
+    
+                            @include middler-pc {
+                                display: block;
+                            }
+    
+                            @include only-mobile {
+                                display: block;
+                                aspect-ratio: 2;
+                            }
+                        }
+    
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: -5px;
+                            left: 5px;
+                            border: 2px solid rgba($color: $goldenColor, $alpha: .5);
+                            border-radius: 3px;
+                            height: 100%;
+                            width: 100%;
+                            pointer-events: none;
+                        }
+    
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            border: 2px solid rgba($color: $goldenColor, $alpha: .5);
+                            border-radius: 3px;
+                            height: 100%;
+                            width: 100%;
+                            pointer-events: none;
+                            background-color: #fde4c2;
+                        }
+    
+                        @include middler-pc {
+                            width: 100%;
+                            margin-left: 0;
+                        }
+        
+                        @include only-mobile {
+                            width: 80%;
+                            margin: 0 auto;
+                        }
+                    }
+    
+                    @include middler-pc {
+                        flex-direction: column;
+                    }
+    
+                    @include only-mobile {
+                        flex-direction: column;
+                    }
+                }
+    
+                @include middler-pc {
+                    padding: 0 0 70px;
+                }
+    
+                @include only-mobile {
+                    padding: 0 0 30px;
                 }
             }
 

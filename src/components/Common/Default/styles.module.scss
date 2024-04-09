@@ -4,7 +4,7 @@
     // background-image: url(https://www.buna.com.tw/images/bg.jpg);
     // background: url(../../../image/bg10.jpeg);
     background: url(../../../image/27_0.jpg);
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px - 126px);
 
     .mainbanner {
         position: relative;
@@ -31,30 +31,15 @@
             font-size: 50px;
         }
 
-        .bottom {
+        .deco {
             position: relative;
+            width: 800px;
+            height: 12px;
             margin: 0 auto;
-            width: 100%;
-            height: 2px;
+            opacity: 1;
 
-            .deco {
-                position: absolute;
-                left: 50%;
-                transform: translate(-50%, -23%);
-                display: block;
-                margin: 0 auto;
-                // border-bottom: 2px solid $blueColor;
-                opacity: 1;
-                width: 50%;
-                height: 200px;
-    
-                > img {
-                    object-fit: cover;
-                }
-    
-                @include only-mobile {
-                    width: 100%;
-                }
+            @include only-mobile {
+                width: 100%;
             }
         }
 
@@ -92,19 +77,10 @@
                 @keyframes linethrough {
                     0% {
                         opacity: 0;
-                        // width: 0;
                     }
 
                     100% {
-                        opacity: 1;
-                        
-                        // @include only-pc {
-                        //     width: 80%;
-                        // }
-
-                        // @include only-mobile {
-                        //     width: 100%;
-                        // }
+                        opacity: .5;
                     }
                 }
             }

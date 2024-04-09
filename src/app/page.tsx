@@ -74,7 +74,7 @@ export default async function Home() {
           </section>
           <section className={styles.forthpage}>
             <div className={styles.bannertitle}>
-              <h3></h3>
+              <h3>𝓵𝓸𝓿𝓮 𝓼𝓽𝓸𝓻𝔂</h3>
               <span className={styles.bannercontent}>
                 說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的
               </span>
