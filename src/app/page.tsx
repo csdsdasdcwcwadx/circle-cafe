@@ -5,6 +5,7 @@ import SwapBanner from '@/components/Usage/app/SwapBanner';
 import LazyLoadingComp from '@/components/Usage/app/LazyLoadingComp';
 import Image from 'next/image';
 import interSrc from '@/image/temp/拾旅食 (46).jpg';
+import forthSrc from '@/image/illustration/21-removebg-preview.png';
 import GoogleMapper from '@/components/Modules/GoogleMapper';
 import Footer from '@/components/Common/Footer';
 import { api_getBanner } from '@/apisource/apiname';
@@ -73,6 +74,9 @@ export default async function Home() {
             </div>
           </section>
           <section className={styles.forthpage}>
+            <div className={styles.frame}>
+              {/* <Image src={forthSrc} alt='coffee' fill sizes='100%'/> */}
+            </div>
             <div className={styles.bannertitle}>
               <h3>𝓵𝓸𝓿𝓮 𝓼𝓽𝓸𝓻𝔂</h3>
               <span className={styles.bannercontent}>

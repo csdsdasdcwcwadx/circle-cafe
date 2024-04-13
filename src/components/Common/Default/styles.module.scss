@@ -37,6 +37,7 @@
             height: 12px;
             margin: 0 auto;
             opacity: 1;
+            user-select: none;
 
             @include only-mobile {
                 width: 100%;

@@ -263,11 +263,13 @@
                         width: 400px;
                         height: 400px;
                         padding: 50px;
-                        background-color: $brownColor;
                         z-index: 2;
                         border-radius: 7px;
                         line-height: 30px;
                         transition: ease-in-out 1s all;
+                        background: url(../image/illustration/11-removebg-preview_0.png) no-repeat;
+                        background-color: $brownColor;
+                        background-position: -12px -46px;
 
                         h3 {
                             color: #fff;
@@ -307,6 +309,19 @@
             padding: 40px 150px;
             // background-color: $brownColor;
             background: url(../image/28_0.jpg);
+
+            // .frame {
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     width: 153px;
+            //     height: 137px;
+            //     background: url(../image/illustration/21-removebg-preview.png);
+
+            //     &::after {
+            //         content: '';
+            //     }
+            // }
 
             .bannertitle {
                 h3 {

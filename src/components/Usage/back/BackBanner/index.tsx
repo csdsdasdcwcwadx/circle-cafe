@@ -89,6 +89,7 @@ function BackBanner() {
                 <button onClick={()=>setIsOpen(true)}>新增輪播圖</button>
             </div>
             <div className={styles.carousel}>
+                <div className={styles.hint}>點擊編輯</div>
                 <Carousel data={banner!} bannerClick={handleEdit}/>
             </div>
             <div className={styles.lightbox}>
