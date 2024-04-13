@@ -16,9 +16,8 @@
 
         .menudisplay {
             position: relative;
-            width: 300px;
-            aspect-ratio: 1;
-            margin-left: auto;
+            width: 100%;
+            aspect-ratio: 2;
         }
 
         aside {
@@ -26,22 +25,61 @@
             top: 0;
             right: 0;
             display: flex;
+            justify-content: center;
             width: 100%;
             height: 100%;
-            transition: 2s ease-in-out all;
-            transform: rotateY(0deg);
             z-index: 2;
-            background-color: #fff;
+
+            .contents {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50%;
+                background-color: #fff;
+            }
+
+            .frame {
+                position: relative;
+                right: 0;
+                width: 50%;
+                transform: rotateY(0deg);
+                transition: 2s ease-in-out all;
+                background-color: #fff;
+                aspect-ratio: 1;
+
+                > img {
+                    object-fit: cover;
+                }
+            }
+
+            @include only-mobile {
+                .contents {
+                    width: 40%;
+                }
+
+                .frame {
+                    width: 40%;
+                }
+            }
 
             &.front {
-                transform: rotateY(180deg);
-                right: 100%;
-                opacity: 0;
+                .frame {
+                    transform: rotateY(180deg);
+                    right: 50%;
+                    opacity: 0;
+
+                    @include only-mobile {
+                        right: 40%;
+                    }
+                }
             }
 
             &.back {
-                transform: rotateY(0deg);
                 z-index: 0;
+
+                .frame {
+                    transform: rotateY(0deg);
+                }
 
                 &.next {
                     z-index: 1;
@@ -49,45 +87,25 @@
             }
 
             &.flip {
-                transform: rotateY(180deg);
-                right: 100%;
                 z-index: 2;
+
+                .frame {
+                    transform: rotateY(180deg);
+                    right: 50%;
+
+                    @include only-mobile {
+                        right: 40%;
+                    }
+                }
             }
 
             &.flip, &.front, &.pre {
-                background-color: rgba($color: #fff, $alpha: .7);
-
                 .frame {
-                    display: none;
-                }
-            }
+                    background-color: rgba($color: #fff, $alpha: .7);
 
-            .contents {
-                width: 100%;
-                background-color: #fff;
-            }
-
-            .frame {
-                position: relative;
-                margin-left: auto;
-                width: 300px;
-                aspect-ratio: 1;
-
-                // &::before {
-                //     position: absolute;
-                //     content: attr(data-num);
-                //     color: #fff;
-                //     z-index: 3;
-                // }
-
-                > img {
-                    object-fit: cover;
-                }
-
-                @include only-mobile {
-                    width: auto;
-                    height: auto;
-                    max-height: 550px;
+                    > img {
+                        display: none;
+                    }
                 }
             }
         }

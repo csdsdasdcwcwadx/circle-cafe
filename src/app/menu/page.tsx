@@ -51,7 +51,10 @@ export default function Menu() {
                                         {[styles.front]: ind < trigger}
                                    )}
                               >
-                                   {/* <div className={styles.contents}>{dish.title}</div> */}
+                                   <div className={styles.contents}>
+                                        <div>{dish.title}</div>
+                                        <span>{dish.subtitle}</span>
+                                   </div>
                                    <div className={cN(styles.frame)} data-num={dishes?.dishesinfo.length - ind}>
                                         <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
                                    </div>
