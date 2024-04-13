@@ -63,7 +63,8 @@ function SwapBanner() {
                                 transition: onside.trigger ? 'none' : 'all 1s ease-in-out',
                             }}>
                                 <Image src={image.src} alt={image.alt} sizes="100%" fill/>
-                                <div className={styles.content}>
+                                <div className={styles.content}/>
+                                <div className={styles.display}>
                                     <h3>{image.title}</h3>
                                     <span>{image.subtitle}</span>
                                 </div>

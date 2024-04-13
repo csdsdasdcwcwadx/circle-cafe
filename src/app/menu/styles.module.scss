@@ -5,5 +5,36 @@
         margin-top: 0;
         padding: 0;
         min-height: 300px;
+
+        .worddisplay {
+            color: $fontColor;
+            width: 70%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+        }
+
+        aside {
+            .frame {
+                position: relative;
+                width: 700px;
+                aspect-ratio: 1;
+                margin: 0 auto;
+
+                > img {
+                    object-fit: cover;
+                }
+
+                @include only-mobile {
+                    width: auto;
+                    height: auto;
+                    max-height: 550px;
+                }
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 30px;
+            }
+        }
     }
 }

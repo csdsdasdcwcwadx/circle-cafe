@@ -1,6 +1,6 @@
 import Default from "@/components/Common/Default";
 import { E_Page } from "@/redux/interfaces";
-import BackImage from '../../image/00-41.jpg';
+import BackImage from '../../image/temp/拾旅食 (6).jpg';
 import styles from './styles.module.scss';
 import GoogleMapper from "@/components/Modules/GoogleMapper";
 

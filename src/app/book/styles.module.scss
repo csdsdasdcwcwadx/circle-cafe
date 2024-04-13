@@ -95,6 +95,10 @@
 
                         @include only-mobile {
                             text-align: center;
+                            
+                            &:not(:last-of-type) {
+                                margin-bottom: 10px;
+                            }
                         }
                     }
 
