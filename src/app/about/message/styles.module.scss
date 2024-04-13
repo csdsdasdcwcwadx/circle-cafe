@@ -1,39 +1,87 @@
 @import '../../../common.scss';
 
 .message {
-    .section {
-        display: flex;
-        align-items: center;
-
-        img {
-            width: 200px;
-            height: 400px;
-            object-fit: cover;
+    main > div {
+        @include only-pc {
+            padding: 0 5% !important;
         }
 
-        span {
-            display: block;
-            color: $fontColor;
-            text-align: left;
-            font-size: 20px;
-            line-height: 30px;
-            margin-left: 80px;
+        .section {
+            display: flex;
+    
+            .frame {
+                position: relative;
+                width: 37%;
+    
+                img {
+                    object-fit: cover;
+                }
 
-            &::before {
-                content: '';
-                display: inline-block;
-                width: 33px;
+                @include only-mobile {
+                    width: 100%;
+                    height: 350px;
+                }
             }
+    
+            .content {
+                // margin-left: 40px;
+                font-size: 20px;
+                color: $fontColor;
+                width: 50%;
+    
+                h3 {
+                    text-align: left;
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+    
+                span {
+                    display: block;
+                    text-align: left;
+                    line-height: 30px;
+                    letter-spacing: 5px;
+                    font-size: 17px;
+        
+                    @include only-mobile {
+                        margin-left: 0;
+                        margin-top: 30px;
+                    }
+                }
 
+                .checkout {
+                    margin: 30px 20px;
+                    text-align: right;
+
+                    button {
+                        border: 0;
+                        padding: 20px 30px;
+                        border-radius: 12px;
+                        color: #fff;
+                        font-size: 18px;
+                        background-color: $brownColor;
+                        letter-spacing: 2px;
+                        text-align: right;
+                        cursor: pointer;
+                    }
+
+                    @include only-mobile {
+                        text-align: center;
+                    }
+                }
+
+                @include only-mobile {
+                    width: 90%;
+                }
+            }
+    
             @include only-mobile {
-                margin-left: 0;
-                margin-top: 30px;
+                align-items: center;
+                flex-direction: column;
             }
-        }
 
-        @include only-mobile {
-            align-items: center;
-            flex-direction: column;
+            @include only-pc {
+                justify-content: space-around;
+            }
         }
     }
 }

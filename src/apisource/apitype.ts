@@ -40,6 +40,7 @@ export interface I_Login {
     message: string;
     status: boolean;
     accessToken?: string;
+    refreshToken?: string;
 }
 
 export interface I_reviews {

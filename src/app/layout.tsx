@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Providers } from '@/redux/provider'
 import Header from '@/components/Common/Header'
 import '../global.css';
+import Footer from '@/components/Common/Footer';
 
 // const inter = Inter({ subsets: ['latin'] })
 

@@ -2,7 +2,9 @@
 
 .story {
     > main > div {
-        padding: 0 8% !important;
+        @include only-pc {
+            padding: 0 8% !important;
+        }
 
         p {
             margin: 0 auto;
@@ -12,8 +14,9 @@
             text-align: left;
     
             span {
-                font-size: 20px;
+                font-size: 17px;
                 line-height: 30px;
+                letter-spacing: 5px;
     
                 &::before {
                     content: '';
@@ -43,13 +46,22 @@
 
             @include only-mobile {
                 flex-direction: column;
+                align-items: center;
             }
-    
-            > img {
-                object-fit: cover;
-                width: 576px;
-                height: 310px;
-    
+
+            .frame {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 2;
+
+                @include only-pc {
+                    max-width: 650px;
+                }
+
+                > img {
+                    object-fit: cover;
+                }
+
                 &:first-of-type {
                     margin-right: 30px;
 
@@ -57,17 +69,6 @@
                         margin-right: 0;
                         margin-bottom: 30px;
                     }
-                }
-
-                @include mid-pc {
-                    width: 384px;
-                    height: 216px;
-                }
-
-                @include only-mobile {
-                    width: auto;
-                    height: auto;
-                    aspect-ratio: 192/108;
                 }
             }
         }

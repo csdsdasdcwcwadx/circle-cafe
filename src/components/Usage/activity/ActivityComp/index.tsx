@@ -12,13 +12,12 @@ import { E_Block, handleDate, handleMonth, I_Block, splitter } from '@/utils';
 
 interface I_props {
     activities: I_activities[]|null;
-    isServerComp?: boolean;
 }
 
-function ActivityComp({activities, isServerComp}: I_props) {
+function ActivityComp({activities}: I_props) {
 
     return (
-        <div className={cN(styles.articles, {[styles.hide]: isServerComp})}>
+        <div className={cN(styles.articles)}>
             {
                 activities && activities.map((activity, ind) => {
                     const date = handleDate(activity.date).split('/');
@@ -70,7 +69,7 @@ function ActivityComp({activities, isServerComp}: I_props) {
                                 </div>
                             </Link>
                             <div className={styles.socialmedia}>
-                                {!isServerComp && <FBLikeButton link={activity.fb}/>}
+                                <FBLikeButton link={activity.fb}/>
                             </div>
                         </div>
                     )

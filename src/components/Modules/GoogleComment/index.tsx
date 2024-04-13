@@ -108,6 +108,8 @@ function GoogleComment() {
             <div className={styles.carding}>
                 {
                     reviews && reviews.map((review, ind) => {
+                        const currentDate = new Date(review.time * 1000);
+
                         return (
                             <aside key={ind} className={cN(styles.commentcard, {[styles.disabledeffect]: !effect}, {[styles.active]: rotateCalculation(ind) < 100 && rotateCalculation(ind) > 0})} style={{
                                 left: `${rotateCalculation(ind)}%`,
@@ -129,6 +131,9 @@ function GoogleComment() {
                                 </div>
                                 <div className={styles.commentcontent}>
                                     <p>{review.text}</p>
+                                    <span className={styles.timestamp}>
+                                        {`${currentDate.getFullYear()}/${currentDate.getMonth()}/${currentDate.getDate()}`}
+                                    </span>
                                 </div>
                             </aside>
                         )

@@ -1,0 +1,81 @@
+@import '../../../../common.scss';
+
+.banner {
+    .addbanner {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+        width: 100%;
+
+        button {
+            border: 0;
+            border-radius: 7px;
+            padding: 20px 40px;
+            background-color: #c7c5c5;
+            color: $blueColor;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .carousel {
+        position: relative;
+        width: 80%;
+        height: calc(100vh - 250px);
+        margin: 0 auto;
+
+        .hint {
+            position: absolute;
+            z-index: 2;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 50px;
+            color: #fff;
+            padding: 30px;
+            border-radius: 7px;
+            background-color: rgba($goldenColor, .5);
+            pointer-events: none;
+        }
+    }
+
+    .lightbox {
+        > div:first-of-type {
+            max-height: 900px;
+            width: 70%;
+            overflow: auto;
+        }
+        
+        .blocker {
+            display: block;
+            background-color: #fff;
+            padding: 30px;
+
+            .displaytitle {
+                margin: 20px 0;
+                font-weight: bold;
+                font-size: 30px;
+            }
+
+            textarea {
+                height: 400px;
+            }
+
+            .file {
+                margin-bottom: 20px;
+            }
+        }
+
+        .sender {
+            margin: 0 auto;
+            display: block;
+            border: 0;
+            border-radius: 7px;
+            padding: 15px 30px;
+            background-color: #c7c5c5;
+            color: $blueColor;
+            font-size: 17px;
+            cursor: pointer;
+        }
+    }
+}

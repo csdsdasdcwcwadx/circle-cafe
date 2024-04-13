@@ -1,21 +1,18 @@
 'use client';
 
-import { ReactNode, memo, useState, useEffect, useRef, useCallback } from "react";
+import { ReactNode, memo, useState, useEffect, useRef } from "react";
 import styles from './styles.module.scss';
 import cN from 'classnames';
 
 interface I_props {
-    children: ReactNode
+    children: ReactNode;
+    noAnimation?: boolean;
 }
 
-function LazyLoadingComp({children}: I_props) {
-    const [loaded, setLoaded] = useState(false);
+function LazyLoadingComp({children, noAnimation}: I_props) {
+    const [loaded, setLoaded] = useState(noAnimation || false);
+    const [preAnimate, setPreAnimate] = useState(true);
     const componentRef = useRef<HTMLDivElement>(null);
-    // const handleScroll = useCallback(() => {
-    //     if (componentRef && componentRef.current &&  window.scrollY-300 >= componentRef.current.offsetTop) {
-    //         setLoaded(true);
-    //     }
-    //   }, [])
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -30,13 +27,18 @@ function LazyLoadingComp({children}: I_props) {
             observer.observe(componentRef.current);
         }
 
+        const timer = setTimeout(() => {
+            setPreAnimate(false);
+        }, 2000)
+
         return () => {
+            clearTimeout(timer);
             observer.disconnect();
         };
     }, []);
   
     return (
-        <div ref={componentRef} className={cN(styles.lazyloading, {[styles.show]: loaded})}>
+        <div ref={componentRef} className={cN(styles.lazyloading, {[styles.show]: loaded}, {[styles.hide]: preAnimate})}>
             {children}
         </div>
     );

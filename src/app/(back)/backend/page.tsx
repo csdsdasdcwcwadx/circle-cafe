@@ -7,6 +7,7 @@ import BackMenu from "@/components/Usage/back/BackMenu";
 import cN from 'classnames';
 import { api_login } from "@/apisource/apiname";
 import Login from "@/components/Usage/back/Login";
+import BackBanner from "@/components/Usage/back/BackBanner";
 
 enum E_Backend {
     BANNER = 'BANNER',
@@ -24,20 +25,22 @@ export default function Backend() {
     const handleLogin = useCallback(async (account?: string, password?: string) => {
         try {
             const data = await api_login(account, password);
-
             if(data) {
-                const {status, message, accessToken} = data;
+                const {status, message, accessToken, refreshToken} = data;
+                // 有refreshToken及accessToken 為第一次登入
                 if(status) {
                     setIsLogin(true);
     
-                    if(accessToken) {
-                        window.localStorage.setItem('accessToken', accessToken);
-                    }
-                    // location.reload();
-                } else alert(message);
+                    if(accessToken) window.localStorage.setItem('accessToken', accessToken);
+                    if(refreshToken) window.localStorage.setItem('refreshToken', refreshToken);
+                } else {
+                    window.localStorage.removeItem('accessToken');
+                    window.localStorage.removeItem('refreshToken');
+                    alert(message);
+                }
             }
         }catch(e) {
-            console.log(e);
+            console.error(e);
         }
     }, [])
 
@@ -71,7 +74,8 @@ export default function Backend() {
                         <div className={styles.page}>
                             {
                                 currBack === E_Backend.ACTIVITIES ? <BackActivities/> :
-                                currBack === E_Backend.MENU ? <BackMenu/> : ''
+                                currBack === E_Backend.MENU ? <BackMenu/> :
+                                currBack === E_Backend.BANNER ? <BackBanner/> : ''
                             }
                         </div>
                     </>

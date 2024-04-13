@@ -1,22 +1,27 @@
 @import '../../../../common.scss';
 
 .carousel {
+    position: relative;
     background-color: #fff;
+    height: 100%;
 
     .banners {
         position: relative;
         display: flex;
+        height: 100%;
 
         aside {
             position: absolute;
-            height: calc(100vh - 80px);
+            // height: calc(100vh - 80px);
+            height: 100%;
             width: 100%;
             z-index: 1;
             transition: all 1s ease-in-out;
             opacity: 0;
+            pointer-events: none;
 
-            @include only-mobile {
-                height: calc(100vh - 60px);
+            &.edit {
+                cursor: pointer;
             }
 
             img {
@@ -54,13 +59,15 @@
                     opacity: 0;
                     transition: all 2s ease-in-out;
                     transition-delay: 1s;
-                    color: rgb(223 219 219);
+                    color: #d8d5d5;
 
                     div {
                         font-size: 100px;
                         letter-spacing: 20px;
                         text-shadow: rgb(19, 18, 18) 0.1em 0.1em 0.2em;
                         margin-bottom: 20px;
+                        font-weight: bold;
+                        user-select: none;
 
                         @include only-mobile {
                             font-size: 60px;
@@ -70,6 +77,8 @@
                     span {
                         width: 30%;
                         font-size: 25px;
+                        letter-spacing: 5px;
+                        user-select: none;
 
                         @include only-mobile {
                             width: 50%;
@@ -104,6 +113,7 @@
             }
 
             &.active {
+                pointer-events: auto;
                 opacity: 1;
             }
 
@@ -113,7 +123,7 @@
                 left: 0;
                 width: inherit;
                 height: inherit;
-                background-color: #000;
+                background-color: #393229;
                 opacity: .5;
                 z-index: 1;
             }

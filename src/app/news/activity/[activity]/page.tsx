@@ -7,6 +7,7 @@ import { NextRequest } from "next/server";
 import cN from 'classnames';
 import { handleDate, E_Block, I_Block, splitter } from "@/utils";
 import { Fragment } from "react";
+import FBLikeButton from "@/components/Modules/FBLikeButton";
 
 interface I_Requester extends NextRequest {
     params: {
@@ -33,34 +34,37 @@ export default async function Activities(req: I_Requester) {
             altContent="environment"
             faded
         >
-            <div className={styles.lister}>
-                <h3 className={styles.subtitle}>活動日期：</h3>
-                <span>{handleDate(activity?.activitiesinfo[0].date!, false, true)}</span>
-            </div>
-            {
-                listBlock.map((block, ind) => {
-                    switch(block.type) {
-                        case E_Block.list:
-                            const title = block.value.split(splitter)[0];
-                            const content = block.value.split(splitter)[1];
+            <div className={styles.like}><FBLikeButton/></div>
+            <div className={styles.activity}>
+                <div className={styles.lister}>
+                    <h3 className={styles.subtitle}>活動日期：</h3>
+                    <span>{handleDate(activity?.activitiesinfo[0].date!, false, true)}</span>
+                </div>
+                {
+                    listBlock.map((block, ind) => {
+                        switch(block.type) {
+                            case E_Block.list:
+                                const title = block.value.split(splitter)[0];
+                                const content = block.value.split(splitter)[1];
 
-                            return (
-                                <div className={styles.lister} key={ind}>
-                                    <h3 className={styles.subtitle}>{title}：</h3>
-                                    <span>{content}</span>
-                                </div>
-                            );
-                        case E_Block.subtitle:
                                 return (
-                                    <div className={styles.subcontent} key={ind}>
-                                        <strong>{block.value}</strong>
+                                    <div className={styles.lister} key={ind}>
+                                        <h3 className={styles.subtitle}>{title}：</h3>
+                                        <span>{content}</span>
                                     </div>
                                 );
-                        default:
-                            return <Fragment key={ind}></Fragment>
-                    }
-                })
-            }
+                            case E_Block.subtitle:
+                                    return (
+                                        <div className={styles.subcontent} key={ind}>
+                                            <strong>{block.value}</strong>
+                                        </div>
+                                    );
+                            default:
+                                return <Fragment key={ind}></Fragment>
+                        }
+                    })
+                }
+            </div>
         </Default>
     )
 }

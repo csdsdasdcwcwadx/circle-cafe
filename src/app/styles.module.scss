@@ -1,11 +1,9 @@
 @import '../common.scss';
 
 .home {
-    background-color: $mainColor;
-    // background-image: url(../image/background.jpg);
-    // background-image: url(https://www.buna.com.tw/images/bg.jpg);
+    background: url(../image/background.jpg);
 
-    > section {
+    section {
         position: relative;
 
         @include only-mobile {
@@ -29,21 +27,16 @@
 
         &.secondpage {
             min-height: 40vh;
-            padding: 30px 90px 0;
-
-            @include big-pc {
-                padding-bottom: 60px;
-            }
+            padding: 80px 0;
+            padding-top: 40px;
+            // background-color: #f2edea;
 
             .displayer {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
                 height: 100%;
                 width: 100%;
-
-                > div {
-                    width: 50%;
-                }
 
                 @include big-pc {
                     margin-top: 30px;
@@ -59,24 +52,16 @@
 
                 .youtube {
                     position: relative;
-                    margin-right: 50px;
-                    width: 700px;
+                    width: 50%;
                     aspect-ratio: 7/4;
 
                     iframe {
                         position: absolute;
-                        // top: 50%;
-                        // left: 50%;
-                        // transform: translate(-50%, -50%);
-
-                        // @include middler-pc {
-                        //     aspect-ratio: 7/4;
-                        // }
                     }
 
                     @include middler-pc {
                         margin-right: 0;
-                        width: 100%;
+                        width: 80%;
                     }
 
                     @include only-mobile {
@@ -91,11 +76,12 @@
                     align-items: center;
                     justify-content: center;
                     height: calc(100% - 60px);
+                    width: 40%;
                     text-align: center;
                     // background: url(../image/contentbg.jpg);
-
                     @include middler-pc {
                         width: 100%;
+
                     }
 
                     @include only-mobile {
@@ -105,44 +91,103 @@
                     }
 
                     > div {
-                        padding: 50px 30px;
+                        padding: 50px 0 50px 30px;
+                        color: $fontColor;
+
+                        > span {
+                            position: relative;
+                            display: block;
+                            margin-bottom: 20px;
+                            font-size: 20px;
+                            color: #d10000;
+
+                            i {
+                                display: inline-block;
+                                margin-bottom: 6px;
+                                width: 150px;
+                                border-top: 1px solid #a5a5a5;
+    
+                                &:first-of-type {
+                                    left: 0;
+                                    margin-right: 15px;
+                                }
+    
+                                &:last-of-type {
+                                    right: 0;
+                                    margin-left: 15px;
+                                }
+
+                                @include only-mobile {
+                                    display: none;
+                                }
+                            }
+                        }
 
                         > div {
                             margin-bottom: 50px;
-                            font-size: 60px;
+                            font-size: 45px;
                             text-align: center;
                         }
+
                         p {
+                            margin: 0 auto;
                             color: $fontColor;
                             line-height: 30px;
                             font-size: 17px;
                         }
 
+                        .more {
+                            margin-bottom: 10px;
+                            margin-top: 20px;
+                            font-weight: bold;
+
+                            button {
+                                padding: 20px 30px;
+                                border: 0;
+                                border-radius: 7px;
+                                background-color: #fff;
+                                letter-spacing: 3px;
+                                cursor: pointer;
+                            }
+                        }
+
                         @include mid-pc {
                             width: 90%;
+                            padding-left: 0;
                         }
 
                         @include only-mobile {
-                            padding: 0 30px;
+                            padding: 0;
                         }
                     }
                 }
             }
 
+            @include big-pc {
+                padding-bottom: 80px;
+                padding-right: 0;
+            }
+
+            @include only-pc {
+                padding-right: 80px;
+            }
+
             @include middler-pc {
                 margin-bottom: 80px;
+                padding-right: 0;
             }
 
             @include only-mobile {
                 margin-bottom: 40px;
-                padding: 30px;
+                padding: 10px;
                 min-height: auto;
                 height: auto;
             }
         }
 
         &.thirdpage {
-            height: 900px;
+            height: 700px;
+            background-color: #fff;
 
             .contenter {
                 position: relative;
@@ -164,7 +209,8 @@
                             left: 0;
                             width: 100%;
                             height: 100%;
-                            background: linear-gradient(to bottom, rgba($mainColor, 1) 0%, rgba(0, 0, 0, .3) 30%, rgba(0, 0, 0, .1) 80%, rgba($mainColor, 1) 100%);
+                            // background: linear-gradient(to bottom, rgba($mainColor, 1) 0%, rgba($mainColor, .3) 20%, rgba($mainColor, .1) 80%, rgba($mainColor, 1) 100%);
+                            background: rgba($mainColor, .7);
                             pointer-events: none;
                             z-index: 1;
                         }
@@ -173,101 +219,311 @@
                             object-fit: cover;
                         }
                     }
-    
+                    
                     h3 {
                         position: absolute;
                     }
                 }
 
-                .textdisplay {
+                .box {
                     position: absolute;
-                    top: 50%;
+                    top: 40%;
                     left: 50%;
+                    width: 950px;
+                    height: 100%;
                     transform: translate(-50%, -50%);
-                    width: 75%;
-                    height: 70%;
                     z-index: 1;
-                    color: #fff;
 
-                    h3 {
-                        font-size: 120px;
-                        margin-bottom: 20px;
+                    .frame {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 500px;
+                        height: 500px;
+    
+                        > img {
+                            object-fit: cover;
+                            border-radius: 7px;
+                        }
 
                         @include only-mobile {
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 80%;
+                        }
+                    }
+    
+                    .textcontent {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 400px;
+                        height: 400px;
+                        padding: 50px;
+                        z-index: 2;
+                        border-radius: 7px;
+                        line-height: 30px;
+                        transition: ease-in-out 1s all;
+                        background: url(../image/illustration/11-removebg-preview_0.png) no-repeat;
+                        background-color: $brownColor;
+                        background-position: -12px -46px;
+
+                        h3 {
+                            color: #fff;
+                            font-size: 40px;
+                        }
+    
+                        .text {
+                            font-size: 15px;
+                            color: $fontColor;
+                            letter-spacing: 2px;
+                        }
+
+                        @include only-mobile {
+                            top: 50%;
+                            left: 50%;
+                            width: calc(80% - 100px);
+                            transform: translate(-50%, -50%);
+                            opacity: 0;
                             text-align: center;
+                            user-select: none;
+
+                            &:active {
+                                opacity: 1;
+                            }
                         }
                     }
 
-                    .text {
-                        position: absolute;
-                        right: 0;
-                        width: 50%;
-                        font-size: 20px;
-
-                        @include only-mobile {
-                            width: 100%;
-                        }
+                    @include only-mobile {
+                        width: 100%;
+                        top: 50%;
                     }
                 }
             }
         }
 
         &.forthpage {
-            margin-top: 40px;
+            padding: 40px 150px;
+            // background-color: $brownColor;
+            background: url(../image/28_0.jpg);
+
+            // .frame {
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     width: 153px;
+            //     height: 137px;
+            //     background: url(../image/illustration/21-removebg-preview.png);
+
+            //     &::after {
+            //         content: '';
+            //     }
+            // }
+
+            .bannertitle {
+                h3 {
+                    // background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/dining-slogan.svg) no-repeat;
+                    text-align: center;
+                    background-position: 50%;
+                    background-size: 50%;
+                    margin-top: 0;
+                    margin-bottom: 30px;
+                    font-size: 99px;
+                    color: #efc286;
+
+                    @include only-mobile {
+                        background-size: 70%;
+                    }
+                }
+
+                .bannercontent {
+                    display: block;
+                    width: 40%;
+                    margin: 40px auto;
+                    text-align: center;
+                    color: $fontColor;
+                    font-size: 20px;
+                    line-height: 30px;
+                    letter-spacing: 5px;
+
+                    @include only-mobile {
+                        width: 80%;
+                    }
+                }
+            }
+
+            @include middler-pc {
+                padding: 40px 60px;
+            }
+
+            @include only-mobile {
+                padding: 80px 0;
+            }
+        }
+
+        &.fifthpage {
+            padding: 30px 12% 70px;
+            // background: url(../image/7123qwedqw.jpeg);
+
+            .bottomarea {
+                display: flex;
+
+                .map {
+                    width: 70%;
+                    aspect-ratio: 2;
+
+                    @include middler-pc {
+                        display: none;
+                    }
+
+                    @include only-mobile {
+                        display: none;
+                    }
+                }
+
+                .mapinfo {
+                    position: relative;
+                    display: inline-block;
+                    width: calc(30% - 30px - 60px);
+                    padding: 45px 30px;
+                    margin-left: 30px;
+                    text-align: center;
+                    color: $fontColor;
+                    z-index: 1;
+
+                    .infotitle {
+                        position: relative;
+                        font-size: 30px;
+                        font-weight: bold;
+                        margin-top: 10px;
+                        color: $goldenColor;
+
+                        &::before {
+                            content: '小標題';
+                            position: absolute;
+                            top: -7px;
+                            left: 50%;
+                            font-size: 12px;
+                            transform: translate(-50%, -50%);
+                            color: $fontColor;
+                        }
+                    }
+
+                    .maininfo {
+                        position: relative;
+                        margin-top: 30px;
+                        font-size: 13px;
+
+                        > div {
+                            line-height: 18px;
+
+                            &:not(:first-of-type) {
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+
+                    .subinfo {
+                        position: relative;
+                        margin-top: 45px;
+
+                        .subtitle {
+                            font-size: 17px;
+                            font-weight: bold;
+                            color: $goldenColor;
+                        }
+
+                        .maininfo {
+                            margin-top: 10px;
+                        }
+
+                        &::before {
+                            content: '';
+                            width: 3px;
+                            height: 3px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: -23px;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: block;
+                            border: 1px solid $fontColor;
+                        }
+                    }
+
+                    .Mmap {
+                        display: none;
+                        width: 100%;
+                        margin: 30px auto 0;
+                        aspect-ratio: 3;
+
+                        @include middler-pc {
+                            display: block;
+                        }
+
+                        @include only-mobile {
+                            display: block;
+                            aspect-ratio: 2;
+                        }
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -5px;
+                        left: 5px;
+                        border: 2px solid rgba($color: $goldenColor, $alpha: .5);
+                        border-radius: 3px;
+                        height: 100%;
+                        width: 100%;
+                        pointer-events: none;
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border: 2px solid rgba($color: $goldenColor, $alpha: .5);
+                        border-radius: 3px;
+                        height: 100%;
+                        width: 100%;
+                        pointer-events: none;
+                        background-color: #fde4c2;
+                    }
+
+                    @include middler-pc {
+                        width: 70%;
+                        margin: 30px auto;
+                    }
+    
+                    @include only-mobile {
+                        width: 70%;
+                        margin: 30px auto;
+                    }
+                }
+
+                @include middler-pc {
+                    flex-direction: column;
+                }
+
+                @include only-mobile {
+                    flex-direction: column;
+                }
+            }
+
+            @include middler-pc {
+                padding: 0 0 70px;
+            }
+
+            @include only-mobile {
+                padding: 0 0 30px;
+            }
         }
 
         &.forthpage, &.fifthpage {
             height: auto;
-        }
-    }
-
-    .background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-
-        > div {
-            position: absolute;
-            top: 0;
-            display: flex;
-            align-items: center;
-            width: 50%;
-            height: 100%;
-            background-color: #222;
-            color: $goldenColor;
-            font-size: 50px;
-            transition: all 1s ease-in-out;
-            opacity: 1;
-        }
-
-        .left {
-            left: 0;
-            justify-content: right;
-            
-        }
-
-        .right {
-            right: 0;
-            justify-content: left;
-        }
-
-        &.close {
-            visibility: hidden;
-            
-            > div {
-                opacity: 0;
-            }
-
-            .left {
-                left: -50%;
-            }
-
-            .right {
-                right: -50%;
-            }
         }
     }
 }
