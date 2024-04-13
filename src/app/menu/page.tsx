@@ -1,3 +1,5 @@
+'use client';
+
 import Default from '@/components/Common/Default';
 import styles from './styles.module.scss';
 import coverSrc from '@/image/temp/拾旅食 (23).jpg';
@@ -5,11 +7,23 @@ import { E_Page } from '@/redux/interfaces';
 import { api_getDish } from '@/apisource/apiname';
 import Image from 'next/image';
 import { handlepath } from '@/apisource/apiname';
-// import DisplayDishes from '@/components/Usage/menu/DisplayDishes';
-// import cN from 'classnames';
+import { useEffect, useState } from 'react';
+import { I_GET_DISHES_GETTER } from '@/apisource/apitype';
+import cN from 'classnames';
 
-export default async function Menu() {
-    const dishes = await api_getDish(true);
+export default function Menu() {
+    const [dishes, setDishes] = useState<I_GET_DISHES_GETTER | null>();
+    const [active, setActive] = useState(false);
+    const [preActive, setPreActive] = useState(false);
+    const [trigger, setTrigger] = useState(0);
+
+     useEffect(() => {
+          (async function() {
+               const data = await api_getDish();
+               setDishes(data);
+               // setTrigger(data?.dishesinfo.length! - 1);
+          })()
+     }, [])
 
     return (
        <Default
@@ -23,17 +37,51 @@ export default async function Menu() {
           <div className={styles.worddisplay}>
                美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚
           </div>
-          {
-               dishes?.dishesinfo.map((dish, ind) => {
-                    return (
-                         <aside key={ind}>
-                              <div className={styles.frame}>
-                                   <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
-                              </div>
-                         </aside>
-                    )
-               })
-          }
+          <div className={styles.menudisplay}>
+               {
+                    dishes?.dishesinfo.map((dish, ind) => {
+                         return (
+                              <aside 
+                                   key={ind} 
+                                   className={cN(
+                                        {[styles.flip]: ind === trigger && active}, 
+                                        {[styles.pre]: ind === trigger && preActive}, 
+                                        {[styles.next]: ind === trigger + 1}, 
+                                        {[styles.back]: ind > trigger}, 
+                                        {[styles.front]: ind < trigger}
+                                   )}
+                              >
+                                   {/* <div className={styles.contents}>{dish.title}</div> */}
+                                   <div className={cN(styles.frame)} data-num={dishes?.dishesinfo.length - ind}>
+                                        <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
+                                   </div>
+                              </aside>
+                         )
+                    })
+               }
+          </div>
+          <button onClick={() => {
+               if(trigger) {
+                    setPreActive(true);
+                    setTrigger(pre => pre - 1);
+                    setActive(true);
+                    setTimeout(() => {
+                         setActive(false);
+                    }, 400)
+                    setTimeout(() => {
+                         setPreActive(false);
+                    }, 2000)
+               }
+          }}>往前</button>
+          <button onClick={() => {
+               if(trigger < dishes?.dishesinfo.length!) {
+                    setActive(true);
+                    setTimeout(() => {
+                         setActive(false);
+                         setTrigger(pre => pre + 1);
+                    }, 2000)
+               }
+          }}>往後</button>
        </Default>
     )
 }
