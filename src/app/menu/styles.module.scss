@@ -64,8 +64,8 @@
 
             &.front {
                 .frame {
-                    transform: rotateY(180deg);
-                    right: 50%;
+                    transform: rotateY(90deg);
+                    right: 25%;
                     opacity: 0;
 
                     @include only-mobile {
@@ -90,8 +90,8 @@
                 z-index: 2;
 
                 .frame {
-                    transform: rotateY(180deg);
-                    right: 50%;
+                    transform: rotateY(90deg);
+                    right: 25%;
 
                     @include only-mobile {
                         right: 40%;

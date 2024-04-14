@@ -127,7 +127,7 @@ const mapStyle = [
 
 function GoogleMapper() {
     const position1 = { lat: 24.988947, lng: 121.2231715 };
-    const position2 = { lat: 24.988946997, lng: 121.223171 };
+    const position2 = { lat: 24.988935, lng: 121.2230992 };
 
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: process.env.GOOGLE_ID!,

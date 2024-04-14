@@ -11,6 +11,12 @@ import { useEffect, useState } from 'react';
 import { I_GET_DISHES_GETTER } from '@/apisource/apitype';
 import cN from 'classnames';
 
+// 書的png
+// 頁面(左)
+// 頁面(右)
+// 翻頁(左)
+// 翻頁(右)
+
 export default function Menu() {
     const [dishes, setDishes] = useState<I_GET_DISHES_GETTER | null>();
     const [active, setActive] = useState(false);
@@ -21,7 +27,6 @@ export default function Menu() {
           (async function() {
                const data = await api_getDish();
                setDishes(data);
-               // setTrigger(data?.dishesinfo.length! - 1);
           })()
      }, [])
 
