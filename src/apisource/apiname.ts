@@ -257,7 +257,7 @@ export async function api_bannerUpdate(poster: FormData, isServer: boolean = fal
 }
 
 // DELETE BANNER
-export async function api_bannerDishes(id?: string, isServer: boolean = false) {
+export async function api_bannerDelete(id?: string, isServer: boolean = false) {
     const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/delBanner`, {
