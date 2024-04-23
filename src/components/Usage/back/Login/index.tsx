@@ -19,14 +19,7 @@ function Login({isLogin, setIsLogin, handleLogin}: I_props) {
         (async function() {
             try {
                 const data = await api_login();
-                if(data?.status) {
-                    setIsLogin(true);
-                    if(data.accessToken) window.localStorage.setItem('accessToken', data.accessToken);
-                }
-                else {
-                    window.localStorage.removeItem('accessToken');
-                    window.localStorage.removeItem('refreshToken');
-                }
+                if(data?.status) setIsLogin(true);
             }catch(e) {
                 console.error(e);
             }

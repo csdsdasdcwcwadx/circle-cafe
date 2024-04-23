@@ -10,14 +10,10 @@ export const handleServerPath = () => {
 
 // POST ACTIVITIES
 export async function api_postData(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/set`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_POST_SET_getter = await response.json();
         return data;
@@ -67,14 +63,10 @@ export async function api_get_a_activity(id: string, isServer: boolean = false) 
 
 // UPDATE ACTIVITIES
 export async function api_updateData(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/updateactivities`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_POST_SET_getter = await response.json();
         return data;
@@ -85,12 +77,10 @@ export async function api_updateData(poster: FormData, isServer: boolean = false
 
 // DELETE ACTIVITIES
 export async function api_deleteActivities(id?: string, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/activities/delactivities`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
             },
             method: "POST",
             body: JSON.stringify({id}),
@@ -104,14 +94,10 @@ export async function api_deleteActivities(id?: string, isServer: boolean = fals
 
 // POST DISHES
 export async function api_dishPost(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/set`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_GET_DISHES_GETTER = await response.json();
         return data;
@@ -138,14 +124,10 @@ export async function api_getDish(isServer: boolean = false) {
 
 // UPDATE DISHES
 export async function api_dishUpdate(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/updateDishes`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_GET_DISHES_GETTER = await response.json();
         return data;
@@ -156,12 +138,10 @@ export async function api_dishUpdate(poster: FormData, isServer: boolean = false
 
 // DELETE DISHES
 export async function api_deleteDishes(id?: string, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/dishes/delDishes`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
             },
             method: "POST",
             body: JSON.stringify({id}),
@@ -175,16 +155,13 @@ export async function api_deleteDishes(id?: string, isServer: boolean = false) {
 
 // LOGIN
 export async function api_login(account?: string, password?: string, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
-    const refreshToken = window.localStorage.getItem('refreshToken') ||'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/admin/login`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
             },
             method: "POST",
-            body: JSON.stringify({account, password, refreshToken}),
+            body: JSON.stringify({account, password}),
         });
         const data: I_Login = await response.json();
         return data;
@@ -206,14 +183,10 @@ export async function api_fetch_google_comment(apikey: string) {
 
 // POST BANNER
 export async function api_bannerPost(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/set`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_GET_BANNER_GETTER = await response.json();
         return data;
@@ -240,14 +213,10 @@ export async function api_getBanner(isServer: boolean = false) {
 
 // UPDATE BANNER
 export async function api_bannerUpdate(poster: FormData, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/updateBanner`, {
             method: "POST",
             body: poster,
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-            }
         });
         const data: I_GET_BANNER_GETTER = await response.json();
         return data;
@@ -258,12 +227,10 @@ export async function api_bannerUpdate(poster: FormData, isServer: boolean = fal
 
 // DELETE BANNER
 export async function api_bannerDelete(id?: string, isServer: boolean = false) {
-    const accessToken = window.localStorage.getItem('accessToken') || 'nodata';
     try {
         const response = await fetch(`${isServer? handleServerPath(): handlepath()}/banner/delBanner`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`,
             },
             method: "POST",
             body: JSON.stringify({id}),

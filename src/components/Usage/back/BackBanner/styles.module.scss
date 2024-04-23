@@ -31,27 +31,27 @@
             left: 50%;
             transform: translate(-50%, 0);
             display: flex;
-        }
 
-        .edit {
-            position: relative;
-            font-size: 50px;
-            color: #fff;
-            padding: 30px;
-            border-radius: 7px;
-            background-color: rgba($goldenColor, .5);
-            margin-right: 30px;
-            z-index: 11;
-        }
-
-        .delete {
-            position: relative;
-            font-size: 50px;
-            color: #fff;
-            padding: 30px;
-            border-radius: 7px;
-            background-color: rgba($goldenColor, .5);
-            z-index: 11;
+            .edit {
+                position: relative;
+                font-size: 18px;
+                color: #fff;
+                padding: 30px;
+                border-radius: 7px;
+                background-color: rgba($goldenColor, .5);
+                margin-right: 30px;
+                z-index: 11;
+            }
+    
+            .delete {
+                position: relative;
+                font-size: 18px;
+                color: #fff;
+                padding: 30px;
+                border-radius: 7px;
+                background-color: rgba($goldenColor, .5);
+                z-index: 11;
+            }
         }
     }
 

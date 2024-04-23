@@ -31,11 +31,32 @@
             z-index: 2;
 
             .contents {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                width: 50%;
+                position: relative;
+                width: calc(50% - 60px);
                 background-color: #fff;
+                padding: 30px;
+
+                > div {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: calc(100% - 60px);
+                    height: calc(100% - 60px);
+
+                    div {
+                        font-size: 30px;
+                        margin-bottom: 20px;
+                    }
+
+                    span {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: block;
+                    }
+                }
             }
 
             .frame {
@@ -54,7 +75,7 @@
 
             @include only-mobile {
                 .contents {
-                    width: 40%;
+                    width: calc(40% - 60px);
                 }
 
                 .frame {

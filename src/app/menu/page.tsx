@@ -57,8 +57,10 @@ export default function Menu() {
                                    )}
                               >
                                    <div className={styles.contents}>
-                                        <div>{dish.title}</div>
-                                        <span>{dish.subtitle}</span>
+                                        <div>
+                                             <div>{dish.title}</div>
+                                             <span>{dish.subtitle}</span>
+                                        </div>
                                    </div>
                                    <div className={cN(styles.frame)} data-num={dishes?.dishesinfo.length - ind}>
                                         <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
@@ -82,7 +84,7 @@ export default function Menu() {
                }
           }}>往前</button>
           <button onClick={() => {
-               if(trigger < dishes?.dishesinfo.length!) {
+               if(trigger < dishes?.dishesinfo.length! - 1) {
                     setActive(true);
                     setTimeout(() => {
                          setActive(false);
