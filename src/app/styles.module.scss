@@ -2,6 +2,7 @@
 
 .home {
     background: url(../image/background.jpg);
+    background-size: 100%;
 
     section {
         position: relative;
@@ -327,19 +328,7 @@
             padding: 40px 150px;
             // background-color: $brownColor;
             background: url(../image/28_0.jpg);
-
-            // .frame {
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     width: 153px;
-            //     height: 137px;
-            //     background: url(../image/illustration/21-removebg-preview.png);
-
-            //     &::after {
-            //         content: '';
-            //     }
-            // }
+            background-size: 100%;
 
             .bannertitle {
                 h3 {

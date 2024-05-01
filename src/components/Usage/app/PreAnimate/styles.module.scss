@@ -25,12 +25,16 @@
     .left {
         left: 0;
         justify-content: right;
+        // background: url(../../../../icons/door_left.png) no-repeat;
+        // background-size: 100%;
         
     }
 
     .right {
         right: 0;
         justify-content: left;
+        // background: url(../../../../icons/door_right.png) no-repeat;
+        // background-size: 100%;
     }
 
     &.close {

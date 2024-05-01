@@ -124,13 +124,13 @@
         position: relative;
         padding-top: 30px;
         background: url(../../../image/28_0.jpg);
-        // background: url(https://jkstudio.tw/ben/npm/images/frontend/italian_french/white-marble.png);
+        background-size: 100%;
 
         &::after {
             content: '';
             width: calc(100% - 18px);
             height: calc(100% - 18px);
-            border: 1px solid #787878;
+            border: 1px solid #d1c4c4;
             position: absolute;
             top: 8px;
             left: 8px;
@@ -151,7 +151,7 @@
                 left: 50%;
                 transform: translate(-50%, 0);
                 height: 1px;
-                width: 170px;
+                width: 400px;
                 border-bottom: 1px solid $goldenColor;
             }
 
