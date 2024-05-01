@@ -10,6 +10,7 @@ import { handlepath } from '@/apisource/apiname';
 import { useEffect, useState } from 'react';
 import { I_GET_DISHES_GETTER } from '@/apisource/apitype';
 import cN from 'classnames';
+import bookSrc from '@/icons/book2.png';
 
 // 書的png
 // 頁面(左)
@@ -37,38 +38,43 @@ export default function Menu() {
             imageSrc={coverSrc}
             altContent='menusrc'
             title='菜單詳情'
-            faded
+          //   faded
        >
           <div className={styles.worddisplay}>
                美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚美味佳餚
           </div>
-          <div className={styles.menudisplay}>
-               {
-                    dishes?.dishesinfo.map((dish, ind) => {
-                         return (
-                              <aside 
-                                   key={ind} 
-                                   className={cN(
-                                        {[styles.flip]: ind === trigger && active}, 
-                                        {[styles.pre]: ind === trigger && preActive}, 
-                                        {[styles.next]: ind === trigger + 1}, 
-                                        {[styles.back]: ind > trigger}, 
-                                        {[styles.front]: ind < trigger}
-                                   )}
-                              >
-                                   <div className={styles.contents}>
-                                        <div>
-                                             <div>{dish.title}</div>
-                                             <span>{dish.subtitle}</span>
+          <div className={styles.displays}>
+               <div className={styles.book}>
+                    <Image src={bookSrc} alt='book' sizes='100%' fill/>
+               </div>
+               <div className={styles.menudisplay}>
+                    {
+                         dishes?.dishesinfo.map((dish, ind) => {
+                              return (
+                                   <aside 
+                                        key={ind} 
+                                        className={cN(
+                                             {[styles.flip]: ind === trigger && active}, 
+                                             {[styles.pre]: ind === trigger && preActive}, 
+                                             {[styles.next]: ind === trigger + 1}, 
+                                             {[styles.back]: ind > trigger}, 
+                                             {[styles.front]: ind < trigger}
+                                        )}
+                                   >
+                                        <div className={styles.contents}>
+                                             <div>
+                                                  <div>{dish.title}</div>
+                                                  <span>{dish.subtitle}</span>
+                                             </div>
                                         </div>
-                                   </div>
-                                   <div className={cN(styles.frame)} data-num={dishes?.dishesinfo.length - ind}>
-                                        <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
-                                   </div>
-                              </aside>
-                         )
-                    })
-               }
+                                        <div className={cN(styles.frame)} data-num={dishes?.dishesinfo.length - ind}>
+                                             <Image src={`${handlepath()}${dish.image}`} alt={`${dish.title}`} fill sizes='100%'/>
+                                        </div>
+                                   </aside>
+                              )
+                         })
+                    }
+               </div>
           </div>
           <button onClick={() => {
                if(trigger) {
