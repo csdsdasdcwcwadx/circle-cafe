@@ -40,7 +40,7 @@
     
                 aside {
                     position: absolute;
-                    top: -7px;
+                    top: -17px;
                     right: 0;
                     display: flex;
                     justify-content: space-around;
@@ -52,7 +52,10 @@
                         position: relative;
                         left: 5%;
                         width: calc(40% - 60px);
-                        background-color: #fff;
+                        // background-color: #fff;
+                        background: url(../../icons/page.png) no-repeat;
+                        background-size: 100%;
+                        background-position-y: 50%;
                         padding: 30px;
         
                         > div {
@@ -84,11 +87,15 @@
                         width: 40%;
                         transform: rotateY(0deg);
                         transition: 2s ease-in-out all;
-                        background-color: #fff;
+                        // background-color: #fff;
+                        background: url(../../icons/page.png) no-repeat;
+                        background-size: 100%;
+                        background-position-y: 50%;
                         aspect-ratio: 1;
         
                         > img {
                             object-fit: cover;
+                            border-radius: 12px;
                         }
                     }
         
@@ -141,7 +148,10 @@
         
                     &.flip, &.front, &.pre {
                         .frame {
-                            background-color: rgba($color: #fff, $alpha: .7);
+                            background: url(../../icons/page.png) no-repeat;
+                            // background-color: rgba($color: #fff, $alpha: .5);
+                            background-size: 100%;
+                            background-position-y: 50%;
         
                             > img {
                                 display: none;
