@@ -10,7 +10,7 @@ import { handlepath } from '@/apisource/apiname';
 import { useEffect, useState } from 'react';
 import { I_GET_DISHES_GETTER } from '@/apisource/apitype';
 import cN from 'classnames';
-import bookSrc from '@/icons/book2.png';
+import bookSrc from '@/icons/book.jpg';
 
 // 書的png
 // 頁面(左)
