@@ -1,12 +1,11 @@
 import { memo, useEffect, useState, useRef, ChangeEvent } from "react"
 import Carousel from "../../app/Carousel";
 import { I_banner } from "@/redux/interfaces";
-import { api_bannerPost, api_bannerUpdate, api_getBanner, api_postData } from "@/apisource/apiname";
+import { api_bannerPost, api_bannerUpdate, api_getBanner, api_bannerDelete } from "@/apisource/apiname";
 import styles from './styles.module.scss';
 import LightBox, { E_direction } from "@/components/Modules/LightBox";
 import InputBar, { E_RegexType } from "@/components/Modules/InputBar";
 import InputFile from "@/components/Modules/InputFile";
-import InputContents from "@/components/Modules/InputContents";
 
 function BackBanner() {
     const [banner, setBanner] = useState<I_banner[] | null>();
@@ -74,13 +73,36 @@ function BackBanner() {
         } else alert(error[0].textContent);
     }
 
-    const handleEdit = (banner: I_banner) => {
-        console.log(banner)
-        setEditor(banner);
-        setIsOpen(true);
+    const handleRevise = (banner: I_banner) => {
+        
+        const handleEdit = () => {
+            console.log(banner)
+            setEditor(banner);
+            setIsOpen(true);
+    
+            if(title.current) title.current.value = banner.title;
+            if(subtitle.current) subtitle.current.value = banner.subtitle + ''; 
+        }
 
-        if(title.current) title.current.value = banner.title;
-        if(subtitle.current) subtitle.current.value = banner.subtitle + ''; 
+        const handleDelete = async () => {
+            if(confirm('確定要刪除此圖片 ? ')) {
+                try {
+                    const data = await api_bannerDelete(banner.id);
+                    alert(data?.message);
+                    if(data?.status) setGetApi(true);
+                    
+                }catch(e) {
+                    console.log(e);
+                }
+            }
+        }
+        
+        return (
+            <div className={styles.buttons}>
+                <div className={styles.edit} onClick={() => handleEdit()}>點擊編輯</div>
+                <div className={styles.delete} onClick={handleDelete}>點擊刪除</div>
+            </div>
+        )
     }
 
     return (
@@ -89,8 +111,7 @@ function BackBanner() {
                 <button onClick={()=>setIsOpen(true)}>新增輪播圖</button>
             </div>
             <div className={styles.carousel}>
-                <div className={styles.hint}>點擊編輯</div>
-                <Carousel data={banner!} bannerClick={handleEdit}/>
+                <Carousel data={banner!} handleRevise={handleRevise}/>
             </div>
             <div className={styles.lightbox}>
                 <LightBox

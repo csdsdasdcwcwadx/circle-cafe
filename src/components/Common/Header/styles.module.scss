@@ -184,19 +184,19 @@
                 position: absolute;
                 padding: 10px;
                 transition: all .5s ease-in-out;
-                background-color: $darkerBlue;
+                background-color: rgba($color: $goldenColor, $alpha: .7);
                 border-radius: 5px;
 
                 .item {
                     display: block;
                     padding: 10px;
                     width: 80px;
-                    color: $goldenColor;
+                    color: $darkerBlue;
                     list-style-type: none;
                     text-decoration: none;
 
                     &:not(:last-of-type) {
-                        border-bottom: 1px solid $goldenColor;
+                        border-bottom: 1px dotted $blueColor;
                     }
 
                     &:hover {

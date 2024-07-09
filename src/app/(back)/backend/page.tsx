@@ -26,18 +26,10 @@ export default function Backend() {
         try {
             const data = await api_login(account, password);
             if(data) {
-                const {status, message, accessToken, refreshToken} = data;
+                const {status, message} = data;
                 // 有refreshToken及accessToken 為第一次登入
-                if(status) {
-                    setIsLogin(true);
-    
-                    if(accessToken) window.localStorage.setItem('accessToken', accessToken);
-                    if(refreshToken) window.localStorage.setItem('refreshToken', refreshToken);
-                } else {
-                    window.localStorage.removeItem('accessToken');
-                    window.localStorage.removeItem('refreshToken');
-                    alert(message);
-                }
+                if(status) setIsLogin(true);
+                else alert(message);
             }
         }catch(e) {
             console.error(e);

@@ -116,9 +116,7 @@ export default async function Home() {
             </div>
           </section>
         </LazyLoadingComp>
-        <LazyLoadingComp noAnimation>
-          <Footer/>
-        </LazyLoadingComp>
+        <Footer/>
         <PreAnimate/>
     </div>
   )

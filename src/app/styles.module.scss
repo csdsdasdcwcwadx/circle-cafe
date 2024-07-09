@@ -2,6 +2,7 @@
 
 .home {
     background: url(../image/background.jpg);
+    background-size: 100%;
 
     section {
         position: relative;
@@ -29,7 +30,6 @@
             min-height: 40vh;
             padding: 80px 0;
             padding-top: 40px;
-            // background-color: #f2edea;
 
             .displayer {
                 display: flex;
@@ -269,15 +269,36 @@
                         background-color: $brownColor;
                         background-position: -12px -46px;
 
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            width: 400px;
+                            height: 400px;
+                            background: url(../image/illustration/12-removebg-preview_0.png) no-repeat;
+                            background-position: 153px 157px;
+                            background-size: 59%;
+                        }
+
                         h3 {
                             color: #fff;
                             font-size: 40px;
+
+                            @include only-mobile {
+                                margin-top: 80px;
+                            }
                         }
     
                         .text {
                             font-size: 15px;
                             color: $fontColor;
                             letter-spacing: 2px;
+
+                            @include only-mobile {
+                                width: 80%;
+                                margin: 0 auto;
+                            }
                         }
 
                         @include only-mobile {
@@ -307,19 +328,7 @@
             padding: 40px 150px;
             // background-color: $brownColor;
             background: url(../image/28_0.jpg);
-
-            // .frame {
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     width: 153px;
-            //     height: 137px;
-            //     background: url(../image/illustration/21-removebg-preview.png);
-
-            //     &::after {
-            //         content: '';
-            //     }
-            // }
+            background-size: 100%;
 
             .bannertitle {
                 h3 {

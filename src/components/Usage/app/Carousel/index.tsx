@@ -10,15 +10,16 @@ import { handlepath } from "@/apisource/apiname";
 interface I_props {
     data: I_banner[] | null;
     bannerClick?: Function;
+    handleRevise?: Function;
 }
 
-function Carousel({data, bannerClick}: I_props) {
+function Carousel({data, handleRevise}: I_props) {
     const [focusBanner, setFocusBanner] = useState(0);
     const [trigger, setTrigger] = useState(false);
     const [timerId, setTimerId] = useState<any>(null);
 
    const startTimer = useCallback(() => {
-      if(!bannerClick) {
+      if(!handleRevise) {
         const newTimerId = setInterval(() => {
           setTrigger(true);
         }, 10000);
@@ -30,7 +31,7 @@ function Carousel({data, bannerClick}: I_props) {
 
         setTimerId(newTimerId);
       }
-    }, [timerId, bannerClick]);
+    }, [timerId, handleRevise]);
 
     useEffect(() => {
       startTimer();
@@ -55,8 +56,8 @@ function Carousel({data, bannerClick}: I_props) {
                 return (
                   <aside 
                     key={ind+1} 
-                    className={cN({[styles.active]: focusBanner === ind}, {[styles.edit]: Boolean(bannerClick)})}
-                    onClick={() => bannerClick && bannerClick(info)}
+                    className={cN({[styles.active]: focusBanner === ind}, {[styles.edit]: Boolean(handleRevise)})}
+                    onClick={(e) => handleRevise && handleRevise(info, e)}
                   >
                     <Image src={`${handlepath() + info.image}`} alt={info.title} fill sizes="100%"/>
                     <div className={cN(styles.others, {[styles.active]: focusBanner === ind})}>
@@ -65,6 +66,7 @@ function Carousel({data, bannerClick}: I_props) {
                           <span>{info.subtitle}</span>
                       </div>
                     </div>
+                    { handleRevise && handleRevise(info) }
                     <div className={styles.backer}/>
                   </aside>
                 )

@@ -6,11 +6,10 @@ import cN from 'classnames';
 
 interface I_props {
     children: ReactNode;
-    noAnimation?: boolean;
 }
 
-function LazyLoadingComp({children, noAnimation}: I_props) {
-    const [loaded, setLoaded] = useState(noAnimation || false);
+function LazyLoadingComp({children}: I_props) {
+    const [loaded, setLoaded] = useState(false);
     const [preAnimate, setPreAnimate] = useState(true);
     const componentRef = useRef<HTMLDivElement>(null);
 

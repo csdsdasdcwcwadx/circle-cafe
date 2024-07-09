@@ -66,12 +66,7 @@ export const initFacebookSdk = () => {
             }
         } else {
             if(window.FB && window.FB.init) {
-                window.FB.init({
-                    appId: '1065861224471609',
-                    cookie: true,
-                    xfbml: true,
-                    version: 'v19.0'
-                })
+                window.fbAsyncInit();
             }
         }
         const root = document.getElementById('fb-root');
