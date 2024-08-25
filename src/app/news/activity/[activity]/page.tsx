@@ -19,8 +19,8 @@ interface I_Requester extends NextRequest {
     }
 }
 
-export default async function Activities(req: I_Requester) {
-    const id = req.searchParams.id
+export default async function Activities() {
+    // const id = req.searchParams.id
     // const activity = await api_get_a_activity(id, true);
 
     // const listBlock: I_Block[] = JSON.parse(activity?.activitiesinfo[0].content!);
