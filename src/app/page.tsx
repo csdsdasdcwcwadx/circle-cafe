@@ -32,11 +32,11 @@ export default async function Home() {
               </div>
               <div className={styles.commercontent}>
                 <div>
-                  <span><i/>這是小標題<i/></span>
+                  <span><i/>影片導覽<i/></span>
                   <div className={styles.title}>
-                    王品集團因同仁而精彩，
+                    Origin
                     <br/>
-                    有快樂的同仁
+                    餐廳起源
                   </div>
                   <p>
                     堅持以人為本，把同仁當成自己的家人一樣尊重、一樣重視、一樣重要，就像一個家庭中的每位成員皆舉足輕重，並產生認同與歸屬感。
@@ -63,11 +63,10 @@ export default async function Home() {
                   <Image src={interSrc} alt='inner' fill sizes='100%'/>
                 </div>
                 <div className={styles.textcontent}>
-                  <h3>關於我們關於我們</h3>
+                  <h3>餐點前導</h3>
                   <div className={styles.text}>
-                    內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
-                    內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
-                    內文內文內文內文內文內文內文內文內文內文內內文內文內文內文內文內文內文內文內文內文內
+                  在忙碌的都市生活中，一起分享美味食物、體驗比利時啤酒的各種風味，在輕鬆的氛圍中。
+                  提供一個安寧的環境，讓顧客享受與朋友們相處聚會的時光。
                   </div>
                 </div>
               </div>
@@ -78,9 +77,9 @@ export default async function Home() {
               {/* <Image src={forthSrc} alt='coffee' fill sizes='100%'/> */}
             </div>
             <div className={styles.bannertitle}>
-              <h3>𝓵𝓸𝓿𝓮 𝓼𝓽𝓸𝓻𝔂</h3>
+              <h3>𝓼𝓽𝓸𝓻𝔂</h3>
               <span className={styles.bannercontent}>
-                說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的說什麼呢，他也不會做這種事情的
+              我們秉持健康、美味、環保的經營理念，精選新鮮食材，精心烹調每一道料理。不僅注重味覺享受，更重視顧客的身心健康，力求每位顧客都能在此感受到家的溫暖與愉悅。
               </span>
             </div>
             <SwapBanner/>
@@ -91,24 +90,22 @@ export default async function Home() {
             <div className={styles.bottomarea}>
               <div className={styles.map}><GoogleMapper/></div>
               <aside className={styles.mapinfo}>
-                <div className={styles.infotitle}>New York</div>
+                <div className={styles.infotitle}>營業時間</div>
                 <div className={styles.maininfo}>
-                  <div>Restaurant St.Delicious City London 9587 LK</div>
-                  <div>tele：aa123456</div>
-                  <div>email：booking@gmail.com</div>
+                  <div>No. 68, Lane 120, Section 3, Xinsheng Road, Zhongli District, Taoyuan City 320</div>
+                  <div>tele：03 453 3137</div>
+                  <div>fb：https://www.facebook.com/circlecafeandmeal/menu/?ref=page_internal</div>
                 </div>
                 <div className={styles.subinfo}>
                   <div className={styles.subtitle}>Lunch Time</div>
                   <div className={styles.maininfo}>
-                    <div>18:00 - 19:00</div>
-                    <div>18:00 - 19:00</div>
+                    <div>11:30 - 15:00</div>
                   </div>
                 </div>
                 <div className={styles.subinfo}>
                   <div className={styles.subtitle}>Lunch Time</div>
                   <div className={styles.maininfo}>
-                    <div>18:00 - 19:00</div>
-                    <div>18:00 - 19:00</div>
+                    <div>17:00 - 21:00</div>
                   </div>
                 </div>
                 <div className={styles.Mmap}><GoogleMapper/></div>

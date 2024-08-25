@@ -16,7 +16,7 @@ interface I_props {
 function Carousel({data, handleRevise}: I_props) {
     const [focusBanner, setFocusBanner] = useState(0);
     const [trigger, setTrigger] = useState(false);
-    const [timerId, setTimerId] = useState<any>(null);
+    const [timerId, setTimerId] = useState<NodeJS.Timeout>();
 
    const startTimer = useCallback(() => {
       if(!handleRevise) {

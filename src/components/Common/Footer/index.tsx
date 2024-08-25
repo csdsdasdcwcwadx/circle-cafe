@@ -8,10 +8,10 @@ function Footer() {
                 logo
             </div>
             <div className={styles.wording}>
-                <span>餐廳資訊餐廳資訊</span>
+                <span>Copyright all rights reserved.</span>
             </div>
             <div className={styles.wording}>
-                <span> 餐廳資訊餐廳資訊餐廳資訊餐廳資訊</span>
+                <span> 拾旅。食 Circle Cafe & Meal Design by Jack</span>
             </div>
         </footer>
     )

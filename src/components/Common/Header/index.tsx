@@ -21,7 +21,7 @@ const aboutLink = [
 ]
 
 const newsLink = [
-    {ref: '/news/report', name: '部落客訪店/媒體報導', en: 'report'},
+    // {ref: '/news/report', name: '部落客訪店/媒體報導', en: 'report'},
     {ref: '/news/activity', name: '活動公告', en: 'activity'},
 ]
 
@@ -41,10 +41,10 @@ function Header() {
                     最新消息{Listing(newsLink, setOpenMenu)}
                     <span>News</span>{onSide && <i/>}
                 </li>
-                <li onClick={() => {
+                {/* <li onClick={() => {
                     router.push('/menu');
                     setOpenMenu(false);
-                }}>菜單詳情<span>Menu</span></li>
+                }}>菜單詳情<span>Menu</span></li> */}
                 <li onClick={() => {
                     window.open('https://www.104.com.tw/company/1a2x6bklxq?jobsource=jolist_c_relevance');
                     setOpenMenu(false);
