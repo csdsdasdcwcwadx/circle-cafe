@@ -1,19 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async rewrites() {
-        return [
-            {
-                source: "/local/:path*",
-                destination: "http://localhost:3001/:path*",
-            },
-        ]
-    },
     images: {
         domains: [
             'www.google.com',
             'lh3.googleusercontent.com',
-            'http://localhost:3001/',
-            'http://localhost:3000/'
+            'localhost',
         ],
     },
     env: {
