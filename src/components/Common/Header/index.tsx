@@ -83,7 +83,7 @@ function Header() {
                 </div>
             </div>
             <div className={styles.blank}></div>
-            {page !== E_Page.BOOK && <Link className={styles.reservation} href='/book'>預約訂位</Link>}
+            {page !== E_Page.BOOK && <Link className={styles.reservation} href='https://inline.app/booking/-O0g6Uwcgu5xqZHITFyi:inline-live-3/-O0g6VGnvkU_rO59E5dh'>預約訂位</Link>}
         </>
     )
 }

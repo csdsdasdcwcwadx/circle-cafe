@@ -8,7 +8,7 @@ import { I_banner } from "@/redux/interfaces";
 import { handlepath } from "@/apisource/apiname";
 
 interface I_props {
-    data: I_banner[] | null;
+    data: any;
     bannerClick?: Function;
     handleRevise?: Function;
 }
@@ -51,7 +51,7 @@ function Carousel({data, handleRevise}: I_props) {
         <div className={styles.carousel}>
             <div className={styles.banners}>
             {
-              data && data.map((info, ind) => {
+              data && data.map((info: any, ind: number) => {
 
                 return (
                   <aside 
@@ -59,7 +59,7 @@ function Carousel({data, handleRevise}: I_props) {
                     className={cN({[styles.active]: focusBanner === ind}, {[styles.edit]: Boolean(handleRevise)})}
                     onClick={(e) => handleRevise && handleRevise(info, e)}
                   >
-                    <Image src={`${handlepath() + info.image}`} alt={info.title} fill sizes="100%"/>
+                    <Image src={info.image} alt={info.title} fill sizes="100%"/>
                     <div className={cN(styles.others, {[styles.active]: focusBanner === ind})}>
                       <div className={styles.content}>
                           <div>{info.title}</div>
@@ -75,7 +75,7 @@ function Carousel({data, handleRevise}: I_props) {
           </div>
           <div className={styles.dotting}>
             {
-              data && data.map((_, ind) => {
+              data && data.map((_: any, ind: number) => {
                 return <i key={ind} className={cN({[styles.active]: (ind === 0 && data.length === focusBanner) || focusBanner === ind})} onClick={()=>{
                   setFocusBanner(ind);
                   startTimer();

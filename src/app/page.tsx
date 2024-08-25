@@ -9,6 +9,33 @@ import forthSrc from '@/image/illustration/21-removebg-preview.png';
 import GoogleMapper from '@/components/Modules/GoogleMapper';
 import Footer from '@/components/Common/Footer';
 import { api_getBanner } from '@/apisource/apiname';
+import firstImg from '@/image/temp/拾旅食 (1).jpg';
+import secondImg from '@/image/temp/拾旅食 (2).jpg';
+import thirdImg from '@/image/temp/拾旅食 (3).jpg';
+import forthImg from '@/image/temp/拾旅食 (5).jpg';
+
+const tempData = [
+  {
+    image: firstImg,
+    title: '拾旅。食',
+    subtitle: 'Delicious Food',
+  },
+  {
+    image: secondImg,
+    title: '拾旅。食',
+    subtitle: 'Delicious Food',
+  },
+  {
+    image: thirdImg,
+    title: '拾旅。食',
+    subtitle: 'Delicious Food',
+  },
+  {
+    image: forthImg,
+    title: '拾旅。食',
+    subtitle: 'Delicious Food',
+  },
+]
 
 export default async function Home() {
   const CarouselData = await api_getBanner(true);
@@ -16,7 +43,7 @@ export default async function Home() {
   return (
     <div className={styles.home}>
         <section className={styles.firstpage}>
-          <Carousel data={CarouselData?.bannerinfo!}/>
+          <Carousel data={tempData}/>
         </section>
         <LazyLoadingComp>
           <section className={styles.secondpage}>
@@ -39,7 +66,6 @@ export default async function Home() {
                     餐廳起源
                   </div>
                   <p>
-                    堅持以人為本，把同仁當成自己的家人一樣尊重、一樣重視、一樣重要，就像一個家庭中的每位成員皆舉足輕重，並產生認同與歸屬感。
                     堅持以人為本，把同仁當成自己的家人一樣尊重、一樣重視、一樣重要，就像一個家庭中的每位成員皆舉足輕重，並產生認同與歸屬感。
                   </p>
                   <div className={styles.more}>
@@ -65,8 +91,7 @@ export default async function Home() {
                 <div className={styles.textcontent}>
                   <h3>餐點前導</h3>
                   <div className={styles.text}>
-                  在忙碌的都市生活中，一起分享美味食物、體驗比利時啤酒的各種風味，在輕鬆的氛圍中。
-                  提供一個安寧的環境，讓顧客享受與朋友們相處聚會的時光。
+                  在忙碌的都市生活中，我們希望成為你短暫逃離喧囂的綠洲。在這裡，你可以與親朋好友一同分享精心烹調的美味食物，並探索比利時啤酒的多樣風味，感受舌尖上的驚喜。我們致力於營造一個溫馨而輕鬆的氛圍，讓每位顧客都能在安寧的環境中，放下壓力，專注於與好友共度的美好時光。無論是慶祝特別時刻，還是簡單的日常聚會，我們都希望成為你和朋友們享受珍貴時光的最佳選擇。
                   </div>
                 </div>
               </div>

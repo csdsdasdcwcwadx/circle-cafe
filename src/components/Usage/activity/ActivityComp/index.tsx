@@ -11,7 +11,7 @@ import { I_activities } from '@/redux/interfaces';
 import { E_Block, handleDate, handleMonth, I_Block, splitter } from '@/utils';
 
 interface I_props {
-    activities: I_activities[]|null;
+    activities: any;
 }
 
 function ActivityComp({activities}: I_props) {
@@ -19,28 +19,28 @@ function ActivityComp({activities}: I_props) {
     return (
         <div className={cN(styles.articles)}>
             {
-                activities && activities.map((activity, ind) => {
+                activities && activities.map((activity: any, ind: number) => {
                     const date = handleDate(activity.date).split('/');
-                    let listBlock: I_Block[] = [];
+                    // let listBlock: I_Block[] = [];
 
-                    try {
-                        listBlock = JSON.parse(activity.content);
-                    } catch (error) {
-                        console.error('Error parsing JSON:', error);
-                        // 可以为 listBlock 赋予默认值或者显示错误信息给用户
-                    }
+                    // try {
+                    //     listBlock = JSON.parse(activity.content);
+                    // } catch (error) {
+                    //     console.error('Error parsing JSON:', error);
+                    //     // 可以为 listBlock 赋予默认值或者显示错误信息给用户
+                    // }
 
                     return (
                         <div key={ind} className={styles.news}>
-                            <Link className={styles.activecard}  href={`/news/activity/${activity.title}?id=${activity.id}`}>
+                            <Link className={styles.activecard} href={`/news/activity/${activity.title}?id=${activity.id}`}>
                                 <div className={styles.frame}>
-                                    <Image src={`${handlepath()}${activity.image}`} alt={activity.title} fill sizes='100%'/>
+                                    <Image src={activity.image} alt={activity.title} fill sizes='100%'/>
                                 </div>
                                 <div className={styles.wording}>
                                     <aside className={styles.topper}>
                                         <h3>{activity.title}</h3>
                                     </aside>
-                                    <aside className={styles.contents}>
+                                    {/* <aside className={styles.contents}>
                                         {
                                             Object.values(listBlock).map((block, ind) => {
                                                 switch(block.type) {
@@ -57,6 +57,9 @@ function ActivityComp({activities}: I_props) {
                                                 }
                                             })
                                         }
+                                    </aside> */}
+                                    <aside className={styles.contents}>
+                                        活動內容活動內容活動內容活動內容活動內容活動內容活動內容活動內容活動內容
                                     </aside>
                                     <aside className={styles.readmore}>
                                         閱讀更多{`>>`}

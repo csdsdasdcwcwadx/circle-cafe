@@ -13,11 +13,11 @@ import cN from 'classnames';
 
 declare const window: Window;
 const images = [
-    { src: imageSrc3, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 1  },
-    { src: imageSrc1, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 2  },
-    { src: imageSrc2, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片2', id: 3  },
-    { src: imageSrc3, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片3', id: 4  },
-    { src: imageSrc1, alt: '照片二', title: '𝕹𝖔𝖔𝖉𝖑𝖊𝖘', subtitle: '照片1', id: 5  },
+    { src: imageSrc3, alt: '照片二', title: 'Food', subtitle: '美食呈現', id: 1  },
+    { src: imageSrc1, alt: '照片二', title: 'Food', subtitle: '美食呈現', id: 2  },
+    { src: imageSrc2, alt: '照片二', title: 'Food', subtitle: '美食呈現', id: 3  },
+    { src: imageSrc3, alt: '照片二', title: 'Food', subtitle: '美食呈現', id: 4  },
+    { src: imageSrc1, alt: '照片二', title: 'Food', subtitle: '美食呈現', id: 5  },
 ]
 
 let preventDoubleClick = true;
