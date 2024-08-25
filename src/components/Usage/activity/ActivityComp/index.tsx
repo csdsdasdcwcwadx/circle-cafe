@@ -32,7 +32,7 @@ function ActivityComp({activities}: I_props) {
 
                     return (
                         <div key={ind} className={styles.news}>
-                            <Link className={styles.activecard} href={`/news/activity/${activity.title}?id=${activity.id}`}>
+                            <Link className={styles.activecard} href={`/news/activity/item`}>
                                 <div className={styles.frame}>
                                     <Image src={activity.image} alt={activity.title} fill sizes='100%'/>
                                 </div>

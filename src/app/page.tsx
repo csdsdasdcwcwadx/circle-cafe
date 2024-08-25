@@ -38,7 +38,7 @@ const tempData = [
 ]
 
 export default async function Home() {
-  const CarouselData = await api_getBanner(true);
+  // const CarouselData = await api_getBanner(true);
 
   return (
     <div className={styles.home}>
